@@ -1,0 +1,66 @@
+﻿@model HsrOrderApp.UI.Mvc.Models.AddressViewModel
+@using HsrOrderApp.UI.Mvc.Resources
+
+<p>
+    @if (!Model.IsReadOnly)
+    {
+        <button name="redirectButton" value="/Address/Create" class="btn btn-default">@Strings.NewCommand</button>
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Strings.AddressDetailView_AddressLine1
+        </th>
+        <th>
+            @Strings.AddressDetailView_AddressLine2
+        </th>
+        <th>
+            @Strings.AddressDetailView_ZIP
+        </th>
+        <th>
+            @Strings.AddressDetailView_City
+        </th>
+        <th>
+            @Strings.AddressDetailView_Telephone
+        </th>
+        <th>
+            @Strings.AddressDetailView_Email
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressLine1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressLine2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @if (!Model.IsReadOnly)
+                {
+                    <div>
+                        <button name="redirectButton" value="/Address/Edit/@item.Id" class="btn btn-default">@Strings.EditCommand</button>
+                        <button name="redirectButton" value="/Address/Details/@item.Id" class="btn btn-default">@Strings.DetailsCommand</button>
+                        <button name="redirectButton" value="/Address/Delete/@item.Id" class="btn btn-default">@Strings.DeleteCommand</button>
+                    </div>
+                }
+            </td>
+        </tr>
+    }
+</table>

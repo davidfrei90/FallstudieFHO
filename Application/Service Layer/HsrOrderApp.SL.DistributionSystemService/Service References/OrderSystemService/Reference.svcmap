@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b8250309-d742-485b-97cf-95a77b635943" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:9998/MsmqMeta" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MsmqMeta.wsdl" MetadataType="Wsdl" ID="34a7e532-e73a-4af1-8f01-1518c3ef9be8" SourceId="1" SourceUrl="http://localhost:9998/MsmqMeta?wsdl=wsdl0" />
+    <MetadataFile FileName="OrderSystemService.wsdl" MetadataType="Wsdl" ID="d0e853ab-cd58-49a5-ba14-e5d77e5fa550" SourceId="1" SourceUrl="http://localhost:9998/MsmqMeta" />
+    <MetadataFile FileName="MsmqMeta.xsd" MetadataType="Schema" ID="647485c7-d1e9-43d8-9d6e-4870936875ba" SourceId="1" SourceUrl="http://localhost:9998/MsmqMeta?xsd=xsd2" />
+    <MetadataFile FileName="MsmqMeta1.xsd" MetadataType="Schema" ID="d08070ce-b438-449c-b7b4-63d2326ca688" SourceId="1" SourceUrl="http://localhost:9998/MsmqMeta?xsd=xsd0" />
+    <MetadataFile FileName="MsmqMeta2.xsd" MetadataType="Schema" ID="0ce1ffcd-204a-49af-bc01-58bf0604e31e" SourceId="1" SourceUrl="http://localhost:9998/MsmqMeta?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

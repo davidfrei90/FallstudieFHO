@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddressDetailViewModel_DisplayName" xml:space="preserve">
+    <value>Edit address</value>
+  </data>
+  <data name="AddressDetailView_AddressLine1" xml:space="preserve">
+    <value>Addressline 1</value>
+  </data>
+  <data name="AddressDetailView_AddressLine2" xml:space="preserve">
+    <value>Addressline 2</value>
+  </data>
+  <data name="AddressDetailView_City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="AddressDetailView_Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="AddressDetailView_Telephone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="AddressDetailView_Title" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="AddressDetailView_ZIP" xml:space="preserve">
+    <value>ZIP</value>
+  </data>
+  <data name="ConditionDetailViewModel_DisplayName" xml:space="preserve">
+    <value>Edit condition</value>
+  </data>
+  <data name="ConditionDetailView_AverageLeadTime" xml:space="preserve">
+    <value>Average lead time (days)</value>
+  </data>
+  <data name="ConditionDetailView_LastReceiptCost" xml:space="preserve">
+    <value>Last receipt cost</value>
+  </data>
+  <data name="ConditionDetailView_LastReceiptDate" xml:space="preserve">
+    <value>Last receipt date</value>
+  </data>
+  <data name="ConditionDetailView_MaxOrderQuantity" xml:space="preserve">
+    <value>Maximum order quantity</value>
+  </data>
+  <data name="ConditionDetailView_MinOrderQuantity" xml:space="preserve">
+    <value>Minium order quantity</value>
+  </data>
+  <data name="ConditionDetailView_Product" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="ConditionDetailView_StandardPrice" xml:space="preserve">
+    <value>Standard price</value>
+  </data>
+  <data name="ConditionDetailView_Title" xml:space="preserve">
+    <value>Supplier condition</value>
+  </data>
+  <data name="CreditRating_AboveAverage" xml:space="preserve">
+    <value>Above average</value>
+  </data>
+  <data name="CreditRating_Average" xml:space="preserve">
+    <value>Average</value>
+  </data>
+  <data name="CreditRating_BelowAverage" xml:space="preserve">
+    <value>Below average</value>
+  </data>
+  <data name="CreditRating_Excellent" xml:space="preserve">
+    <value>Excellent</value>
+  </data>
+  <data name="CreditRating_Superior" xml:space="preserve">
+    <value>Superior</value>
+  </data>
+  <data name="CurrencyFactor" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="CustomerDetailViewModel_DisplayName" xml:space="preserve">
+    <value>Edit customer</value>
+  </data>
+  <data name="CustomerDetailView_FirstName" xml:space="preserve">
+    <value>Firstname</value>
+  </data>
+  <data name="CustomerDetailView_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="CustomerDetailView_Subtitle" xml:space="preserve">
+    <value>Addresses</value>
+  </data>
+  <data name="CustomerDetailView_Title" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="CustomerViewModel_DisplayName" xml:space="preserve">
+    <value>Customer administration</value>
+  </data>
+  <data name="CustomerView_Description" xml:space="preserve">
+    <value>Administrate the customers</value>
+  </data>
+  <data name="CustomerView_DisplayName" xml:space="preserve">
+    <value>Customer administration</value>
+  </data>
+  <data name="CustomerView_Name" xml:space="preserve">
+    <value>Customer name</value>
+  </data>
+  <data name="CustomerView_OpenOrders" xml:space="preserve">
+    <value>No. of open orders</value>
+  </data>
+  <data name="CustomerView_TotalOrders" xml:space="preserve">
+    <value>No. of all orders</value>
+  </data>
+  <data name="DeleteCommand" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DetailDialog_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="DetailDialog_OK" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="EditCommand" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="False" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="LoadCommand" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="MainWindow_hlkCustomer" xml:space="preserve">
+    <value>Customers</value>
+  </data>
+  <data name="MainWindow_hlkDE" xml:space="preserve">
+    <value>DE</value>
+  </data>
+  <data name="MainWindow_hlkEN" xml:space="preserve">
+    <value>EN</value>
+  </data>
+  <data name="MainWindow_hlkOrder" xml:space="preserve">
+    <value>Orders</value>
+  </data>
+  <data name="MainWindow_hlkProduct" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="MainWindow_hlkSupplier" xml:space="preserve">
+    <value>Suppliers</value>
+  </data>
+  <data name="MainWindow_hlkUser" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="NewCommand" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="OnStock" xml:space="preserve">
+    <value>On Stock ({0} Units)</value>
+  </data>
+  <data name="OrderDetailDetailView_Price" xml:space="preserve">
+    <value>Price per unit</value>
+  </data>
+  <data name="OrderDetailDetailView_Product" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="OrderDetailDetailView_Quantity" xml:space="preserve">
+    <value>Quantity in units</value>
+  </data>
+  <data name="OrderDetailDetailView_Title" xml:space="preserve">
+    <value>Order item</value>
+  </data>
+  <data name="OrderDetailDetailView_TotalPrice" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="OrderDetailViewModel_DisplayName" xml:space="preserve">
+    <value>Edit order</value>
+  </data>
+  <data name="OrderDetailView_Customer" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="OrderDetailView_DateOfOrder" xml:space="preserve">
+    <value>Date of order</value>
+  </data>
+  <data name="OrderDetailView_DateOfShipment" xml:space="preserve">
+    <value>Date of shipment</value>
+  </data>
+  <data name="OrderDetailView_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="OrderDetailView_SubtitleOrderDetail" xml:space="preserve">
+    <value>Order items</value>
+  </data>
+  <data name="OrderDetailView_Title" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="OrderItemDetailViewModel_DisplayName" xml:space="preserve">
+    <value>Edit order detail</value>
+  </data>
+  <data name="OrderStatus_Draft" xml:space="preserve">
+    <value>Draft</value>
+  </data>
+  <data name="OrderStatus_Ordered" xml:space="preserve">
+    <value>Ordered</value>
+  </data>
+  <data name="OrderStatus_Shipped" xml:space="preserve">
+    <value>Shipped</value>
+  </data>
+  <data name="OrderViewModel_DisplayName" xml:space="preserve">
+    <value>Order administration</value>
+  </data>
+  <data name="OrderView_Customer" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="OrderView_DateShipment" xml:space="preserve">
+    <value>Date of shipment</value>
+  </data>
+  <data name="OrderView_Decription" xml:space="preserve">
+    <value>Administrate the orders</value>
+  </data>
+  <data name="OrderView_OrderDate" xml:space="preserve">
+    <value>Date of order</value>
+  </data>
+  <data name="OrderView_Id" xml:space="preserve">
+    <value>Order No.</value>
+  </data>
+  <data name="OrderView_Price" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="OrderView_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="OrderView_Title" xml:space="preserve">
+    <value>Order administration</value>
+  </data>
+  <data name="ProductDetailViewModel_DisplayName" xml:space="preserve">
+    <value>Edit product</value>
+  </data>
+  <data name="ProductDetailView_Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="ProductDetailView_DeliveryTimeWhenNotOnStock" xml:space="preserve">
+    <value>Expected delivery time of supplier</value>
+  </data>
+  <data name="ProductDetailView_PricePerUnit" xml:space="preserve">
+    <value>Price per unit</value>
+  </data>
+  <data name="ProductDetailView_ProductName" xml:space="preserve">
+    <value>Productname</value>
+  </data>
+  <data name="ProductDetailView_ProductNumber" xml:space="preserve">
+    <value>Product No.</value>
+  </data>
+  <data name="ProductDetailView_QuantityPerUnit" xml:space="preserve">
+    <value>Quantity per unit</value>
+  </data>
+  <data name="ProductDetailView_Title" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="ProductDetailView_UnitsOnStock" xml:space="preserve">
+    <value>Units on stock</value>
+  </data>
+  <data name="ProductViewModel_DisplayName" xml:space="preserve">
+    <value>Product administration</value>
+  </data>
+  <data name="ProductView_Decription" xml:space="preserve">
+    <value>Administrate the products</value>
+  </data>
+  <data name="ProductView_Title" xml:space="preserve">
+    <value>Product administration</value>
+  </data>
+  <data name="RoleDetailViewModel_DisplayName" xml:space="preserve">
+    <value>Select role</value>
+  </data>
+  <data name="RoleDetailView_Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="RoleDetailView_Title" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="SaveCommand" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SupplierDetailViewModel_DisplayName" xml:space="preserve">
+    <value>Edit supplier</value>
+  </data>
+  <data name="SupplierDetailView_AccountNumber" xml:space="preserve">
+    <value>Account number</value>
+  </data>
+  <data name="SupplierDetailView_ActiveFlag" xml:space="preserve">
+    <value>Is active?</value>
+  </data>
+  <data name="SupplierDetailView_CreditRating" xml:space="preserve">
+    <value>Credit rating</value>
+  </data>
+  <data name="SupplierDetailView_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="SupplierDetailView_PreferredSupplierFlag" xml:space="preserve">
+    <value>Is preferred supplier?</value>
+  </data>
+  <data name="SupplierDetailView_PurchaseWebServiceURL" xml:space="preserve">
+    <value>Purchase webservice url</value>
+  </data>
+  <data name="SupplierDetailView_Subtitle_Addresses" xml:space="preserve">
+    <value>Addresses</value>
+  </data>
+  <data name="SupplierDetailView_Subtitle_Conditions" xml:space="preserve">
+    <value>Conditions</value>
+  </data>
+  <data name="SupplierDetailView_Title" xml:space="preserve">
+    <value>Supplier</value>
+  </data>
+  <data name="SupplierViewModel_DisplayName" xml:space="preserve">
+    <value>Supplier administration</value>
+  </data>
+  <data name="SupplierView_AccountNumber" xml:space="preserve">
+    <value>Account number</value>
+  </data>
+  <data name="SupplierView_ActiveFlag" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="SupplierView_CreditRating" xml:space="preserve">
+    <value>Credit rating</value>
+  </data>
+  <data name="SupplierView_Description" xml:space="preserve">
+    <value>Administratate the suppliers</value>
+  </data>
+  <data name="SupplierView_DisplayName" xml:space="preserve">
+    <value>Suppliers</value>
+  </data>
+  <data name="SupplierView_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="SupplierView_PreferredSupplierFlag" xml:space="preserve">
+    <value>Preferred Supplier</value>
+  </data>
+  <data name="True" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="UserDetailViewModel_DisplayName" xml:space="preserve">
+    <value>Edit user</value>
+  </data>
+  <data name="UserDetailView_Customer" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="UserDetailView_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="UserDetailView_Rolename" xml:space="preserve">
+    <value>Rolename</value>
+  </data>
+  <data name="UserDetailView_Subtitle_Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="UserDetailView_Title" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="UserDetailView_UserName" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="UserViewModel_DisplayName" xml:space="preserve">
+    <value>User administration</value>
+  </data>
+  <data name="UserView_Decription" xml:space="preserve">
+    <value>Administrate the users</value>
+  </data>
+  <data name="UserView_Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="UserView_Title" xml:space="preserve">
+    <value>User administration</value>
+  </data>
+  <data name="DeliveryTimeFromStock_Plural" xml:space="preserve">
+    <value>{0} Days</value>
+  </data>
+  <data name="DeliveryTimeFromStock_Singular" xml:space="preserve">
+    <value>1 Day</value>
+  </data>
+  <data name="DeliveryTimeFromStock_Unknown" xml:space="preserve">
+    <value>On request</value>
+  </data>
+  <data name="OrderDetailDetailView_DeliveryTime" xml:space="preserve">
+    <value>Estimated delivery time</value>
+  </data>
+  <data name="DetailsCommand" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="BackToListCommand" xml:space="preserve">
+    <value>Back to List</value>
+  </data>
+  <data name="LoginCommand" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="LogoutCommand" xml:space="preserve">
+    <value>Log off</value>
+  </data>
+</root>

@@ -1,0 +1,70 @@
+﻿@model HsrOrderApp.UI.Mvc.Models.OrderViewModel
+@using HsrOrderApp.UI.Mvc.Resources
+
+<div class="form-group">
+    <div class="control-label col-md-2">@Strings.OrderView_Customer</div>
+    <div class="col-md-10">
+        @if (Model.IsNew)
+        {
+            @Html.DropDownListFor(
+                model => model.Model.CustomerId,
+                new SelectList(Model.Customers, "Id", "FullName"),
+                new { @class = "form-control" }
+            )
+        }
+        else
+        {
+            @Html.DropDownListFor(
+                model => model.Model.CustomerId,
+                new SelectList(Model.Customers, "Id", "FullName"),
+                new { @class = "form-control", @disabled = "disabled" }
+            )
+            @Html.HiddenFor(model => model.Model.CustomerId)
+        }
+        @Html.ValidationMessageFor(model => model.Model.CustomerId, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="control-label col-md-2">@Strings.OrderView_Status</div>
+    <div class="col-md-10">
+        @if (Model.IsNew)
+        {
+            @Html.DropDownListFor(
+                model => model.Model.OrderStatus,
+                new SelectList(Model.OrderStates),
+                new {@class = "form-control"}
+                )
+        }
+        else
+        {
+            @Html.DropDownListFor(
+                model => model.Model.OrderStatus,
+                new SelectList(Model.OrderStates),
+                new {@class = "form-control", @disabled = "disabled"}
+                )
+            @Html.HiddenFor(model => model.Model.OrderStatus)
+        }
+
+        @Html.ValidationMessageFor(model => model.Model.OrderStatus, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="control-label col-md-2">@Strings.OrderView_OrderDate</div>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Model.OrderDate, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+        @Html.ValidationMessageFor(model => model.Model.OrderDate, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+@if (!Model.IsNew && Model.Model.OrderStatus == HsrOrderApp.SharedLibraries.SharedEnums.OrderStatus.Shipped)
+{
+    <div class="form-group">
+        <div class="control-label col-md-2">@Strings.OrderStatus_Shipped</div>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Model.ShippedDate, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+            @Html.ValidationMessageFor(model => model.Model.ShippedDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+}

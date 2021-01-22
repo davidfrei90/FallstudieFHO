@@ -1,0 +1,50 @@
+﻿@model HsrOrderApp.UI.Mvc.Models.AddressViewModel
+@using HsrOrderApp.UI.Mvc.Resources
+
+<div class="form-group">
+    <div class="control-label col-md-2">@Strings.AddressDetailView_AddressLine1</div>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.SelectedItem.AddressLine1, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.SelectedItem.AddressLine1, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="control-label col-md-2">@Strings.AddressDetailView_AddressLine2</div>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.SelectedItem.AddressLine2, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.SelectedItem.AddressLine2, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="control-label col-md-2">@Strings.AddressDetailView_ZIP</div>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.SelectedItem.PostalCode, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.SelectedItem.PostalCode, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="control-label col-md-2">@Strings.AddressDetailView_City</div>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.SelectedItem.City, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.SelectedItem.City, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="control-label col-md-2">@Strings.AddressDetailView_Telephone</div>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.SelectedItem.Phone, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.SelectedItem.Phone, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="control-label col-md-2">@Strings.AddressDetailView_Email</div>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.SelectedItem.Email, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.SelectedItem.Email, "", new { @class = "text-danger" })
+    </div>
+</div>

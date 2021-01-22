@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ch.hsr.HsrOrderApp" elementFormDefault="qualified" targetNamespace="http://ch.hsr.HsrOrderApp" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:64322/Services/CustomerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses" />
+  <xs:element name="GetOrderById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses" minOccurs="0" name="request" nillable="true" type="q1:GetOrderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses" minOccurs="0" name="GetOrderByIdResult" nillable="true" type="q2:GetOrderResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrdersByCriteria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses" minOccurs="0" name="request" nillable="true" type="q3:GetOrdersRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrdersByCriteriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses" minOccurs="0" name="GetOrdersByCriteriaResult" nillable="true" type="q4:GetOrdersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses" minOccurs="0" name="request" nillable="true" type="q5:GetProductRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses" minOccurs="0" name="GetProductByIdResult" nillable="true" type="q6:GetProductResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductByCriteria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses" minOccurs="0" name="request" nillable="true" type="q7:GetProductsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductByCriteriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses" minOccurs="0" name="GetProductByCriteriaResult" nillable="true" type="q8:GetProductsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StoreCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses" minOccurs="0" name="request" nillable="true" type="q9:StoreCustomerRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StoreCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses" minOccurs="0" name="StoreCustomerResult" nillable="true" type="q10:StoreCustomerResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomer">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses" minOccurs="0" name="GetCustomerResult" nillable="true" type="q11:GetCustomerResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

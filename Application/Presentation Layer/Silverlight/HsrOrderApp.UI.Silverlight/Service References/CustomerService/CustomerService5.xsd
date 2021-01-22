@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:64322/Services/CustomerService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses.Base" />
+  <xs:import schemaLocation="http://localhost:64322/Services/CustomerService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO" />
+  <xs:import schemaLocation="http://localhost:64322/Services/CustomerService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.SharedEnums" />
+  <xs:complexType name="GetOrderRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses.Base" base="q1:RequestType">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetOrderRequest" nillable="true" type="tns:GetOrderRequest" />
+  <xs:complexType name="GetOrderResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses.Base" base="q2:ResponseType">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO" minOccurs="0" name="Order" nillable="true" type="q3:OrderDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetOrderResponse" nillable="true" type="tns:GetOrderResponse" />
+  <xs:complexType name="GetOrdersRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses.Base" base="q4:RequestType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CustomerId" type="xs:int" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.SharedEnums" minOccurs="0" name="SearchType" type="q5:OrderSearchType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetOrdersRequest" nillable="true" type="tns:GetOrdersRequest" />
+  <xs:complexType name="GetOrdersResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses.Base" base="q6:ResponseType">
+        <xs:sequence>
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO" minOccurs="0" name="Orders" nillable="true" type="q7:ArrayOfOrderListDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetOrdersResponse" nillable="true" type="tns:GetOrdersResponse" />
+  <xs:complexType name="GetProductRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses.Base" base="q8:RequestType">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetProductRequest" nillable="true" type="tns:GetProductRequest" />
+  <xs:complexType name="GetProductResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses.Base" base="q9:ResponseType">
+        <xs:sequence>
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO" minOccurs="0" name="Product" nillable="true" type="q10:ProductDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetProductResponse" nillable="true" type="tns:GetProductResponse" />
+  <xs:complexType name="GetProductsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses.Base" base="q11:RequestType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.SharedEnums" minOccurs="0" name="SearchType" type="q12:ProductSearchType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetProductsRequest" nillable="true" type="tns:GetProductsRequest" />
+  <xs:complexType name="GetProductsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses.Base" base="q13:ResponseType">
+        <xs:sequence>
+          <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO" minOccurs="0" name="Products" nillable="true" type="q14:ArrayOfProductDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetProductsResponse" nillable="true" type="tns:GetProductsResponse" />
+  <xs:complexType name="StoreCustomerRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses.Base" base="q15:RequestType">
+        <xs:sequence>
+          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO" minOccurs="0" name="Customer" nillable="true" type="q16:CustomerDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StoreCustomerRequest" nillable="true" type="tns:StoreCustomerRequest" />
+  <xs:complexType name="StoreCustomerResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses.Base" base="q17:ResponseType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CustomerId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StoreCustomerResponse" nillable="true" type="tns:StoreCustomerResponse" />
+  <xs:complexType name="GetCustomerResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q18="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses.Base" base="q18:ResponseType">
+        <xs:sequence>
+          <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO" minOccurs="0" name="Customer" nillable="true" type="q19:CustomerDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCustomerResponse" nillable="true" type="tns:GetCustomerResponse" />
+</xs:schema>

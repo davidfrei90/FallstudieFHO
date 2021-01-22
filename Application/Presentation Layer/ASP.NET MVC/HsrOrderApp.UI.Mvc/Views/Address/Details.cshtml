@@ -1,0 +1,24 @@
+﻿@model HsrOrderApp.UI.Mvc.Models.AddressViewModel
+@using HsrOrderApp.UI.Mvc.Resources
+
+@{
+    ViewBag.Title = Strings.AddressDetailView_Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Strings.AddressDetailView_Title</h2>
+
+<script>
+    $(document).ready(function () {
+        $("#detailView").find(":input").attr("disabled", true);
+    });
+</script>
+
+
+<div id="detailView" class="form-horizontal">
+    <hr />
+    @Html.Partial("_AddressFieldList", Model)
+</div>
+<p>
+    <a onclick="history.go(-1); return false;" href="#" class="btn btn-default">@Strings.BackToListCommand</a>
+</p>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Base" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Base" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:64322/Services/CustomerService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.ChangeSet" />
+  <xs:complexType name="DTOBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DTOBase" nillable="true" type="tns:DTOBase" />
+  <xs:complexType name="DTOParentObject">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DTOVersionObject">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.ChangeSet" minOccurs="0" name="Changes" nillable="true" type="q1:ArrayOfChangeItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DTOParentObject" nillable="true" type="tns:DTOParentObject" />
+  <xs:complexType name="DTOVersionObject">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DTOBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Version" type="xs:unsignedLong" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DTOVersionObject" nillable="true" type="tns:DTOVersionObject" />
+</xs:schema>

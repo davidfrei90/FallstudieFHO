@@ -1,0 +1,71 @@
+﻿@using HsrOrderApp.UI.Mvc.Resources
+@using HsrOrderApp.UI.Mvc.Models
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/jqueryui")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script>
+        $(document).ready(function () {
+            $(".datepicker").datepicker({
+                dateFormat: "dd.mm.yy",
+                autoSize: true,
+                gotoCurrent: true,
+                changeMonth: true,
+                changeYear: true,
+                showButtonPanel: true,
+                //showOn: "button",
+                showWeek: true
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="~/Content/mic.png" />
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @if (User.IsInRole(UserPermission.ADMIN.ToString()) || User.IsInRole(UserPermission.STAFF.ToString()))
+                    {
+                        <li>@Html.ActionLink(Strings.MainWindow_hlkCustomer, "Index", "Customer")</li>
+                        <li>@Html.ActionLink(Strings.MainWindow_hlkProduct, "Index", "Product")</li>
+                        <li>@Html.ActionLink(Strings.MainWindow_hlkOrder, "Index", "Order")</li>
+                    }
+                    @if (User.IsInRole(UserPermission.ADMIN.ToString()))
+                    {
+                        <li>@Html.ActionLink(Strings.MainWindow_hlkUser, "Index", "User")</li>
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Microsoft Innovation Center Rapperswil</p>
+        </footer>
+    </div>
+
+</body>
+</html>

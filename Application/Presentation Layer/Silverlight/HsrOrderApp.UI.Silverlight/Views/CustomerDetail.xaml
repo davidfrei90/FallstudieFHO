@@ -1,0 +1,84 @@
+﻿<navigation:Page xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"  x:Class="HsrOrderApp.UI.Silverlight.Views.CustomerDetailView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"
+           xmlns:Properties="clr-namespace:HsrOrderApp.UI.Silverlight.Properties"
+           xmlns:Util="clr-namespace:HsrOrderApp.UI.Silverlight.Util"
+           xmlns:Commands="clr-namespace:Microsoft.Practices.Prism.Commands;assembly=Microsoft.Practices.Prism"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="CustomerDataForm Page">
+    <navigation:Page.DataContext>
+        <Binding Path="CustomerDetailViewModel" Source="{StaticResource ServiceLocator}" />
+    </navigation:Page.DataContext>
+    <navigation:Page.Resources>
+        <Util:BooleanToVisibiltiyConverter x:Key="booltoVisConverter"></Util:BooleanToVisibiltiyConverter>
+    </navigation:Page.Resources>
+
+
+
+
+
+    <Grid x:Name="LayoutRoot" Visibility="{Binding DataLoaded ,Mode=TwoWay, Converter={StaticResource booltoVisConverter}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Background="BlanchedAlmond" Grid.Row="0">
+            <TextBlock  Text="Ihre Angaben" FontSize="18"></TextBlock>
+        </Border>
+
+
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="400"/>
+
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Name" Grid.Row="0" Grid.Column="0"></TextBlock>
+            <TextBox  Grid.Row="0" Grid.Column="1" IsEnabled="False" Text="{Binding Customer.FirstName}">
+            </TextBox>
+            <TextBlock Text="Nachname" Grid.Row="1" Grid.Column="0"></TextBlock>
+            <TextBox  Grid.Row="1" Grid.Column="1" IsEnabled="False" Text="{Binding Customer.Name}"></TextBox>
+
+
+        </Grid>
+
+
+        <Border Background="BlanchedAlmond" Grid.Row="2">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Ihre Adressen" FontSize="18">                  
+                </TextBlock>
+                <HyperlinkButton Commands:Click.Command="{Binding SaveCustomerCommand}" Content="Speichern"></HyperlinkButton>
+            </StackPanel>
+            
+        </Border>
+
+        <data:DataGrid ItemsSource="{Binding Customer.Addresses}"  Grid.Row="3" AutoGenerateColumns="False">
+            <data:DataGrid.Columns>
+                <data:DataGridTextColumn Binding="{Binding AddressLine1}"  Header="Adresse 1" ></data:DataGridTextColumn>
+                <data:DataGridTextColumn Binding="{Binding AddressLine2}"  Header="Adresse 2" ></data:DataGridTextColumn>
+                <data:DataGridTextColumn Binding="{Binding PostalCode}"  Header="City" ></data:DataGridTextColumn>
+                <data:DataGridTextColumn Binding="{Binding City}"  Header="Ort" ></data:DataGridTextColumn>
+                <data:DataGridTextColumn Binding="{Binding Phone}"  Header="Tel" ></data:DataGridTextColumn>
+                <data:DataGridTextColumn Binding="{Binding Email}"  Header="E-Mail" ></data:DataGridTextColumn>
+            </data:DataGrid.Columns>
+
+
+
+
+
+        </data:DataGrid>
+
+    </Grid>
+</navigation:Page>

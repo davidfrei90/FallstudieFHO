@@ -1,0 +1,32 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_AuthenticationService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_AuthenticationService1" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_ICustomerService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:64322/Services/AuthenticationService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_AuthenticationService"
+                contract="HsrOrderApp.UI.Silverlight.AuthenticationService.AuthenticationService"
+                name="BasicHttpBinding_AuthenticationService" />
+            <endpoint address="../Services/AuthenticationService.svc" binding="basicHttpBinding"
+                bindingConfiguration="BasicHttpBinding_AuthenticationService1"
+                contract="AuthenticationService.AuthenticationService" name="BasicHttpBinding_AuthenticationService1" />
+            <endpoint address="../Services/CustomerService.svc" binding="basicHttpBinding"
+                bindingConfiguration="BasicHttpBinding_ICustomerService" contract="CustomerService.ICustomerService"
+                name="BasicHttpBinding_ICustomerService" />
+        </client>
+    </system.serviceModel>
+</configuration>

@@ -1,0 +1,16 @@
+﻿@model HsrOrderApp.UI.Mvc.Models.CustomerListViewModel
+@using HsrOrderApp.UI.Mvc.Resources
+
+@{
+    ViewBag.Title = Strings.CustomerDetailView_Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Strings.CustomerView_DisplayName</h2>
+<h4>@Strings.CustomerView_Description</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.Partial("_CustomerItemList", Model)
+}

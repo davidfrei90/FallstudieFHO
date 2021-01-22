@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EDB2EE56-3126-4E13-8679-0B8FF38F5201}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SL.CustomerService</RootNamespace>
+    <AssemblyName>SL.CustomerService</AssemblyName>
+    <ProjectTypeGuids>{3D9AD99F-2412-4246-B90B-4EAA41C64699};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <StartArguments>/client:"WcfTestClient.exe"</StartArguments>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <XsdCodeGenEnabled>False</XsdCodeGenEnabled>
+    <WcfConfigValidationEnabled>False</WcfConfigValidationEnabled>
+    <XsdCodeGenSerializerMode>XmlSerializer</XsdCodeGenSerializerMode>
+    <XsdCodeGenReuseTypesFlag>True</XsdCodeGenReuseTypesFlag>
+    <XsdCodeGenReuseTypesMode>All</XsdCodeGenReuseTypesMode>
+    <XsdCodeGenReferences />
+    <XsdCodeGenNamespaceMappings>%2a, SL.CustomerService.ContractTypes</XsdCodeGenNamespaceMappings>
+    <XsdCodeGenCollectionTypes>System.Array%3bSystem.Collections.Generic.Dictionary`2</XsdCodeGenCollectionTypes>
+    <XsdCodeGenExcludedTypes />
+    <XsdCodeGenImportXmlTypes>True</XsdCodeGenImportXmlTypes>
+    <XsdCodeGenGenerateSerializableTypes>True</XsdCodeGenGenerateSerializableTypes>
+    <XsdCodeGenGenerateInternalTypes>False</XsdCodeGenGenerateInternalTypes>
+    <XsdCodeGenEnableDataBinding>False</XsdCodeGenEnableDataBinding>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomerService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Business Layer\HsrOrderApp.BL.BusinessComponents\BL.BusinessComponents.csproj">
+      <Project>{82729EF6-F861-4A4E-AC67-172476735CBB}</Project>
+      <Name>BL.BusinessComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Business Layer\HsrOrderApp.BL.DomainModel\BL.DomainModel.csproj">
+      <Project>{04B91F08-9014-400B-B452-1BA98AC3977A}</Project>
+      <Name>BL.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Business Layer\HsrOrderApp.BL.DTOAdapters\BL.DTOAdapters.csproj">
+      <Project>{769807BA-0BC3-4634-969E-F9AFB57AA739}</Project>
+      <Name>BL.DTOAdapters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Business Layer\HsrOrderApp.BL.Security\BL.Security.csproj">
+      <Project>{130653AD-DBE0-45EB-8CF5-F4988D62724A}</Project>
+      <Name>BL.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HsrOrderApp.SL.AdminService\SL.AdminService.csproj">
+      <Project>{12F9A1DE-15C5-4C6F-8C92-5ADDC6017771}</Project>
+      <Name>SL.AdminService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared Libraries\HsrOrderApp.SharedLibraries.DTO\SharedLibraries.DTO.csproj">
+      <Project>{D209C395-0953-4F41-A206-0B9646B9E48B}</Project>
+      <Name>SharedLibraries.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared Libraries\HsrOrderApp.SharedLibraries.ServiceInterfaces\SharedLibraries.ServiceInterfaces.csproj">
+      <Project>{2B168632-B4DF-4339-8936-60429C52B556}</Project>
+      <Name>SharedLibraries.ServiceInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared Libraries\HsrOrderApp.SharedLibraries.SharedEnums\SharedLibraries.SharedEnums.csproj">
+      <Project>{12094D77-A745-4457-A125-B5C3EE366A39}</Project>
+      <Name>SharedLibraries.SharedEnums</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{3D9AD99F-2412-4246-B90B-4EAA41C64699}">
+        <WcfProjectProperties>
+          <AutoStart>False</AutoStart>
+        </WcfProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

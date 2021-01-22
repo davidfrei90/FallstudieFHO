@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="HsrOrderApp.UI.WPF.Views.ProductDetail"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Properties="clr-namespace:HsrOrderApp.UI.WPF.Properties"
+    MinWidth="500" Width="Auto">
+    <DockPanel>
+    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="50" >
+        <Image Height="40" Source="..\Icons\Product.png" Margin="20 0 0 0"/>
+        <TextBlock Height="50" Padding="15" Text="{x:Static Properties:Strings.ProductDetailView_Title}" Style="{StaticResource ViewTitle}"/>
+    </StackPanel>
+    <Grid  Name="grid1" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Content="{x:Static Properties:Strings.ProductDetailView_ProductName}"/>
+            <Label Grid.Row="1" Content="{x:Static Properties:Strings.ProductDetailView_ProductNumber}"/>    
+            <Label Grid.Row="2" Content="{x:Static Properties:Strings.ProductDetailView_Category}"/>
+            <Label Grid.Row="3" Content="{x:Static Properties:Strings.ProductDetailView_PricePerUnit}"/>
+            <Label Grid.Row="4" Content="{x:Static Properties:Strings.ProductDetailView_QuantityPerUnit}"/>
+            <Label Grid.Row="5" Content="{x:Static Properties:Strings.ProductDetailView_UnitsOnStock}"/>
+            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Model.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Model.ProductNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+            <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Model.Category, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+            <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Model.ListUnitPrice, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, Converter={StaticResource decimalConv}}"/>
+            <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding Model.QuantityPerUnit, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, Converter={StaticResource doubleConv}}"/>
+            <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding Model.UnitsOnStock, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, Converter={StaticResource doubleConv}}"/>
+        </Grid>
+</DockPanel>
+</UserControl>

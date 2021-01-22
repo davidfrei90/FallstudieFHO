@@ -1,0 +1,52 @@
+﻿<ResourceDictionary  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"                
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:HsrOrderApp.UI.WPF.ViewModels"
+    xmlns:vw="clr-namespace:HsrOrderApp.UI.WPF.Views">
+    
+    <DataTemplate DataType="{x:Type vm:Address.AddressDetailViewModel}">
+        <vw:AddressDetail  />
+    </DataTemplate>
+    <DataTemplate  DataType="{x:Type vm:Customer.CustomerDetailViewModel}">
+        <vw:CustomerDetail  />
+    </DataTemplate>
+    
+    <DataTemplate  DataType="{x:Type vm:Product.ProductDetailViewModel}">
+        <vw:ProductDetail  />
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:Order.OrderDetailViewModel}">
+        <vw:OrderDetail  />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Order.OrderItemDetailViewModel}">
+        <vw:OrderDetailDetail  />
+    </DataTemplate>
+    
+    <DataTemplate  DataType="{x:Type vm:Security.UserDetailViewModel}">
+        <vw:UserDetail  />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Security.RoleDetailViewModel}">
+        <vw:RoleDetail />
+    </DataTemplate>
+
+     
+
+    <Style  TargetType="{x:Type TextBox}">
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate >
+                    <AdornedElementPlaceholder  Name="MyAdorner" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--The tool tip for the TextBox to display the validation error message.-->
+    <Style x:Key="validationStyle" TargetType="{x:Type TextBox}">
+        <Style.Triggers>
+            <Trigger  Property="Validation.HasError" Value="true">
+                <Setter  Property="ToolTip"
+                            Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)[0].ErrorContent}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

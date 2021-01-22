@@ -1,0 +1,37 @@
+﻿@model HsrOrderApp.UI.Mvc.Models.RoleViewModel
+@using HsrOrderApp.UI.Mvc.Models
+@using HsrOrderApp.UI.Mvc.Resources
+
+<p>
+    @if (!Model.IsReadOnly)
+    {
+        <button name="redirectButton" value="/Role/Create" class="btn btn-default">@Strings.NewCommand</button>
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Strings.RoleDetailView_Role
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleName)
+            </td>
+            <td>
+                @if (!Model.IsReadOnly && item.RoleName != UserPermission.ADMIN.ToString())
+                {
+                    <div>
+                        <button name="redirectButton" value="/Role/Edit/@item.Id" class="btn btn-default">@Strings.EditCommand</button>
+                        <button name="redirectButton" value="/Role/Details/@item.Id" class="btn btn-default">@Strings.DetailsCommand</button>
+                        <button name="redirectButton" value="/Role/Delete/@item.Id" class="btn btn-default">@Strings.DeleteCommand</button>
+                    </div>
+                }
+            </td>
+        </tr>
+    }
+</table>

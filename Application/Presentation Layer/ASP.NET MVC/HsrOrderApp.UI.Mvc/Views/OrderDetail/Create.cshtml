@@ -1,0 +1,31 @@
+﻿@model HsrOrderApp.UI.Mvc.Models.OrderDetailViewModel
+@using HsrOrderApp.UI.Mvc.Resources
+
+@{
+    ViewBag.Title = Strings.OrderDetailDetailView_Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Strings.OrderDetailDetailView_Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.Partial("_OrderDetailFieldList", Model)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="@Strings.DetailDialog_OK" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <a onclick="history.go(-1); return false;" href="#" class="btn btn-default">@Strings.BackToListCommand</a>
+</div>

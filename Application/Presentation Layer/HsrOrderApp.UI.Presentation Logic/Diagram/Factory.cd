@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="HsrOrderApp.UI.ServiceLayerCreator">
+    <Position X="3.25" Y="3.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>ServiceLayerCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.UI.BusinessLayerCreator">
+    <Position X="7.25" Y="3.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>BusinessLayerCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.UI.ServiceFactory">
+    <Position X="5.5" Y="1.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>ServiceFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.UI.NavigationService">
+    <Position X="13.25" Y="1.75" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAACAAAAAAAACAAAAAAAAAAAAAIAAAAAAAIAA=</HashCode>
+      <FileName>NavigationService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_instance" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="HsrOrderApp.UI.INavigationService">
+    <Position X="13.25" Y="4.75" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>INavigationService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

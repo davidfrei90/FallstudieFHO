@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HsrOrderApp.DAL.QueryModel.Criterion">
+    <Position X="0.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAACAAAAAAAAAAAAACAAAAAgAABAIAA=</HashCode>
+      <FileName>QueryModel\Criterion.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Operator" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="HsrOrderApp.DAL.QueryModel.OrderClause">
+    <Position X="6.75" Y="1" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="HsrOrderApp.DAL.QueryModel.OrderClause.OrderClauseCriteria">
+        <TypeIdentifier>
+          <NewMemberFileName>QueryModel\OrderClause.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>QueryModel\OrderClause.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.DAL.QueryModel.Query">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAABAAAACAAAAQAAAIEAAACAAAAAAAAAAIAA=</HashCode>
+      <FileName>QueryModel\Query.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Operator" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Criteria" />
+      <Property Name="OrderClauses" />
+      <Property Name="SubQueries" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Enum Name="HsrOrderApp.DAL.QueryModel.CriteriaOperator">
+    <Position X="0.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAACAgIAAgAAAAAAAAAAIAAAAEQQBAAA=</HashCode>
+      <FileName>QueryModel\CriteriaOperator.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="HsrOrderApp.DAL.QueryModel.QueryOperator">
+    <Position X="4" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>QueryModel\QueryOperator.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

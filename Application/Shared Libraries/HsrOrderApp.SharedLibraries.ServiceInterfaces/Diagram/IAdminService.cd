@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Interface Name="HsrOrderApp.SharedLibraries.ServiceInterfaces.IAdminService">
+    <Position X="1.5" Y="1" Width="6" />
+    <TypeIdentifier>
+      <HashCode>AAAASAAIEAAAACCEBEAAIAgCAAAEBBAEAEAEAAAAAQA=</HashCode>
+      <FileName>IAdminService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

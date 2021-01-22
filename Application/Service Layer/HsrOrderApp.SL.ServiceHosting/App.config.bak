@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<configuration>
+  <configSections>   
+    <section name="enterpriseLibrary.ConfigurationSource" type="Microsoft.Practices.EnterpriseLibrary.Common.Configuration.ConfigurationSourceSection, Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+  </configSections>
+  <enterpriseLibrary.ConfigurationSource selectedSource="File Configuration Source">
+    <sources>
+      <add name="File Configuration Source" type="Microsoft.Practices.EnterpriseLibrary.Common.Configuration.FileConfigurationSource, Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" filePath="ApplicationBlocks.config"/>
+    </sources>
+  </enterpriseLibrary.ConfigurationSource>
+  <connectionStrings>
+    <add name="EntityFramework" connectionString="metadata=res://*/HsrOrderApp.csdl|res://*/HsrOrderApp.ssdl|res://*/HsrOrderApp.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=.;Initial Catalog=HsrOrderApp;Integrated Security=True;MultipleActiveResultSets=True&quot;"
+      providerName="System.Data.EntityClient" />
+    <add name="LINQ2SQL" connectionString="Data Source=.;Initial Catalog=HsrOrderApp;Integrated Security=True;MultipleActiveResultSets=True"
+      providerName="System.Data.SqlClient" />
+  </connectionStrings>
+  <appSettings>
+    <!--<add key="DataAccessLayerToUse" value="LINQ2SQL"/>-->
+    <add key="DataAccessLayerToUse" value="EntityFramework"/>
+    <add key="EnableDistributedTransactionToMessageQueueingSystem" value="false"/>
+  </appSettings>
+  <system.serviceModel>
+    <behaviors>
+      <serviceBehaviors>
+        <behavior name="AdminServiceBehavior">
+          <serviceDebug includeExceptionDetailInFaults="false"/>
+          <serviceAuthorization principalPermissionMode="Custom">
+            <authorizationPolicies>
+              <add policyType="HsrOrderApp.BL.Security.AuthorizationPolicy, HsrOrderApp.BL.Security"/>
+            </authorizationPolicies>
+          </serviceAuthorization>
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+    <services>
+      <service behaviorConfiguration="AdminServiceBehavior" name="HsrOrderApp.SL.AdminService.AdminService">
+        <endpoint address="AdminService" binding="netTcpBinding" bindingConfiguration="" name="AdminServiceEndpoint" contract="HsrOrderApp.SharedLibraries.ServiceInterfaces.IAdminService"/>
+        <host>
+          <baseAddresses>
+            <add baseAddress="net.tcp://localhost:1111"/>
+          </baseAddresses>
+        </host>
+      </service>
+    </services>
+    <bindings>
+      <netMsmqBinding>
+        <binding name="NetMsmqBinding_IDistributionSystemService" closeTimeout="00:01:00" openTimeout="00:01:00" receiveTimeout="00:10:00" sendTimeout="00:01:00" deadLetterQueue="System" durable="true" exactlyOnce="true" maxReceivedMessageSize="65536" maxRetryCycles="2" receiveErrorHandling="Fault" receiveRetryCount="5" retryCycleDelay="00:30:00" timeToLive="23:00:00" useSourceJournal="false" useMsmqTracing="false" queueTransferProtocol="Native" maxBufferPoolSize="524288" useActiveDirectory="false">
+          <readerQuotas maxDepth="32" maxStringContentLength="8192" maxArrayLength="16384" maxBytesPerRead="4096" maxNameTableCharCount="16384"/>
+          <security mode="None">
+            <transport msmqAuthenticationMode="WindowsDomain" msmqEncryptionAlgorithm="RC4Stream" msmqProtectionLevel="Sign" msmqSecureHashAlgorithm="Sha1"/>
+            <message clientCredentialType="Windows"/>
+          </security>
+        </binding>
+      </netMsmqBinding>
+    </bindings>
+    <client>
+      <endpoint address="net.msmq://localhost/private/DistributionQueue" binding="netMsmqBinding" bindingConfiguration="NetMsmqBinding_IDistributionSystemService" contract="DistributionSystemService.IDistributionSystemService" name="NetMsmqBinding_IDistributionSystemService"/>
+    </client>
+  </system.serviceModel>
+<startup><supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/></startup></configuration>

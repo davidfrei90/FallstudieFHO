@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HsrOrderApp.BL.DomainModel.Address">
+    <Position X="4.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAACAAAAAIIAAAAAAAAAAAAAAAAAAAIAAQAAA=</HashCode>
+      <FileName>Address.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.BL.DomainModel.Product">
+    <Position X="3.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAgAAAAAAAAAAAAAQAAAAAAAAAAQAAAAggCAA=</HashCode>
+      <FileName>Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.BL.DomainModel.Customer">
+    <Position X="8" Y="1.75" Width="1.5" />
+    <AssociationLine Name="Addresses" Type="HsrOrderApp.BL.DomainModel.Address" FixedFromPoint="true">
+      <Path>
+        <Point X="8" Y="3.125" />
+        <Point X="6.25" Y="3.125" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.11" Y="0.081" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAFBAEAAAAAAAAAEAAAAAAQAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Customer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Addresses" />
+      <Property Name="Orders" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="HsrOrderApp.BL.DomainModel.Order">
+    <Position X="8.5" Y="5.5" Width="1.5" />
+    <AssociationLine Name="Customer" Type="HsrOrderApp.BL.DomainModel.Customer">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.878" Y="0.172" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="OrderDetails" Type="HsrOrderApp.BL.DomainModel.OrderDetail">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.023" Y="-0.285" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>GAEAAAAAAACCAAAAABAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Order.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Customer" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="OrderDetails" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="HsrOrderApp.BL.DomainModel.OrderDetail">
+    <Position X="6" Y="5.75" Width="1.5" />
+    <AssociationLine Name="Order" Type="HsrOrderApp.BL.DomainModel.Order" FixedToPoint="true">
+      <Path>
+        <Point X="7.5" Y="6.5" />
+        <Point X="8.5" Y="6.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Product" Type="HsrOrderApp.BL.DomainModel.Product" FixedToPoint="true">
+      <Path>
+        <Point X="6" Y="6.875" />
+        <Point X="5" Y="6.875" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.204" Y="0.05" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>IAECAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAQAAAAA=</HashCode>
+      <FileName>OrderDetail.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Order" />
+      <Property Name="Product" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="HsrOrderApp.BL.DomainModel.User">
+    <Position X="10.75" Y="1.75" Width="1.5" />
+    <AssociationLine Name="Roles" Type="HsrOrderApp.BL.DomainModel.Role" FixedFromPoint="true">
+      <Path>
+        <Point X="11" Y="3.819" />
+        <Point X="11" Y="4.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.079" Y="0.331" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAgAAgAAAAACAQAAAAAAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Customer" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Roles" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="HsrOrderApp.BL.DomainModel.Role">
+    <Position X="10.75" Y="4.5" Width="1.5" />
+    <AssociationLine Name="Users" Type="HsrOrderApp.BL.DomainModel.User">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.027" Y="0.31" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAACIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Role.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Users" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

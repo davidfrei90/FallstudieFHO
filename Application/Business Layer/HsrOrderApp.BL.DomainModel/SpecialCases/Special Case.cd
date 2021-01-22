@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HsrOrderApp.BL.DomainModel.Customer">
+    <Position X="4.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAFBAEAAAAAAAAAEAAAAAAQAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.BL.DomainModel.SpecialCases.MissingCustomer">
+    <Position X="6.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SpecialCases\MissingCustomer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.BL.DomainModel.SpecialCases.UnkownCustomer">
+    <Position X="6.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SpecialCases\UnkownCustomer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.BL.DomainModel.HelperObjects.DomainObject">
+    <Position X="2.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAACAAAAAAAgAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Base\DomainObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

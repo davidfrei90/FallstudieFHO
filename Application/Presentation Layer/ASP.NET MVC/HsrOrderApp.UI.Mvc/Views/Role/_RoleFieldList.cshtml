@@ -1,0 +1,15 @@
+﻿@model HsrOrderApp.UI.Mvc.Models.RoleViewModel
+@using HsrOrderApp.UI.Mvc.Resources
+
+<div class="form-group">
+    <div class="control-label col-md-2">@Strings.RoleDetailView_Role</div>
+    <div class="col-md-10">
+        @Html.DropDownListFor(
+            model => model.SelectedItem.Id,
+            new SelectList(Model.Roles, "Id", "RoleName"),
+            new { @class = "form-control" }
+        )
+        @Html.ValidationMessageFor(model => model.SelectedItem.RoleName, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.SelectedItem.RoleName, new { Value = "Dummy Value" })
+    </div>
+</div>

@@ -1,0 +1,12 @@
+﻿@model HsrOrderApp.UI.Mvc.Models.ProductListViewModel
+@using HsrOrderApp.UI.Mvc.Resources
+
+@{
+    ViewBag.Title = Strings.ProductDetailView_Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Strings.ProductView_Title</h2>
+<h4>@Strings.ProductView_Decription</h4>
+
+@Html.Partial("_ProductItemList", Model)

@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HsrOrderApp.UI.WPF.ViewModels.Customer.CustomerDetailViewModel" Collapsed="true">
+    <Position X="31" Y="16" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAQAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>ViewModels\Customer\CustomerDetailViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.UI.WPF.ViewModels.Customer.CustomerViewModel" Collapsed="true">
+    <Position X="24.75" Y="16" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQACAAAAAAAAAAAAEAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Customer\CustomerViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.UI.WPF.ViewModels.Base.ListViewModelBase&lt;TC&gt;">
+    <Position X="25.75" Y="8.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIggAAACAQCCAAAAAAAAAAAREAAAACAJCBABAAAAA=</HashCode>
+      <FileName>ViewModels\Base\ListViewModelBase.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Commands" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="HsrOrderApp.UI.WPF.ViewModels.Customer.AddressViewModel" Collapsed="true">
+    <Position X="24.75" Y="14.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQACAAAAAAAAAAAAEAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Customer\AddressViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.UI.WPF.ViewModels.Base.ViewModelBase">
+    <Position X="29.25" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAkAARACAgAUAQAEAAAAQBjACgQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Base\ViewModelBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HsrOrderApp.UI.WPF.ViewModels.Base.DetailViewModelBase&lt;T&gt;">
+    <Position X="32.25" Y="8.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAEACAAgAAAAAQAAAAAAAQAEgAAQAEIAA=</HashCode>
+      <FileName>ViewModels\Base\DetailViewModelBase.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SaveCommand" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="HsrOrderApp.UI.WPF.ViewModels.Order.OrderDetailViewModel" Collapsed="true">
+    <Position X="33.75" Y="16" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>CAEAgAAAABAAAQAAAAAAAAAQAAAAAFAAAAAAAAAAAgA=</HashCode>
+      <FileName>ViewModels\Order\OrderDetailViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.UI.WPF.ViewModels.Order.OrderViewModel" Collapsed="true">
+    <Position X="27.25" Y="13.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQACAAAAAAAAAAAAEAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Order\OrderViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.UI.WPF.ViewModels.Order.OrderItemDetailViewModel" Collapsed="true">
+    <Position X="33.75" Y="13.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>EAAAAQAAAAAAAAAAgAAAAAAAQAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>ViewModels\Order\OrderItemDetailViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.UI.WPF.ViewModels.Order.OrderItemViewModel" Collapsed="true">
+    <Position X="27.25" Y="16" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAQACAAAAAAAAAAAAEAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Order\OrderItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.UI.WPF.ViewModels.Product.ProductDetailViewModel" Collapsed="true">
+    <Position X="31" Y="13.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Product\ProductDetailViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.UI.WPF.ViewModels.Product.ProductViewModel" Collapsed="true">
+    <Position X="27.25" Y="14.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQACAAAAAAAAAAAAEAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Product\ProductViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.UI.WPF.ViewModels.Security.RoleDetailViewModel" Collapsed="true">
+    <Position X="31" Y="16.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Security\RoleDetailViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.UI.WPF.ViewModels.Security.UserDetailViewModel" Collapsed="true">
+    <Position X="31" Y="15.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAEAgAAAAAAAAQAAAAAAAAAQAAAAAEAAAAAAAAAAAgA=</HashCode>
+      <FileName>ViewModels\Security\UserDetailViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.UI.WPF.ViewModels.Security.RoleViewModel" Collapsed="true">
+    <Position X="27.25" Y="15.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAQACAAAAAAAAAAAAEAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Security\RoleViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.UI.WPF.ViewModels.Security.UserViewModel" Collapsed="true">
+    <Position X="24.75" Y="16.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQACAAAAAAAAAAAAEAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Security\UserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.UI.WPF.ViewModels.CommandViewModel">
+    <Position X="29.25" Y="8.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\CommandViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HsrOrderApp.UI.WPF.ViewModels.Address.AddressDetailViewModel" Collapsed="true">
+    <Position X="33.75" Y="15.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Address\AddressDetailViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

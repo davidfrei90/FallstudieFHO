@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="HsrOrderApp.UI.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BusinessLayerType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">HsrOrderApp.UI.ServiceLayerCreator</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,54 @@
+﻿@model HsrOrderApp.UI.Mvc.Models.OrderDetailViewModel
+@using HsrOrderApp.UI.Mvc.Resources
+
+<p>
+    @if (!Model.IsReadOnly)
+    {
+        <button name="redirectButton" value="/OrderDetail/Create" class="btn btn-default">@Strings.NewCommand</button>
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Strings.OrderDetailDetailView_Product
+        </th>
+        <th>
+            @Strings.OrderDetailDetailView_Quantity
+        </th>
+        <th>
+            @Strings.OrderDetailDetailView_Price
+        </th>
+        <th>
+            @Strings.OrderDetailDetailView_TotalPrice
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantityInUnits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPrice)
+            </td>
+            <td>
+                @if (!Model.IsReadOnly)
+                {
+                    <div>
+                        <button name="redirectButton" value="/OrderDetail/Edit/@item.Id" class="btn btn-default">@Strings.EditCommand</button>
+                        <button name="redirectButton" value="/OrderDetail/Details/@item.Id" class="btn btn-default">@Strings.DetailsCommand</button>
+                        <button name="redirectButton" value="/OrderDetail/Delete/@item.Id" class="btn btn-default">@Strings.DeleteCommand</button>
+                    </div>
+                }
+            </td>
+        </tr>
+    }
+</table>

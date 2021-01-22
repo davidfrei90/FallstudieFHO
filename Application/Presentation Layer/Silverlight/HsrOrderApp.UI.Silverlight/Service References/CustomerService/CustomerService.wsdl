@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://ch.hsr.HsrOrderApp" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ch.hsr.HsrOrderApp" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://ch.hsr.HsrOrderApp/Imports">
+      <xsd:import schemaLocation="http://localhost:64322/Services/CustomerService.svc?xsd=xsd0" namespace="http://ch.hsr.HsrOrderApp" />
+      <xsd:import schemaLocation="http://localhost:64322/Services/CustomerService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Faults" />
+      <xsd:import schemaLocation="http://localhost:64322/Services/CustomerService.svc?xsd=xsd9" namespace="http://www.microsoft.com/practices/EnterpriseLibrary/2007/01/wcf/validation" />
+      <xsd:import schemaLocation="http://localhost:64322/Services/CustomerService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:64322/Services/CustomerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses" />
+      <xsd:import schemaLocation="http://localhost:64322/Services/CustomerService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Requests_Responses.Base" />
+      <xsd:import schemaLocation="http://localhost:64322/Services/CustomerService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Base" />
+      <xsd:import schemaLocation="http://localhost:64322/Services/CustomerService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO" />
+      <xsd:import schemaLocation="http://localhost:64322/Services/CustomerService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.ChangeSet" />
+      <xsd:import schemaLocation="http://localhost:64322/Services/CustomerService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.SharedEnums" />
+      <xsd:import schemaLocation="http://localhost:64322/Services/CustomerService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICustomerService_GetOrderById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderById" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_GetOrderById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_GetOrderById_ServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Faults" name="detail" element="q1:ServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_GetOrderById_ValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://www.microsoft.com/practices/EnterpriseLibrary/2007/01/wcf/validation" name="detail" element="q2:ValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_GetOrdersByCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrdersByCriteria" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_GetOrdersByCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrdersByCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_GetOrdersByCriteria_ServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Faults" name="detail" element="q3:ServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_GetProductById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductById" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_GetProductById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_GetProductById_ServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Faults" name="detail" element="q4:ServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_GetProductByCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByCriteria" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_GetProductByCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_GetProductByCriteria_ServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Faults" name="detail" element="q5:ServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_StoreCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:StoreCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_StoreCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StoreCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_StoreCustomer_ServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Faults" name="detail" element="q6:ServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_GetCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_GetCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_GetCustomer_ServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/HsrOrderApp.SharedLibraries.DTO.Faults" name="detail" element="q7:ServiceFault" />
+  </wsdl:message>
+  <wsdl:portType name="ICustomerService">
+    <wsdl:operation name="GetOrderById">
+      <wsdl:input wsaw:Action="http://ch.hsr.HsrOrderApp/ICustomerService/GetOrderById" message="tns:ICustomerService_GetOrderById_InputMessage" />
+      <wsdl:output wsaw:Action="http://ch.hsr.HsrOrderApp/ICustomerService/GetOrderByIdResponse" message="tns:ICustomerService_GetOrderById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://ch.hsr.HsrOrderApp/ICustomerService/GetOrderByIdServiceFaultFault" name="ServiceFaultFault" message="tns:ICustomerService_GetOrderById_ServiceFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://ch.hsr.HsrOrderApp/ICustomerService/GetOrderByIdValidationFaultFault" name="ValidationFaultFault" message="tns:ICustomerService_GetOrderById_ValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrdersByCriteria">
+      <wsdl:input wsaw:Action="http://ch.hsr.HsrOrderApp/ICustomerService/GetOrdersByCriteria" message="tns:ICustomerService_GetOrdersByCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="http://ch.hsr.HsrOrderApp/ICustomerService/GetOrdersByCriteriaResponse" message="tns:ICustomerService_GetOrdersByCriteria_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://ch.hsr.HsrOrderApp/ICustomerService/GetOrdersByCriteriaServiceFaultFault" name="ServiceFaultFault" message="tns:ICustomerService_GetOrdersByCriteria_ServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductById">
+      <wsdl:input wsaw:Action="http://ch.hsr.HsrOrderApp/ICustomerService/GetProductById" message="tns:ICustomerService_GetProductById_InputMessage" />
+      <wsdl:output wsaw:Action="http://ch.hsr.HsrOrderApp/ICustomerService/GetProductByIdResponse" message="tns:ICustomerService_GetProductById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://ch.hsr.HsrOrderApp/ICustomerService/GetProductByIdServiceFaultFault" name="ServiceFaultFault" message="tns:ICustomerService_GetProductById_ServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByCriteria">
+      <wsdl:input wsaw:Action="http://ch.hsr.HsrOrderApp/ICustomerService/GetProductByCriteria" message="tns:ICustomerService_GetProductByCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="http://ch.hsr.HsrOrderApp/ICustomerService/GetProductByCriteriaResponse" message="tns:ICustomerService_GetProductByCriteria_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://ch.hsr.HsrOrderApp/ICustomerService/GetProductByCriteriaServiceFaultFault" name="ServiceFaultFault" message="tns:ICustomerService_GetProductByCriteria_ServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StoreCustomer">
+      <wsdl:input wsaw:Action="http://ch.hsr.HsrOrderApp/ICustomerService/StoreCustomer" message="tns:ICustomerService_StoreCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://ch.hsr.HsrOrderApp/ICustomerService/StoreCustomerResponse" message="tns:ICustomerService_StoreCustomer_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://ch.hsr.HsrOrderApp/ICustomerService/StoreCustomerServiceFaultFault" name="ServiceFaultFault" message="tns:ICustomerService_StoreCustomer_ServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <wsdl:input wsaw:Action="http://ch.hsr.HsrOrderApp/ICustomerService/GetCustomer" message="tns:ICustomerService_GetCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://ch.hsr.HsrOrderApp/ICustomerService/GetCustomerResponse" message="tns:ICustomerService_GetCustomer_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://ch.hsr.HsrOrderApp/ICustomerService/GetCustomerServiceFaultFault" name="ServiceFaultFault" message="tns:ICustomerService_GetCustomer_ServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

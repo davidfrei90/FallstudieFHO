@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D2B463B5-3B05-4447-9290-96C27991BC51}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HsrOrderApp.UI.Silverlight.Web</RootNamespace>
+    <AssemblyName>HsrOrderApp.UI.Silverlight.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightApplicationList>{ACBDDD9C-F190-4634-86FD-AA9C57617310}|..\HsrOrderApp.UI.Silverlight\UI.Silverlight.csproj|ClientBin|False</SilverlightApplicationList>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <SccProjectName>%24/HsrOrderApp/Main/src/HsrOrderApp/Application/Presentation Layer/Silverlight/HsrOrderApp.UI.Silverlight.Web</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>http://10.200.1.210:8080/tfs/defaultcollection</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Libraries\Enterprise Library 4.1\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Libraries\Enterprise Library 4.1\Microsoft.Practices.ObjectBuilder2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Libraries\Enterprise Library 4.1\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\HsrOrderApp.UI.Silverlight.xap" />
+    <Content Include="Services\AuthenticationService.svc" />
+    <Content Include="Services\CustomerService.svc" />
+    <Content Include="Silverlight.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Code\HsrOrderAppMembershipProvider.cs" />
+    <Compile Include="App_Code\HsrOrderAppRoleProvider.cs" />
+    <Compile Include="Assets\Resources\ApplicationStrings.Designer.cs">
+      <DependentUpon>ApplicationStrings.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Assets\Resources\SecurityQuestions.Designer.cs">
+      <DependentUpon>SecurityQuestions.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Business Layer\HsrOrderApp.BL.BusinessComponents\BL.BusinessComponents.csproj">
+      <Project>{82729EF6-F861-4A4E-AC67-172476735CBB}</Project>
+      <Name>BL.BusinessComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Business Layer\HsrOrderApp.BL.DomainModel\BL.DomainModel.csproj">
+      <Project>{04B91F08-9014-400B-B452-1BA98AC3977A}</Project>
+      <Name>BL.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Business Layer\HsrOrderApp.BL.Security\BL.Security.csproj">
+      <Project>{130653AD-DBE0-45EB-8CF5-F4988D62724A}</Project>
+      <Name>BL.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Data Access Layer\HsrOrderApp.DAL.Providers.EntityFramework\DAL.Providers.EntityFramework.csproj">
+      <Project>{E3FFEB7D-CC90-46F0-976A-3D8169AFC2A1}</Project>
+      <Name>DAL.Providers.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Data Access Layer\HsrOrderApp.DAL.Providers.LinqToSql\DAL.Providers.LinqToSql.csproj">
+      <Project>{B590B750-7E68-4C7D-A78C-9D7BD2CE733D}</Project>
+      <Name>DAL.Providers.LinqToSql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Service Layer\HsrOrderApp.SL.CustomerService\SL.CustomerService.csproj">
+      <Project>{EDB2EE56-3126-4E13-8679-0B8FF38F5201}</Project>
+      <Name>SL.CustomerService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Shared Libraries\HsrOrderApp.SharedLibraries.DTO\SharedLibraries.DTO.csproj">
+      <Project>{D209C395-0953-4F41-A206-0B9646B9E48B}</Project>
+      <Name>SharedLibraries.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Shared Libraries\HsrOrderApp.SharedLibraries.ServiceInterfaces\SharedLibraries.ServiceInterfaces.csproj">
+      <Project>{2B168632-B4DF-4339-8936-60429C52B556}</Project>
+      <Name>SharedLibraries.ServiceInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Shared Libraries\HsrOrderApp.SharedLibraries.SharedEnums\SharedLibraries.SharedEnums.csproj">
+      <Project>{12094D77-A745-4457-A125-B5C3EE366A39}</Project>
+      <Name>SharedLibraries.SharedEnums</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationBlocks.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI.SilverlightTestPage.aspx" />
+    <Content Include="UI.SilverlightTestPage.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Resources\ApplicationStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ApplicationStrings.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>BusinessApplication1.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Resources\SecurityQuestions.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SecurityQuestions.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>BusinessApplication1.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Styles.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Global.asax" />
+    <Content Include="Default.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Browsers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\..\Service Layer\HsrOrderApp.SL.ServiceHosting\Unity.config">
+      <Link>Unity.config</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>64322</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
