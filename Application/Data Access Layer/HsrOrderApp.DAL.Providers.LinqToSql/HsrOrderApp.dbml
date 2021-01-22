@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HsrOrderApp" Class="HsrOrderAppDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=LENOVO\SQLEXPRESS;Initial Catalog=HsrOrderApp;Integrated Security=True" SettingsObjectName="HsrOrderApp.DAL.Providers.LinqToSql.Properties.Settings" SettingsPropertyName="HsrOrderAppConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HsrOrderApp;Integrated Security=True" SettingsObjectName="HsrOrderApp.DAL.Providers.LinqToSql.Properties.Settings" SettingsPropertyName="HsrOrderAppConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Roles" Member="Roles">
     <Type Name="Role">
       <Column Name="RoleId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
