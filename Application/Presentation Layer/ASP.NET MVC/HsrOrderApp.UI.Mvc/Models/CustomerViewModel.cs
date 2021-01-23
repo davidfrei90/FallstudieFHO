@@ -40,6 +40,7 @@ namespace HsrOrderApp.UI.Mvc.Models
         {
             Mapper.CreateMap<CustomerDTO, CustomerDTO>().ForAllMembers(opt => opt.Ignore());
             Mapper.CreateMap<CustomerDTO, CustomerDTO>()
+                .ForMember(dest => dest.Salutation, map => map.MapFrom(src => src.Salutation))
                 .ForMember(dest => dest.FirstName, map => map.MapFrom(src => src.FirstName))
                 .ForMember(dest => dest.Name, map => map.MapFrom(src => src.Name));
 

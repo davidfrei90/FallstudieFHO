@@ -71,7 +71,8 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
                     dbCustomer.EntityKey = db.CreateEntityKey(setname, dbCustomer);
                     db.AttachTo(setname, dbCustomer);
                 }
-
+                //***Add Salutation
+                dbCustomer.Salutation = customer.Salutation;
                 dbCustomer.Name = customer.Name;
                 dbCustomer.FirstName = customer.FirstName;
                 if (isNew)

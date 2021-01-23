@@ -32,6 +32,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories.Adapters
             BL.DomainModel.Customer customer = new BL.DomainModel.Customer()
                                                    {
                                                        CustomerId = c.CustomerId,
+                                                       Salutation = c.Salutation,
                                                        Name = c.Name,
                                                        FirstName = c.FirstName,
                                                        Version = c.Version.ToUlong(),
