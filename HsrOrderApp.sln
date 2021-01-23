@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{F90D26BB-6EFA-47C3-9F40-9B3F57D064BF}"
 EndProject
@@ -99,6 +99,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ASP.NET MVC", "ASP.NET MVC", "{86307EDE-808F-4AC8-90FE-E7926C0EDFFB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Mvc", "Application\Presentation Layer\ASP.NET MVC\HsrOrderApp.UI.Mvc\UI.Mvc.csproj", "{4A2035D5-2FF5-4332-B3E7-36D93FB756C1}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DatabaseSchema", "DatabaseSchema\DatabaseSchema.sqlproj", "{73D78A7A-1EE3-4736-8460-A7A91094D405}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -210,6 +212,12 @@ Global
 		{4A2035D5-2FF5-4332-B3E7-36D93FB756C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A2035D5-2FF5-4332-B3E7-36D93FB756C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A2035D5-2FF5-4332-B3E7-36D93FB756C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73D78A7A-1EE3-4736-8460-A7A91094D405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73D78A7A-1EE3-4736-8460-A7A91094D405}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73D78A7A-1EE3-4736-8460-A7A91094D405}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{73D78A7A-1EE3-4736-8460-A7A91094D405}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73D78A7A-1EE3-4736-8460-A7A91094D405}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73D78A7A-1EE3-4736-8460-A7A91094D405}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -251,6 +259,10 @@ Global
 		{D2B463B5-3B05-4447-9290-96C27991BC51} = {121D45BF-1164-45D7-A1BA-8E7A7D66668B}
 		{86307EDE-808F-4AC8-90FE-E7926C0EDFFB} = {AB3F1583-6840-417E-A933-5D63BC52AC31}
 		{4A2035D5-2FF5-4332-B3E7-36D93FB756C1} = {86307EDE-808F-4AC8-90FE-E7926C0EDFFB}
+		{73D78A7A-1EE3-4736-8460-A7A91094D405} = {DAAB378A-80B3-4867-B2D9-B071537A4854}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A7B7E44A-6F1E-417E-99B6-F05F8B505421}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = HsrOrderApp.vsmdi

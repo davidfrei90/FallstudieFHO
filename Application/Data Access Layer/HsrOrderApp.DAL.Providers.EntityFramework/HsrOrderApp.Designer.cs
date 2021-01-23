@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -185,6 +186,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         private ObjectSet<User> _UserSet;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -244,11 +246,11 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entities
     
     /// <summary>
@@ -285,6 +287,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -483,6 +486,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         partial void OnVersionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -509,6 +513,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -539,6 +544,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -639,8 +645,33 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         private global::System.Byte[] _Version;
         partial void OnVersionChanging(global::System.Byte[] value);
         partial void OnVersionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Salutation
+        {
+            get
+            {
+                return _Salutation;
+            }
+            set
+            {
+                OnSalutationChanging(value);
+                ReportPropertyChanging("Salutation");
+                _Salutation = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Salutation");
+                OnSalutationChanged();
+            }
+        }
+        private global::System.String _Salutation;
+        partial void OnSalutationChanging(global::System.String value);
+        partial void OnSalutationChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -727,6 +758,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -755,6 +787,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -881,6 +914,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         partial void OnVersionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -945,6 +979,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -975,6 +1010,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1077,6 +1113,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         partial void OnVersionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1157,6 +1194,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1195,6 +1233,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1393,6 +1432,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         partial void OnVersionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1419,6 +1459,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1447,6 +1488,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1525,6 +1567,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         partial void OnVersionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1551,6 +1594,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1579,6 +1623,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1681,6 +1726,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         partial void OnVersionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1745,8 +1791,10 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
     }
 
     #endregion
+
     
 }
