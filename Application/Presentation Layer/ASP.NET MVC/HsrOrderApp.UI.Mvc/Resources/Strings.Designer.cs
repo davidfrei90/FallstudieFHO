@@ -19,7 +19,7 @@ namespace HsrOrderApp.UI.Mvc.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Strings {
@@ -291,6 +291,15 @@ namespace HsrOrderApp.UI.Mvc.Resources {
         public static string CustomerDetailView_Name {
             get {
                 return ResourceManager.GetString("CustomerDetailView_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Salutation.
+        /// </summary>
+        public static string CustomerDetailView_Salutation {
+            get {
+                return ResourceManager.GetString("CustomerDetailView_Salutation", resourceCulture);
             }
         }
         

@@ -14,6 +14,7 @@ namespace HsrOrderApp.BL.DomainModel
         public Customer()
         {
             this.CustomerId = default(int);
+            this.Salutation = string.Empty;
             this.Name = string.Empty;
             this.FirstName = string.Empty;
             this.Addresses = new List<Address>().AsQueryable();
@@ -30,6 +31,9 @@ namespace HsrOrderApp.BL.DomainModel
         [StringLengthValidator(1, 50)]
         public string FirstName { get; set; }
 
+        [StringLengthValidator(1, 15)]
+        public string Salutation { get; set; }
+
         public IQueryable<Address> Addresses { get; set; }
         public IQueryable<Order> Orders { get; set; }
 
@@ -41,7 +45,9 @@ namespace HsrOrderApp.BL.DomainModel
                 return string.Empty;
             if (this.FirstName == string.Empty)
                 return this.Name;
-            return this.Name + ", " + this.FirstName;
+            if (this.Salutation == string.Empty)
+                return this.Salutation;
+            return this.Salutation+", " + this.Name + ", " + this.FirstName;
         }
     }
 }

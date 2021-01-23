@@ -72,6 +72,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
                     db.AttachTo(setname, dbCustomer);
                 }
 
+                dbCustomer.Salutation = customer.Salutation;
                 dbCustomer.Name = customer.Name;
                 dbCustomer.FirstName = customer.FirstName;
                 if (isNew)

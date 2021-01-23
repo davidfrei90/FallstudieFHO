@@ -15,9 +15,11 @@ namespace HsrOrderApp.SharedLibraries.DTO
         private IList<AddressDTO> _addresses;
         private string _firstName;
         private string _name;
+        private string _salutation;
 
         public CustomerDTO()
         {
+            this.Salutation = string.Empty;
             this.Name = string.Empty;
             this.FirstName = string.Empty;
             this.Addresses = new List<AddressDTO>();
@@ -34,6 +36,21 @@ namespace HsrOrderApp.SharedLibraries.DTO
                 {
                     this._name = value;
                     OnPropertyChanged(() => Name);
+                }
+            }
+        }
+
+        [DataMember]
+        [StringLengthValidator(1, 50)]
+        public string Salutation
+        {
+            get { return _salutation; }
+            set
+            {
+                if (value != _salutation)
+                {
+                    this._salutation = value;
+                    OnPropertyChanged(() => Salutation);
                 }
             }
         }

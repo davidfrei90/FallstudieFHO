@@ -1,57 +1,58 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:vw="clr-namespace:HsrOrderApp.UI.WPF.Views"
-    xmlns:vm="clr-namespace:HsrOrderApp.UI.WPF.ViewModels"
+    xmlns:WPF="clr-namespace:HsrOrderApp.UI.WPF"
     xmlns:conv="clr-namespace:HsrOrderApp.UI.WPF.Converters"
-    xmlns:WPF="clr-namespace:HsrOrderApp.UI.WPF">
+    xmlns:vm="clr-namespace:HsrOrderApp.UI.WPF.ViewModels"
+    xmlns:vw="clr-namespace:HsrOrderApp.UI.WPF.Views">
     <DataTemplate DataType="{x:Type vm:MainWindowViewModel}">
-        <WPF:MainWindow  />
+        <WPF:MainWindow />
     </DataTemplate>
     <DataTemplate DataType="{x:Type vm:Customer.CustomerViewModel}">
-        <vw:CustomerView  />
+        <vw:CustomerView />
     </DataTemplate>
     <DataTemplate DataType="{x:Type vm:Order.OrderViewModel}">
-        <vw:OrderView  />
+        <vw:OrderView />
     </DataTemplate>
-    <DataTemplate  DataType="{x:Type vm:Product.ProductViewModel}">
-        <vw:ProductView  />
+    <DataTemplate DataType="{x:Type vm:Product.ProductViewModel}">
+        <vw:ProductView />
     </DataTemplate>
-    <DataTemplate  DataType="{x:Type vm:Security.UserViewModel}">
+    <DataTemplate DataType="{x:Type vm:Security.UserViewModel}">
         <vw:UserView />
     </DataTemplate>
-    
+
     <conv:DateTimeConverter x:Key="dateTimeConv" />
     <conv:DoubleConverter x:Key="doubleConv" />
     <conv:DecimalConverter x:Key="decimalConv" />
     <conv:CurrencyConverter x:Key="currencyConv" />
     <conv:OrderStatusConverter x:Key="orderStatusConv" />
     <conv:CreditRatingConverter x:Key="creditRatingConv" />
-    <conv:BooleanConverter x:Key="boolConv"/>
+    <conv:BooleanConverter x:Key="boolConv" />
 
     <Style TargetType="ListViewItem">
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     </Style>
-    <Style  TargetType="{x:Type Hyperlink}">
-        <Setter  Property="Foreground" Value="#621C55" />
-        <Setter  Property="TextBlock.TextDecorations" Value="{x:Null}" />
+    <Style TargetType="{x:Type Hyperlink}">
+        <Setter Property="Foreground" Value="#621C55" />
+        <Setter Property="TextBlock.TextDecorations" Value="{x:Null}" />
     </Style>
     <Style x:Key="ViewTitle">
-        <Setter  Property="Control.FontSize" Value="16" />
-        <Setter  Property="Control.Foreground" Value="#0033BC"/>
+        <Setter Property="Control.FontSize" Value="16" />
+        <Setter Property="Control.Foreground" Value="#0033BC" />
     </Style>
-    <Style  TargetType="{x:Type MenuItem}">
-        <Setter  Property="Header" Value="{Binding DisplayName}" />
-        <Setter  Property="Command" Value="{Binding Command}"/>
+    <Style TargetType="{x:Type MenuItem}">
+        <Setter Property="Header" Value="{Binding DisplayName}" />
+        <Setter Property="Command" Value="{Binding Command}" />
     </Style>
-    <Style  x:Key="MenuStyle" TargetType="ItemsControl">
-        <Setter  Property="Background">
+    <Style x:Key="MenuStyle" TargetType="ItemsControl">
+        <Setter Property="Background">
             <Setter.Value>
-                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                    <GradientStop  Color="#EAF4FF" Offset="0"/>
-                    <GradientStop  Color="#E4EEFB" Offset="0.2"/>
-                    <GradientStop  Color="#E7EEF9" Offset="0.5"/>
-                    <GradientStop  Color="#DEE8F5" Offset="0.7"/>
-                    <GradientStop  Color="#DCE6F4" Offset="1"/>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#EAF4FF" />
+                    <GradientStop Offset="0.2" Color="#E4EEFB" />
+                    <GradientStop Offset="0.5" Color="#E7EEF9" />
+                    <GradientStop Offset="0.7" Color="#DEE8F5" />
+                    <GradientStop Offset="1" Color="#DCE6F4" />
                 </LinearGradientBrush>
             </Setter.Value>
         </Setter>

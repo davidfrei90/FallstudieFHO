@@ -2,6 +2,14 @@
 @using HsrOrderApp.UI.Mvc.Resources
 
 <div class="form-group">
+    <div class="control-label col-md-2">@Strings.CustomerDetailView_Salutation</div>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Model.Salutation, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Model.Salutation, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
     <div class="control-label col-md-2">@Strings.CustomerDetailView_Name</div>
     <div class="col-md-10">
         @Html.EditorFor(model => model.Model.Name, new { htmlAttributes = new { @class = "form-control" } })

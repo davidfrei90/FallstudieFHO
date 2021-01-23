@@ -168,6 +168,9 @@
   <data name="CustomerDetailView_Name" xml:space="preserve">
     <value>Nachname</value>
   </data>
+  <data name="CustomerDetailView_Salutation" xml:space="preserve">
+    <value>Salutation</value>
+  </data>
   <data name="CustomerDetailView_Subtitle" xml:space="preserve">
     <value>Adressen</value>
   </data>

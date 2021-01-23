@@ -533,10 +533,11 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         /// <param name="name">Initial value of the Name property.</param>
         /// <param name="firstName">Initial value of the FirstName property.</param>
         /// <param name="version">Initial value of the Version property.</param>
-        public static Customer CreateCustomer(global::System.Int32 customerId, global::System.String name, global::System.String firstName, global::System.Byte[] version)
+        public static Customer CreateCustomer(global::System.Int32 customerId, global::System.String name, global::System.String salutation, global::System.String firstName, global::System.Byte[] version)
         {
             Customer customer = new Customer();
             customer.CustomerId = customerId;
+            customer.Salutation = salutation;
             customer.Name = name;
             customer.FirstName = firstName;
             customer.Version = version;
@@ -618,6 +619,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
                 OnFirstNameChanged();
             }
         }
+
         private global::System.String _FirstName;
         partial void OnFirstNameChanging(global::System.String value);
         partial void OnFirstNameChanged();
