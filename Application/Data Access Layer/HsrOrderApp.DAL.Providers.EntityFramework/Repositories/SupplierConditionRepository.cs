@@ -30,21 +30,21 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
 
         public IQueryable<HsrOrderApp.BL.DomainModel.SupplierCondition> GetAll()
         {
-            var SupplierCondition = from c in this.db.SupplierConditionSet.AsEnumerable()
+            var SupplierConditions = from c in this.db.SupplierConditionSet.AsEnumerable()
                            select SupplierConditionAdapter.AdaptSupplierCondition(c);
 
-            return SupplierCondition.AsQueryable();
+            return SupplierConditions.AsQueryable();
         }
 
         public HsrOrderApp.BL.DomainModel.SupplierCondition GetById(int id)
         {
             try
             {
-                var supplierCondition = from c in this.db.SupplierConditionSet.AsEnumerable()
+                var supplierConditions = from c in this.db.SupplierConditionSet.AsEnumerable()
                                where c.SupplierConditionId == id
                                select SupplierConditionAdapter.AdaptSupplierCondition(c);
 
-                return supplierCondition.First();
+                return supplierConditions.First();
             }
             catch (ArgumentNullException ex)
             {
@@ -68,17 +68,20 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
                 }
                 else
                 {
-                    dbSupplierCondition = new SupplierCondition() { SupplierConditionId = supplierCondition.SupplierConditionId, Version = supplierCondition.Version.ToTimestamp()};
-                    dbSupplierCondition.EntityKey = db.CreateEntityKey(setname, dbSupplierConditiont);
+                    dbSupplierCondition = new SupplierCondition() { SupplierConditionId = supplierCondition.SupplierConditionId, Version = supplierCondition.Version.ToTimestamp() };
+                    dbSupplierCondition.EntityKey = db.CreateEntityKey(setname, dbSupplierCondition);
                     db.AttachTo(setname, dbSupplierCondition);
                 }
-                dbSupplierCondition.ProductId = supplierCondition.ProductId;
-                dbSupplierCondition.SupplierId = supplierCondition.SupplierId;
-                dbSupplierCondition.StandardPrice = supplierCondition.StandardPrice;
-                dbSupplierCondition.LastReceiptCost = supplierCondition.LastReceiptCost;
-                dbSupplierCondition.LastReceiptDate = supplierCondition.LastReceiptDate;
-                dbSupplierCondition.MinOrderQty = supplierCondition.MinOrderQty;
-                dbSupplierCondition.MaxOrderQty = supplierCondition.MaxOrderQty;
+                dbSupplierCondition.ProductId = SupplierCondition.ProductId;
+                dbSupplierCondition.SupplierId = SupplierCondition.SupplierId;
+                dbSupplierCondition.StandardPrice = SupplierCondition.StandardPrice;
+                dbSupplierCondition.LastReceiptCost = SupplierCondition.LastReceiptCost;
+                dbSupplierCondition.LastReceiptDate = SupplierCondition.LastReceiptDate;
+                dbSupplierCondition.MinOrderQty = SupplierCondition.MinOrderQty;
+                dbSupplierCondition.MaxOrderQty = SupplierCondition.MaxOrderQty;
+
+
+
                 if (isNew)
                 {
                     db.AddToSupplierConditionSet(dbSupplierCondition);
