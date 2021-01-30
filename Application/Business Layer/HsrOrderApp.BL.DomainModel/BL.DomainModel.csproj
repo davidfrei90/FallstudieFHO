@@ -85,9 +85,11 @@
     <Compile Include="Base\IValidateObject.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderDetail.cs" />
+    <Compile Include="SupplierCondition.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs" />
+    <Compile Include="SpecialCases\MissingSupplierCondition.cs" />
     <Compile Include="SpecialCases\MissingRole.cs" />
     <Compile Include="SpecialCases\MissingCustomer.cs" />
     <Compile Include="SpecialCases\MissingOrder.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="SpecialCases\MissingUser.cs" />
     <Compile Include="SpecialCases\UnknownOrder.cs" />
     <Compile Include="SpecialCases\UnkownCustomer.cs" />
+    <Compile Include="SpecialCases\UnkownSupplierCondition.cs" />
     <Compile Include="SpecialCases\UnkownProduct.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>

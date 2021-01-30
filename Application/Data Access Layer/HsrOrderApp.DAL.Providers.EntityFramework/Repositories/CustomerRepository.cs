@@ -3,6 +3,7 @@
 using System;
 using System.Data;
 using System.Linq;
+using HsrOrderApp.BL.DomainModel;
 using HsrOrderApp.BL.DomainModel.SpecialCases;
 using HsrOrderApp.DAL.Data.Repositories;
 using HsrOrderApp.DAL.Providers.EntityFramework.Repositories.Adapters;
@@ -57,7 +58,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
             try
             {
                 string setname = "CustomerSet";
-                Customer dbCustomer;
+                BL.DomainModel.Customer dbCustomer;
 
                 bool isNew = false;
                 if (customer.CustomerId == default(int) || customer.CustomerId <= 0)

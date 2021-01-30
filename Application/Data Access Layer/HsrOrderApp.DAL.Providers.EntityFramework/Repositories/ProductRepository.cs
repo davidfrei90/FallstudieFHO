@@ -3,6 +3,7 @@
 using System;
 using System.Data;
 using System.Linq;
+using HsrOrderApp.BL.DomainModel;
 using HsrOrderApp.BL.DomainModel.SpecialCases;
 using HsrOrderApp.DAL.Data.Repositories;
 using HsrOrderApp.DAL.Providers.EntityFramework.Repositories.Adapters;
