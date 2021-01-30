@@ -92,12 +92,14 @@
     <Compile Include="Repositories\Adapters\AddressAdapter.cs" />
     <Compile Include="Repositories\Adapters\CustomerAdapter.cs" />
     <Compile Include="Repositories\Adapters\OrderAdapter.cs" />
+    <Compile Include="Repositories\Adapters\SupplierConditionsAdapter.cs" />
     <Compile Include="Repositories\Adapters\ProductAdapter.cs" />
     <Compile Include="Repositories\Adapters\SecurityAdapter.cs" />
     <Compile Include="Repositories\AddressRepository.cs" />
     <Compile Include="Repositories\CustomerRepository.cs" />
     <Compile Include="Repositories\Extension Methods\EntityExtension.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\SupplierConditionsRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\SecurityRepository.cs" />
