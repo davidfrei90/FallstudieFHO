@@ -101,6 +101,7 @@
     <Compile Include="OrderDetailDTO.cs" />
     <Compile Include="OrderDTO.cs" />
     <Compile Include="OrderListDTO.cs" />
+    <Compile Include="SupplierConditionDTO.cs" />
     <Compile Include="Requests_Responses\GetEstimatedDeliveryTimeResponse.cs" />
     <Compile Include="Requests_Responses\GetEstimatedDeliveryTimeRequest.cs" />
     <Compile Include="Requests_Responses\GetCustomerRequest.cs" />
