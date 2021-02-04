@@ -19,7 +19,7 @@ namespace HsrOrderApp.BL.DomainModel
             this.SupplierId = default(int);
             this.StandardPrice = default(decimal);
             this.LastReceiptCost = default(decimal);
-            this.LastReceiptDate = default(SqlDateTime);
+            this.LastReceiptDate = default(DateTime);
             this.MinOrderQty = default(int);
             this.MaxOrderQty = default(int);
         }
@@ -34,7 +34,7 @@ namespace HsrOrderApp.BL.DomainModel
         [RangeValidator(typeof(decimal), "0.0", RangeBoundaryType.Inclusive, "0.0", RangeBoundaryType.Ignore)]
         public decimal LastReceiptCost { get; set; }
 
-        public SqlDateTime LastReceiptDate { get; set; }
+        public DateTime LastReceiptDate { get; set; }
 
         public int MinOrderQty { get; set; }
 

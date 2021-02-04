@@ -27,6 +27,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("HsrOrderAppModel", "UserInRoles", "Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HsrOrderApp.DAL.Providers.EntityFramework.Role), "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HsrOrderApp.DAL.Providers.EntityFramework.User))]
 [assembly: EdmRelationshipAttribute("HsrOrderAppModel", "FK_SupplierConditions_Products", "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(HsrOrderApp.DAL.Providers.EntityFramework.Product), "SupplierConditions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HsrOrderApp.DAL.Providers.EntityFramework.SupplierConditions), true)]
 [assembly: EdmRelationshipAttribute("HsrOrderAppModel", "FK_SupplierConditions_Suppliers1", "Suppliers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(HsrOrderApp.DAL.Providers.EntityFramework.Suppliers), "SupplierConditions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HsrOrderApp.DAL.Providers.EntityFramework.SupplierConditions), true)]
+[assembly: EdmRelationshipAttribute("HsrOrderAppModel", "SupplierAddress", "Address", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HsrOrderApp.DAL.Providers.EntityFramework.Address), "Suppliers", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HsrOrderApp.DAL.Providers.EntityFramework.Suppliers))]
 
 #endregion
 
@@ -558,6 +559,28 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Customer>("HsrOrderAppModel.CustomerAddresses", "Customers", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HsrOrderAppModel", "SupplierAddress", "Suppliers")]
+        public EntityCollection<Suppliers> Suppliers
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Suppliers>("HsrOrderAppModel.SupplierAddress", "Suppliers");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Suppliers>("HsrOrderAppModel.SupplierAddress", "Suppliers", value);
                 }
             }
         }
@@ -1683,10 +1706,20 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         /// Create a new SupplierConditions object.
         /// </summary>
         /// <param name="supplierConditionId">Initial value of the SupplierConditionId property.</param>
-        public static SupplierConditions CreateSupplierConditions(global::System.Int32 supplierConditionId)
+        /// <param name="standardPrice">Initial value of the StandardPrice property.</param>
+        /// <param name="lastReceiptCost">Initial value of the LastReceiptCost property.</param>
+        /// <param name="minOrderQty">Initial value of the MinOrderQty property.</param>
+        /// <param name="maxOrderQty">Initial value of the MaxOrderQty property.</param>
+        /// <param name="version">Initial value of the Version property.</param>
+        public static SupplierConditions CreateSupplierConditions(global::System.Int32 supplierConditionId, global::System.Decimal standardPrice, global::System.Decimal lastReceiptCost, global::System.Int32 minOrderQty, global::System.Int32 maxOrderQty, global::System.Byte[] version)
         {
             SupplierConditions supplierConditions = new SupplierConditions();
             supplierConditions.SupplierConditionId = supplierConditionId;
+            supplierConditions.StandardPrice = standardPrice;
+            supplierConditions.LastReceiptCost = lastReceiptCost;
+            supplierConditions.MinOrderQty = minOrderQty;
+            supplierConditions.MaxOrderQty = maxOrderQty;
+            supplierConditions.Version = version;
             return supplierConditions;
         }
 
@@ -1724,9 +1757,9 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> StandardPrice
+        public global::System.Decimal StandardPrice
         {
             get
             {
@@ -1741,16 +1774,16 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
                 OnStandardPriceChanged();
             }
         }
-        private Nullable<global::System.Decimal> _StandardPrice;
-        partial void OnStandardPriceChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _StandardPrice;
+        partial void OnStandardPriceChanging(global::System.Decimal value);
         partial void OnStandardPriceChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> LastReceiptCost
+        public global::System.Decimal LastReceiptCost
         {
             get
             {
@@ -1765,16 +1798,16 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
                 OnLastReceiptCostChanged();
             }
         }
-        private Nullable<global::System.Decimal> _LastReceiptCost;
-        partial void OnLastReceiptCostChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _LastReceiptCost;
+        partial void OnLastReceiptCostChanging(global::System.Decimal value);
         partial void OnLastReceiptCostChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> MinOrderQty
+        public global::System.Int32 MinOrderQty
         {
             get
             {
@@ -1789,16 +1822,16 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
                 OnMinOrderQtyChanged();
             }
         }
-        private Nullable<global::System.Int32> _MinOrderQty;
-        partial void OnMinOrderQtyChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _MinOrderQty;
+        partial void OnMinOrderQtyChanging(global::System.Int32 value);
         partial void OnMinOrderQtyChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> MaxOrderQty
+        public global::System.Int32 MaxOrderQty
         {
             get
             {
@@ -1813,14 +1846,14 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
                 OnMaxOrderQtyChanged();
             }
         }
-        private Nullable<global::System.Int32> _MaxOrderQty;
-        partial void OnMaxOrderQtyChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _MaxOrderQty;
+        partial void OnMaxOrderQtyChanging(global::System.Int32 value);
         partial void OnMaxOrderQtyChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Byte[] Version
         {
@@ -2012,10 +2045,24 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         /// Create a new Suppliers object.
         /// </summary>
         /// <param name="supplierId">Initial value of the SupplierId property.</param>
-        public static Suppliers CreateSuppliers(global::System.Int32 supplierId)
+        /// <param name="accpountNumber">Initial value of the AccpountNumber property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="creditRating">Initial value of the CreditRating property.</param>
+        /// <param name="preferredSupplierFlag">Initial value of the PreferredSupplierFlag property.</param>
+        /// <param name="activeFlag">Initial value of the ActiveFlag property.</param>
+        /// <param name="purchasingWebServiceURL">Initial value of the PurchasingWebServiceURL property.</param>
+        /// <param name="version">Initial value of the Version property.</param>
+        public static Suppliers CreateSuppliers(global::System.Int32 supplierId, global::System.Int32 accpountNumber, global::System.String name, global::System.Int32 creditRating, global::System.Boolean preferredSupplierFlag, global::System.Boolean activeFlag, global::System.String purchasingWebServiceURL, global::System.Byte[] version)
         {
             Suppliers suppliers = new Suppliers();
             suppliers.SupplierId = supplierId;
+            suppliers.AccpountNumber = accpountNumber;
+            suppliers.Name = name;
+            suppliers.CreditRating = creditRating;
+            suppliers.PreferredSupplierFlag = preferredSupplierFlag;
+            suppliers.ActiveFlag = activeFlag;
+            suppliers.PurchasingWebServiceURL = purchasingWebServiceURL;
+            suppliers.Version = version;
             return suppliers;
         }
 
@@ -2053,9 +2100,9 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> AccpountNumber
+        public global::System.Int32 AccpountNumber
         {
             get
             {
@@ -2070,14 +2117,14 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
                 OnAccpountNumberChanged();
             }
         }
-        private Nullable<global::System.Int32> _AccpountNumber;
-        partial void OnAccpountNumberChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _AccpountNumber;
+        partial void OnAccpountNumberChanging(global::System.Int32 value);
         partial void OnAccpountNumberChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -2089,7 +2136,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
             {
                 OnNameChanging(value);
                 ReportPropertyChanging("Name");
-                _Name = StructuralObject.SetValidValue(value, true);
+                _Name = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Name");
                 OnNameChanged();
             }
@@ -2101,9 +2148,9 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> CreditRating
+        public global::System.Int32 CreditRating
         {
             get
             {
@@ -2118,16 +2165,16 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
                 OnCreditRatingChanged();
             }
         }
-        private Nullable<global::System.Int32> _CreditRating;
-        partial void OnCreditRatingChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _CreditRating;
+        partial void OnCreditRatingChanging(global::System.Int32 value);
         partial void OnCreditRatingChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> PreferredSupplierFlag
+        public global::System.Boolean PreferredSupplierFlag
         {
             get
             {
@@ -2142,16 +2189,16 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
                 OnPreferredSupplierFlagChanged();
             }
         }
-        private Nullable<global::System.Boolean> _PreferredSupplierFlag;
-        partial void OnPreferredSupplierFlagChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _PreferredSupplierFlag;
+        partial void OnPreferredSupplierFlagChanging(global::System.Boolean value);
         partial void OnPreferredSupplierFlagChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> ActiveFlag
+        public global::System.Boolean ActiveFlag
         {
             get
             {
@@ -2166,14 +2213,14 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
                 OnActiveFlagChanged();
             }
         }
-        private Nullable<global::System.Boolean> _ActiveFlag;
-        partial void OnActiveFlagChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _ActiveFlag;
+        partial void OnActiveFlagChanging(global::System.Boolean value);
         partial void OnActiveFlagChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String PurchasingWebServiceURL
         {
@@ -2185,7 +2232,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
             {
                 OnPurchasingWebServiceURLChanging(value);
                 ReportPropertyChanging("PurchasingWebServiceURL");
-                _PurchasingWebServiceURL = StructuralObject.SetValidValue(value, true);
+                _PurchasingWebServiceURL = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("PurchasingWebServiceURL");
                 OnPurchasingWebServiceURLChanged();
             }
@@ -2197,7 +2244,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Byte[] Version
         {
@@ -2241,6 +2288,28 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SupplierConditions>("HsrOrderAppModel.FK_SupplierConditions_Suppliers1", "SupplierConditions", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HsrOrderAppModel", "SupplierAddress", "Address")]
+        public EntityCollection<Address> Addresses
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Address>("HsrOrderAppModel.SupplierAddress", "Address");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Address>("HsrOrderAppModel.SupplierAddress", "Address", value);
                 }
             }
         }
