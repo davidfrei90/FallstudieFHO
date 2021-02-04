@@ -79,6 +79,41 @@
           <Property Name="RoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
+        <EntityType Name="SupplierAddress">
+          <Key>
+            <PropertyRef Name="SupplierId" />
+            <PropertyRef Name="AddressId" />
+          </Key>
+          <Property Name="SupplierId" Type="int" Nullable="false" />
+          <Property Name="AddressId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SupplierConditions">
+          <Key>
+            <PropertyRef Name="SupplierConditionId" />
+          </Key>
+          <Property Name="SupplierConditionId" Type="int" Nullable="false" />
+          <Property Name="StandardPrice" Type="money" Nullable="false" />
+          <Property Name="LastReceiptCost" Type="money" Nullable="false" />
+          <Property Name="LastReceiptDate" Type="datetime" />
+          <Property Name="MinOrderQty" Type="int" Nullable="false" />
+          <Property Name="MaxOrderQty" Type="int" Nullable="false" />
+          <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="SupplierId" Type="int" />
+        </EntityType>
+        <EntityType Name="Suppliers">
+          <Key>
+            <PropertyRef Name="SupplierId" />
+          </Key>
+          <Property Name="SupplierId" Type="int" Nullable="false" />
+          <Property Name="AccountNumber" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreditRating" Type="int" Nullable="false" />
+          <Property Name="PreferredSupplierFlag" Type="bit" Nullable="false" />
+          <Property Name="ActiveFlag" Type="bit" Nullable="false" />
+          <Property Name="PurchasingWebServiceURL" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
         <EntityType Name="UserInRoles">
           <Key>
             <PropertyRef Name="UserId" />
@@ -165,6 +200,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_SupplierAddress_Addresses">
+          <End Role="Addresses" Type="Self.Addresses" Multiplicity="1" />
+          <End Role="SupplierAddress" Type="Self.SupplierAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Addresses">
+              <PropertyRef Name="AddressId" />
+            </Principal>
+            <Dependent Role="SupplierAddress">
+              <PropertyRef Name="AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupplierAddress_Suppliers">
+          <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1" />
+          <End Role="SupplierAddress" Type="Self.SupplierAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="SupplierAddress">
+              <PropertyRef Name="SupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupplierConditions_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="SupplierConditions" Type="Self.SupplierConditions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="SupplierConditions">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupplierConditions_Suppliers">
+          <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="0..1" />
+          <End Role="SupplierConditions" Type="Self.SupplierConditions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="SupplierConditions">
+              <PropertyRef Name="SupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_UserInRoles_Roles">
           <End Role="Roles" Type="Self.Roles" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -215,6 +298,9 @@
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupplierAddress" EntityType="Self.SupplierAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupplierConditions" EntityType="Self.SupplierConditions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInRoles" EntityType="Self.UserInRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CustomerAddress_Addresses" Association="Self.FK_CustomerAddress_Addresses">
@@ -236,6 +322,22 @@
           <AssociationSet Name="FK_Orders_Customers" Association="Self.FK_Orders_Customers">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplierAddress_Addresses" Association="Self.FK_SupplierAddress_Addresses">
+            <End Role="Addresses" EntitySet="Addresses" />
+            <End Role="SupplierAddress" EntitySet="SupplierAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplierAddress_Suppliers" Association="Self.FK_SupplierAddress_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="SupplierAddress" EntitySet="SupplierAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplierConditions_Products" Association="Self.FK_SupplierConditions_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="SupplierConditions" EntitySet="SupplierConditions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplierConditions_Suppliers" Association="Self.FK_SupplierConditions_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="SupplierConditions" EntitySet="SupplierConditions" />
           </AssociationSet>
           <AssociationSet Name="FK_UserInRoles_Roles" Association="Self.FK_UserInRoles_Roles">
             <End Role="Roles" EntitySet="Roles" />
@@ -286,6 +388,20 @@
             <End Role="Roles" EntitySet="RoleSet" />
             <End Role="Users" EntitySet="UserSet" />
           </AssociationSet>
+          <EntitySet Name="SupplierConditions" EntityType="HsrOrderAppModel.SupplierConditions" />
+          <EntitySet Name="Suppliers" EntityType="HsrOrderAppModel.Suppliers" />
+          <AssociationSet Name="FK_SupplierConditions_Products" Association="HsrOrderAppModel.FK_SupplierConditions_Products">
+            <End Role="Product" EntitySet="ProductSet" />
+            <End Role="SupplierConditions" EntitySet="SupplierConditions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplierConditions_Suppliers" Association="HsrOrderAppModel.FK_SupplierConditions_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="SupplierConditions" EntitySet="SupplierConditions" />
+          </AssociationSet>
+          <AssociationSet Name="SupplierAddress" Association="HsrOrderAppModel.SupplierAddress">
+            <End Role="Address" EntitySet="AddressSet" />
+            <End Role="Suppliers" EntitySet="Suppliers" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Address">
           <Key>
@@ -300,6 +416,7 @@
           <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Version" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" />
           <NavigationProperty Name="Customer" Relationship="HsrOrderAppModel.CustomerAddresses" FromRole="Addresses" ToRole="Customers" />
+          <NavigationProperty Name="Suppliers" Relationship="HsrOrderAppModel.SupplierAddress" FromRole="Address" ToRole="Suppliers" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -350,6 +467,7 @@
           <Property Name="UnitsOnStock" Type="Int32" Nullable="false" />
           <Property Name="Version" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" />
           <NavigationProperty Name="OrderDetails" Relationship="HsrOrderAppModel.FK_OrderDetails_Products" FromRole="Products" ToRole="OrderDetails" />
+          <NavigationProperty Name="SupplierConditions" Relationship="HsrOrderAppModel.FK_SupplierConditions_Products" FromRole="Product" ToRole="SupplierConditions" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -400,6 +518,65 @@
         <Association Name="UserInRoles">
           <End Role="Roles" Type="HsrOrderAppModel.Role" Multiplicity="*" />
           <End Role="Users" Type="HsrOrderAppModel.User" Multiplicity="*" />
+        </Association>
+        <EntityType Name="SupplierConditions">
+          <Key>
+            <PropertyRef Name="SupplierConditionId" />
+          </Key>
+          <Property Name="SupplierConditionId" Type="Int32" Nullable="false" />
+          <Property Name="StandardPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="LastReceiptCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="LastReceiptDate" Type="DateTime" Precision="3" />
+          <Property Name="MinOrderQty" Type="Int32" Nullable="false" />
+          <Property Name="MaxOrderQty" Type="Int32" Nullable="false" />
+          <Property Name="Version" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="SupplierId" Type="Int32" />
+          <NavigationProperty Name="Products" Relationship="HsrOrderAppModel.FK_SupplierConditions_Products" FromRole="SupplierConditions" ToRole="Product" />
+          <NavigationProperty Name="Suppliers" Relationship="HsrOrderAppModel.FK_SupplierConditions_Suppliers" FromRole="SupplierConditions" ToRole="Suppliers" />
+        </EntityType>
+        <EntityType Name="Suppliers">
+          <Key>
+            <PropertyRef Name="SupplierId" />
+          </Key>
+          <Property Name="SupplierId" Type="Int32" Nullable="false" />
+          <Property Name="AccountNumber" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreditRating" Type="Int32" Nullable="false" />
+          <Property Name="PreferredSupplierFlag" Type="Boolean" Nullable="false" />
+          <Property Name="ActiveFlag" Type="Boolean" Nullable="false" />
+          <Property Name="PurchasingWebServiceURL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Version" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <NavigationProperty Name="SupplierConditions" Relationship="HsrOrderAppModel.FK_SupplierConditions_Suppliers" FromRole="Suppliers" ToRole="SupplierConditions" />
+          <NavigationProperty Name="Addresses" Relationship="HsrOrderAppModel.SupplierAddress" FromRole="Suppliers" ToRole="Address" />
+        </EntityType>
+        <Association Name="FK_SupplierConditions_Products">
+          <End Type="HsrOrderAppModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="HsrOrderAppModel.SupplierConditions" Role="SupplierConditions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="SupplierConditions">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupplierConditions_Suppliers">
+          <End Type="HsrOrderAppModel.Suppliers" Role="Suppliers" Multiplicity="0..1" />
+          <End Type="HsrOrderAppModel.SupplierConditions" Role="SupplierConditions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="SupplierId" />
+            </Principal>
+            <Dependent Role="SupplierConditions">
+              <PropertyRef Name="SupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SupplierAddress">
+          <End Type="HsrOrderAppModel.Address" Role="Address" Multiplicity="*" />
+          <End Type="HsrOrderAppModel.Suppliers" Role="Suppliers" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -534,6 +711,43 @@
               <ScalarProperty Name="UserId" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="SupplierConditions">
+            <EntityTypeMapping TypeName="HsrOrderAppModel.SupplierConditions">
+              <MappingFragment StoreEntitySet="SupplierConditions">
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="MaxOrderQty" ColumnName="MaxOrderQty" />
+                <ScalarProperty Name="MinOrderQty" ColumnName="MinOrderQty" />
+                <ScalarProperty Name="LastReceiptDate" ColumnName="LastReceiptDate" />
+                <ScalarProperty Name="LastReceiptCost" ColumnName="LastReceiptCost" />
+                <ScalarProperty Name="StandardPrice" ColumnName="StandardPrice" />
+                <ScalarProperty Name="SupplierConditionId" ColumnName="SupplierConditionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="HsrOrderAppModel.Suppliers">
+              <MappingFragment StoreEntitySet="Suppliers">
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="PurchasingWebServiceURL" ColumnName="PurchasingWebServiceURL" />
+                <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+                <ScalarProperty Name="PreferredSupplierFlag" ColumnName="PreferredSupplierFlag" />
+                <ScalarProperty Name="CreditRating" ColumnName="CreditRating" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="SupplierAddress" TypeName="HsrOrderAppModel.SupplierAddress" StoreEntitySet="SupplierAddress">
+            <EndProperty Name="Suppliers">
+              <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+            </EndProperty>
+            <EndProperty Name="Address">
+              <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -555,12 +769,12 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram Name="HsrOrderApp" xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
-        <EntityTypeShape EntityType="HsrOrderAppModel.Address" Width="1.5" PointX="0.75" PointY="5" Height="2.9417936197916656" IsExpanded="true" />
-        <EntityTypeShape EntityType="HsrOrderAppModel.Customer" Width="1.5" PointX="3" PointY="3.5" Height="2.3648893229166674" IsExpanded="true" />
+      <Diagram Name="HsrOrderApp" xmlns="http://schemas.microsoft.com/ado/2008/10/edmx" ZoomLevel="49">
+        <EntityTypeShape EntityType="HsrOrderAppModel.Address" Width="1.5" PointX="0.625" PointY="6.125" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="HsrOrderAppModel.Customer" Width="1.5" PointX="3" PointY="4" Height="2.3648893229166674" IsExpanded="true" />
         <EntityTypeShape EntityType="HsrOrderAppModel.OrderDetail" Width="1.5" PointX="7.5" PointY="6.5" Height="2.1725878906249987" IsExpanded="true" />
         <EntityTypeShape EntityType="HsrOrderAppModel.Order" Width="1.5" PointX="5.25" PointY="6.375" Height="2.3648893229166656" IsExpanded="true" />
-        <EntityTypeShape EntityType="HsrOrderAppModel.Product" Width="1.5" PointX="5.25" PointY="14.125" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="HsrOrderAppModel.Product" Width="1.5" PointX="9.5" PointY="6.5" Height="2.9417936197916656" IsExpanded="true" />
         <EntityTypeShape EntityType="HsrOrderAppModel.Role" Width="1.5" PointX="3" PointY="0.75" Height="1.787985026041667" IsExpanded="true" />
         <EntityTypeShape EntityType="HsrOrderAppModel.User" Width="1.5" PointX="5.25" PointY="2.5" Height="2.172587890625" IsExpanded="true" />
         <AssociationConnector Association="HsrOrderAppModel.FK_Orders_Customers" ManuallyRouted="false">
@@ -584,6 +798,11 @@
         <AssociationConnector Association="HsrOrderAppModel.UserInRoles" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="1.6249995" />
           <ConnectorPoint PointX="6" PointY="1.6249995" />
-          <ConnectorPoint PointX="6" PointY="2.5" /></AssociationConnector></Diagram></edmx:Diagrams>
+          <ConnectorPoint PointX="6" PointY="2.5" /></AssociationConnector>
+        <EntityTypeShape EntityType="HsrOrderAppModel.SupplierConditions" Width="5" PointX="12.375" PointY="8" />
+        <EntityTypeShape EntityType="HsrOrderAppModel.Suppliers" Width="5" PointX="5.125" PointY="9.875" />
+        <AssociationConnector Association="HsrOrderAppModel.FK_SupplierConditions_Products" />
+        <AssociationConnector Association="HsrOrderAppModel.FK_SupplierConditions_Suppliers" />
+        <AssociationConnector Association="HsrOrderAppModel.SupplierAddress" /></Diagram></edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

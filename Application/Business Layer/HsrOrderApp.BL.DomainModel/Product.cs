@@ -1,5 +1,7 @@
 ﻿#region
 
+using System.Collections.Generic;
+using System.Linq;
 using HsrOrderApp.BL.DomainModel.HelperObjects;
 using HsrOrderApp.SharedLibraries.SharedEnums;
 using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
@@ -18,7 +20,10 @@ namespace HsrOrderApp.BL.DomainModel
             this.Category = string.Empty;
             this.ListUnitPrice = default(decimal);
             this.QuantityPerUnit = default(double);
+            this.SupplierConditions = new List<SupplierCondition>().AsQueryable();
         }
+
+        public IQueryable<SupplierCondition> SupplierConditions { get; set; }
 
         public int ProductId { get; set; }
 

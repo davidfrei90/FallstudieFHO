@@ -826,6 +826,78 @@ namespace HsrOrderApp.UI.WPF.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lieferant Konto-Numer.
+        /// </summary>
+        public static string SupplierDetailViewModel_AccountNumber {
+            get {
+                return ResourceManager.GetString("SupplierDetailViewModel_AccountNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aktiv.
+        /// </summary>
+        public static string SupplierDetailViewModel_ActiveFlag {
+            get {
+                return ResourceManager.GetString("SupplierDetailViewModel_ActiveFlag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Credit Rating.
+        /// </summary>
+        public static string SupplierDetailViewModel_CreditRating {
+            get {
+                return ResourceManager.GetString("SupplierDetailViewModel_CreditRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lieferant bearbeiten.
+        /// </summary>
+        public static string SupplierDetailViewModel_DisplayName {
+            get {
+                return ResourceManager.GetString("SupplierDetailViewModel_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preferred Supplier Flag.
+        /// </summary>
+        public static string SupplierDetailViewModel_PreferredSupplierFlag {
+            get {
+                return ResourceManager.GetString("SupplierDetailViewModel_PreferredSupplierFlag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lieferant Webseite.
+        /// </summary>
+        public static string SupplierDetailViewModel_PurchasingWebServiceURL {
+            get {
+                return ResourceManager.GetString("SupplierDetailViewModel_PurchasingWebServiceURL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lieferant Name.
+        /// </summary>
+        public static string SupplierDetailViewModel_SupplierName {
+            get {
+                return ResourceManager.GetString("SupplierDetailViewModel_SupplierName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lieferant.
+        /// </summary>
+        public static string SupplierDetailViewModel_Title {
+            get {
+                return ResourceManager.GetString("SupplierDetailViewModel_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ja.
         /// </summary>
         public static string True {

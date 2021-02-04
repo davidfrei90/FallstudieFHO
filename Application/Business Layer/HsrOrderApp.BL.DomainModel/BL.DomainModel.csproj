@@ -96,6 +96,8 @@
     <Compile Include="SpecialCases\UnknownOrder.cs" />
     <Compile Include="SpecialCases\UnkownCustomer.cs" />
     <Compile Include="SpecialCases\UnkownProduct.cs" />
+    <Compile Include="Supplier.cs" />
+    <Compile Include="SupplierCondition.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

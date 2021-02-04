@@ -408,4 +408,30 @@
   <data name="OrderDetailDetailView_DeliveryTime" xml:space="preserve">
     <value>Erwartete Lieferfrist</value>
   </data>
+  <data name="SupplierDetailViewModel_DisplayName" xml:space="preserve">
+    <value>Lieferant bearbeiten</value>
+  </data>
+  <data name="SupplierDetailViewModel_Title" xml:space="preserve">
+    <value>Lieferant</value>
+  </data>
+  <data name="SupplierDetailViewModel_SupplierName" xml:space="preserve">
+    <value>Lieferant Name</value>
+  </data>
+  <data name="SupplierDetailViewModel_AccountNumber" xml:space="preserve">
+    <value>Lieferant Konto-Numer</value>
+  </data>
+  <data name="SupplierDetailViewModel_CreditRating" xml:space="preserve">
+    <value>Credit Rating</value>
+  </data>
+  <data name="SupplierDetailViewModel_PreferredSupplierFlag" xml:space="preserve">
+    <value>Preferred Supplier Flag</value>
+  </data>
+  <data name="SupplierDetailViewModel_ActiveFlag" xml:space="preserve">
+    <value>Aktiv</value>
+  </data>
+  <data name="SupplierDetailViewModel_PurchasingWebServiceURL" xml:space="preserve">
+    <value>Lieferant Webseite</value>
+  </data>
+
+
 </root>
