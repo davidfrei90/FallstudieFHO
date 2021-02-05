@@ -80,6 +80,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs" />
+    <Compile Include="SpecialCases\MissingSupplier.cs" />
+    <Compile Include="SpecialCases\UnkownSupplier.cs" />
+    <Compile Include="Supplier.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Base\DomainObject.cs" />
     <Compile Include="Base\IValidateObject.cs" />

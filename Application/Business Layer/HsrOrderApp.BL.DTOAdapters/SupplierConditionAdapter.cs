@@ -27,6 +27,7 @@ namespace HsrOrderApp.BL.DtoAdapters
                                  {
                                      Id = p.SupplierConditionId,
                                      ProductId = p.ProductId,
+                                     SupplierId = p.SupplierId,
                                      StandardPrice = p.StandardPrice,
                                      LastReceiptCost = p.LastReceiptCost,
                                      LastReceiptDate = p.LastReceiptDate,
@@ -48,6 +49,7 @@ namespace HsrOrderApp.BL.DtoAdapters
                                   {
                                       SupplierConditionId = dto.Id,
                                       ProductId = dto.ProductId,
+                                      SupplierId = dto.SupplierId,
                                       StandardPrice = dto.StandardPrice,
                                       LastReceiptCost = dto.LastReceiptCost,
                                       LastReceiptDate = dto.LastReceiptDate,
