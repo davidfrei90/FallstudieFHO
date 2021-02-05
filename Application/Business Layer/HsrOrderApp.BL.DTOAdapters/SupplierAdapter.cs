@@ -18,48 +18,39 @@ namespace HsrOrderApp.BL.DtoAdapters
 
         public static IList<SupplierListDTO> SuppliersToDtos(IQueryable<Supplier> supplier)
         {
-            IQueryable<CustomerListDTO> customerDtos = from c in customers
-                                                       select new CustomerListDTO()
-                                                                  {
-                                                                      Id = c.CustomerId,
-                                                                      Salutation = c.Salutation,
-                                                                      Name = c.Name,
-                                                                      FirstName = c.FirstName,
-                                                                      NumberOfTotalOrders = GetNumberOfOrdersOfCustomer(c, false),
-                                                                      NumberOfOpenOrders = GetNumberOfOrdersOfCustomer(c, true),
-                                                                  };
-            return customerDtos.ToList();
+            IQueryable<SupplierListDTO> supplierDtos = from c in suppliers
+                                                       select new SupplierListDTO()
+                                                       {
+                                                           Id = s.SupplierId,
+                                                           AccountNumber = s.AccountNumber,
+                                                           CreditRating = s.CreditRating,
+                                                           PreferredSupplierFlag = s.PreferredSupplierFlag,
+                                                           ActiveFlag = s.ActiveFlag,
+                                                           PurchasingWebServiceURL = s.PurchasingWebServiceURL,
+                                                           Name = s.Name,
+                                                       };
+            return supplierDtos.ToList();
         }
 
-        public static CustomerDTO CustomerToDto(Customer c)
+        public static SupplierDTO SupplierToDto(Supplier c)
         {
-            CustomerDTO dto = new CustomerDTO()
-                                  {
-                                      Id = c.CustomerId,
-                                      Salutation = c.Salutation,
-                                      Name = c.Name,
-                                      FirstName = c.FirstName,
-                                      Version = c.Version,
-                                      Addresses = AddressAdapter.AddressToDtos(c.Addresses)
-                                  };
+            SupplierDTO dto = new SupplierDTO()
+            {
+                Id = s.SupplierId,
+                AccountNumber = s.AccountNumber,
+                CreditRating = s.CreditRating,
+                PreferredSupplierFlag = s.PreferredSupplierFlag,
+                ActiveFlag = s.ActiveFlag,
+                PurchasingWebServiceURL = s.PurchasingWebServiceURL,
+                Name = s.Name,
+                Version = s.Version,
+                Addresses = AddressAdapter.AddressToDtos(s.Addresses)
+            };
 
             return dto;
         }
 
         #region private helpers
-
-        private static int GetNumberOfOrdersOfCustomer(Customer customer, bool draftOnly)
-        {
-            if (customer.Orders == null)
-            {
-                return 0;
-            }
-            if (draftOnly)
-            {
-                return customer.Orders.Count(o => o.OrderStatus == OrderStatus.Draft);
-            }
-            return customer.Orders.Count();
-        }
 
         #endregion
 
@@ -67,27 +58,21 @@ namespace HsrOrderApp.BL.DtoAdapters
 
         #region DTOToSupplier
 
-        public static Customer DtoToCustomer(CustomerDTO dto)
+        public static Supplier DtoToSupplier(SupplierDTO dto)
         {
-            Customer customer = new Customer()
-                                    {
-                                        CustomerId = dto.Id,
-                                        Salutation = dto.Salutation,
-                                        Name = dto.Name,
-                                        FirstName = dto.FirstName,
-                                        Version = dto.Version
-                                    };
-            ValidationHelper.Validate(customer);
-            return customer;
-        }
-
-        public static IEnumerable<ChangeItem> GetChangeItems(CustomerDTO dto, Customer customer)
-        {
-            IEnumerable<ChangeItem> changeItems = from c in dto.Changes
-                                                  select
-                                                      new ChangeItem(c.ChangeType,
-                                                                     AddressAdapter.DtoToAddress((AddressDTO) c.Object));
-            return changeItems;
+            Supplier supplier = new Supplier()
+            {
+                SupplierId = dto.Id,
+                Name = dto.Name,
+                AccountNumber = dto.AccountNumber,
+                CreditRating = dto.CreditRating,
+                PreferredSupplierFlag = dto.PreferredSupplierFlag,
+                ActiveFlag = dto.ActiveFlag,
+                PurchasingWebServiceURL = dto.PurchasingWebServiceURL,
+                Version = dto.Version
+            };
+            ValidationHelper.Validate(supplier);
+            return supplier;
         }
 
         #endregion
