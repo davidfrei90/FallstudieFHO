@@ -14,7 +14,7 @@ namespace HsrOrderApp.SharedLibraries.DTO.Requests_Responses
     {
         public GetSuppliersResponse()
         {
-            this.Supplier = new List<SupplierListDTO>();
+            this.Suppliers = new List<SupplierListDTO>();
         }
 
         [DataMember]

@@ -106,7 +106,7 @@
             <PropertyRef Name="SupplierId" />
           </Key>
           <Property Name="SupplierId" Type="int" Nullable="false" />
-          <Property Name="AccpountNumber" Type="int" Nullable="false" />
+          <Property Name="AccountNumber" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CreditRating" Type="int" Nullable="false" />
           <Property Name="PreferredSupplierFlag" Type="bit" Nullable="false" />
@@ -290,6 +290,106 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="DeleteAddressCmd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AddressId" Type="int" Mode="In" />
+          <Parameter Name="chTimeStamp" Type="timestamp" Mode="In" />
+        </Function>
+        <Function Name="DeletePersonCmd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PersonID" Type="int" Mode="In" />
+          <Parameter Name="chTimeStamp" Type="timestamp" Mode="In" />
+        </Function>
+        <Function Name="InsertAddressCmd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerId" Type="int" Mode="In" />
+          <Parameter Name="Street" Type="char" Mode="In" />
+          <Parameter Name="City" Type="char" Mode="In" />
+          <Parameter Name="PostalCode" Type="char" Mode="In" />
+          <Parameter Name="Phone" Type="char" Mode="In" />
+        </Function>
+        <Function Name="InsertOrderCmd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PersonID" Type="int" Mode="In" />
+          <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+          <Parameter Name="ShippedDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="InsertOrderDetailCmd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OrderID" Type="int" Mode="In" />
+          <Parameter Name="ProductID" Type="int" Mode="In" />
+          <Parameter Name="UnitPrice" Type="float" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertPersonCmd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SelectAddressCmd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AddressId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SelectAddressesCmd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PersonId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SelectCategoriesCmd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SelectPersonByNameCmd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SelectPersonCmd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PersonId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SelectProductByCategoryCmd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Category" Type="char" Mode="In" />
+        </Function>
+        <Function Name="SelectProductByNameCmd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductName" Type="char" Mode="In" />
+        </Function>
+        <Function Name="SelectProductCmd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UpdateAddressCmd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AddressId" Type="int" Mode="In" />
+          <Parameter Name="Street" Type="char" Mode="In" />
+          <Parameter Name="City" Type="char" Mode="In" />
+          <Parameter Name="PostalCode" Type="char" Mode="In" />
+          <Parameter Name="Phone" Type="char" Mode="In" />
+          <Parameter Name="chTimeStamp" Type="timestamp" Mode="In" />
+        </Function>
+        <Function Name="UpdatePersonCmd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PersonID" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+          <Parameter Name="chTimeStamp" Type="timestamp" Mode="In" />
+        </Function>
+        <Function Name="VerifyPasswordCmd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="HsrOrderAppModelStoreContainer">
           <EntitySet Name="Addresses" EntityType="Self.Addresses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerAddresses" EntityType="Self.CustomerAddresses" Schema="dbo" store:Type="Tables" />
@@ -388,8 +488,8 @@
             <End Role="Roles" EntitySet="RoleSet" />
             <End Role="Users" EntitySet="UserSet" />
           </AssociationSet>
-          <EntitySet Name="SupplierConditions" EntityType="HsrOrderAppModel.SupplierConditions" />
-          <EntitySet Name="Suppliers" EntityType="HsrOrderAppModel.Suppliers" />
+          <EntitySet Name="SupplierConditions" EntityType="HsrOrderAppModel.SupplierCondition" />
+          <EntitySet Name="Suppliers" EntityType="HsrOrderAppModel.Supplier" />
           <AssociationSet Name="FK_SupplierConditions_Products" Association="HsrOrderAppModel.FK_SupplierConditions_Products">
             <End Role="Product" EntitySet="ProductSet" />
             <End Role="SupplierConditions" EntitySet="SupplierConditions" />
@@ -402,6 +502,106 @@
             <End Role="Address" EntitySet="AddressSet" />
             <End Role="Suppliers" EntitySet="Suppliers" />
           </AssociationSet>
+          <FunctionImport Name="DeleteAddressCmd">
+            <Parameter Name="AddressId" Mode="In" Type="Int32" />
+            <Parameter Name="chTimeStamp" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="DeletePersonCmd">
+            <Parameter Name="PersonID" Mode="In" Type="Int32" />
+            <Parameter Name="chTimeStamp" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="InsertAddressCmd">
+            <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+            <Parameter Name="Street" Mode="In" Type="String" />
+            <Parameter Name="City" Mode="In" Type="String" />
+            <Parameter Name="PostalCode" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertOrderCmd">
+            <Parameter Name="PersonID" Mode="In" Type="Int32" />
+            <Parameter Name="OrderDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ShippedDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="InsertOrderDetailCmd">
+            <Parameter Name="OrderID" Mode="In" Type="Int32" />
+            <Parameter Name="ProductID" Mode="In" Type="Int32" />
+            <Parameter Name="UnitPrice" Mode="In" Type="Double" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertPersonCmd">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SelectAddressCmd">
+          <Parameter Name="AddressId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SelectAddressesCmd">
+          <Parameter Name="PersonId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SelectCategoriesCmd" ReturnType="Collection(String)" />
+          <FunctionImport Name="SelectPersonByNameCmd">
+          <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SelectPersonCmd">
+          <Parameter Name="PersonId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SelectProductByCategoryCmd">
+          <Parameter Name="Category" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SelectProductByNameCmd">
+          <Parameter Name="ProductName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SelectProductCmd">
+          <Parameter Name="ProductId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(HsrOrderAppModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(HsrOrderAppModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="UpdateAddressCmd">
+            <Parameter Name="AddressId" Mode="In" Type="Int32" />
+            <Parameter Name="Street" Mode="In" Type="String" />
+            <Parameter Name="City" Mode="In" Type="String" />
+            <Parameter Name="PostalCode" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="chTimeStamp" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="UpdatePersonCmd">
+            <Parameter Name="PersonID" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="chTimeStamp" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="VerifyPasswordCmd">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Address">
           <Key>
@@ -519,7 +719,7 @@
           <End Role="Roles" Type="HsrOrderAppModel.Role" Multiplicity="*" />
           <End Role="Users" Type="HsrOrderAppModel.User" Multiplicity="*" />
         </Association>
-        <EntityType Name="SupplierConditions">
+        <EntityType Name="SupplierCondition">
           <Key>
             <PropertyRef Name="SupplierConditionId" />
           </Key>
@@ -535,12 +735,11 @@
           <NavigationProperty Name="Products" Relationship="HsrOrderAppModel.FK_SupplierConditions_Products" FromRole="SupplierConditions" ToRole="Product" />
           <NavigationProperty Name="Suppliers" Relationship="HsrOrderAppModel.FK_SupplierConditions_Suppliers1" FromRole="SupplierConditions" ToRole="Suppliers" />
         </EntityType>
-        <EntityType Name="Suppliers">
+        <EntityType Name="Supplier">
           <Key>
             <PropertyRef Name="SupplierId" />
           </Key>
           <Property Name="SupplierId" Type="Int32" Nullable="false" />
-          <Property Name="AccpountNumber" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreditRating" Type="Int32" Nullable="false" />
           <Property Name="PreferredSupplierFlag" Type="Boolean" Nullable="false" />
@@ -549,10 +748,11 @@
           <Property Name="Version" Type="Binary" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Nullable="false" />
           <NavigationProperty Name="SupplierConditions" Relationship="HsrOrderAppModel.FK_SupplierConditions_Suppliers1" FromRole="Suppliers" ToRole="SupplierConditions" />
           <NavigationProperty Name="Addresses" Relationship="HsrOrderAppModel.SupplierAddress" FromRole="Suppliers" ToRole="Address" />
+          <Property Name="AccountNumber" Type="Int32" Nullable="false" />
           </EntityType>
         <Association Name="FK_SupplierConditions_Products">
           <End Type="HsrOrderAppModel.Product" Role="Product" Multiplicity="0..1" />
-          <End Type="HsrOrderAppModel.SupplierConditions" Role="SupplierConditions" Multiplicity="*" />
+          <End Type="HsrOrderAppModel.SupplierCondition" Role="SupplierConditions" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="ProductId" />
@@ -563,8 +763,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SupplierConditions_Suppliers1">
-          <End Type="HsrOrderAppModel.Suppliers" Role="Suppliers" Multiplicity="0..1" />
-          <End Type="HsrOrderAppModel.SupplierConditions" Role="SupplierConditions" Multiplicity="*" />
+          <End Type="HsrOrderAppModel.Supplier" Role="Suppliers" Multiplicity="0..1" />
+          <End Type="HsrOrderAppModel.SupplierCondition" Role="SupplierConditions" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Suppliers">
               <PropertyRef Name="SupplierId" />
@@ -576,8 +776,19 @@
         </Association>
         <Association Name="SupplierAddress">
           <End Type="HsrOrderAppModel.Address" Role="Address" Multiplicity="*" />
-          <End Type="HsrOrderAppModel.Suppliers" Role="Suppliers" Multiplicity="*" />
+          <End Type="HsrOrderAppModel.Supplier" Role="Suppliers" Multiplicity="*" />
         </Association>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -712,7 +923,7 @@
             </EndProperty>
           </AssociationSetMapping>
           <EntitySetMapping Name="SupplierConditions">
-            <EntityTypeMapping TypeName="HsrOrderAppModel.SupplierConditions">
+            <EntityTypeMapping TypeName="HsrOrderAppModel.SupplierCondition">
               <MappingFragment StoreEntitySet="SupplierConditions">
                 <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
@@ -727,15 +938,15 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Suppliers">
-            <EntityTypeMapping TypeName="HsrOrderAppModel.Suppliers">
+            <EntityTypeMapping TypeName="HsrOrderAppModel.Supplier">
               <MappingFragment StoreEntitySet="Suppliers">
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
                 <ScalarProperty Name="Version" ColumnName="Version" />
                 <ScalarProperty Name="PurchasingWebServiceURL" ColumnName="PurchasingWebServiceURL" />
                 <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
                 <ScalarProperty Name="PreferredSupplierFlag" ColumnName="PreferredSupplierFlag" />
                 <ScalarProperty Name="CreditRating" ColumnName="CreditRating" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="AccpountNumber" ColumnName="AccpountNumber" />
                 <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -748,6 +959,47 @@
               <ScalarProperty Name="AddressId" ColumnName="AddressId" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteAddressCmd" FunctionName="HsrOrderAppModel.Store.DeleteAddressCmd" />
+          <FunctionImportMapping FunctionImportName="DeletePersonCmd" FunctionName="HsrOrderAppModel.Store.DeletePersonCmd" />
+          <FunctionImportMapping FunctionImportName="InsertAddressCmd" FunctionName="HsrOrderAppModel.Store.InsertAddressCmd" />
+          <FunctionImportMapping FunctionImportName="InsertOrderCmd" FunctionName="HsrOrderAppModel.Store.InsertOrderCmd" />
+          <FunctionImportMapping FunctionImportName="InsertOrderDetailCmd" FunctionName="HsrOrderAppModel.Store.InsertOrderDetailCmd" />
+          <FunctionImportMapping FunctionImportName="InsertPersonCmd" FunctionName="HsrOrderAppModel.Store.InsertPersonCmd" />
+          <FunctionImportMapping FunctionImportName="SelectAddressCmd" FunctionName="HsrOrderAppModel.Store.SelectAddressCmd" />
+          <FunctionImportMapping FunctionImportName="SelectAddressesCmd" FunctionName="HsrOrderAppModel.Store.SelectAddressesCmd" />
+          <FunctionImportMapping FunctionImportName="SelectCategoriesCmd" FunctionName="HsrOrderAppModel.Store.SelectCategoriesCmd" />
+          <FunctionImportMapping FunctionImportName="SelectPersonByNameCmd" FunctionName="HsrOrderAppModel.Store.SelectPersonByNameCmd" />
+          <FunctionImportMapping FunctionImportName="SelectPersonCmd" FunctionName="HsrOrderAppModel.Store.SelectPersonCmd" />
+          <FunctionImportMapping FunctionImportName="SelectProductByCategoryCmd" FunctionName="HsrOrderAppModel.Store.SelectProductByCategoryCmd" />
+          <FunctionImportMapping FunctionImportName="SelectProductByNameCmd" FunctionName="HsrOrderAppModel.Store.SelectProductByNameCmd" />
+          <FunctionImportMapping FunctionImportName="SelectProductCmd" FunctionName="HsrOrderAppModel.Store.SelectProductCmd" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="HsrOrderAppModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="HsrOrderAppModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="HsrOrderAppModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="HsrOrderAppModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HsrOrderAppModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="HsrOrderAppModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HsrOrderAppModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="HsrOrderAppModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="HsrOrderAppModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="UpdateAddressCmd" FunctionName="HsrOrderAppModel.Store.UpdateAddressCmd" />
+          <FunctionImportMapping FunctionImportName="UpdatePersonCmd" FunctionName="HsrOrderAppModel.Store.UpdatePersonCmd" />
+          <FunctionImportMapping FunctionImportName="VerifyPasswordCmd" FunctionName="HsrOrderAppModel.Store.VerifyPasswordCmd" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -799,8 +1051,8 @@
           <ConnectorPoint PointX="4.5" PointY="1.6249995" />
           <ConnectorPoint PointX="6" PointY="1.6249995" />
           <ConnectorPoint PointX="6" PointY="2.5" /></AssociationConnector>
-        <EntityTypeShape EntityType="HsrOrderAppModel.SupplierConditions" Width="1.5" PointX="11.375" PointY="5.375" />
-        <EntityTypeShape EntityType="HsrOrderAppModel.Suppliers" Width="1.5" PointX="8.375" PointY="2.125" />
+        <EntityTypeShape EntityType="HsrOrderAppModel.SupplierCondition" Width="1.5" PointX="11.375" PointY="5.375" />
+        <EntityTypeShape EntityType="HsrOrderAppModel.Supplier" Width="1.5" PointX="8.375" PointY="2.125" />
         <AssociationConnector Association="HsrOrderAppModel.FK_SupplierConditions_Products" />
         <AssociationConnector Association="HsrOrderAppModel.FK_SupplierConditions_Suppliers1" />
         <AssociationConnector Association="HsrOrderAppModel.SupplierAddress" ManuallyRouted="true" >

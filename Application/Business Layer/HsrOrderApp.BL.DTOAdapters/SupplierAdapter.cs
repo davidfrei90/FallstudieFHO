@@ -16,9 +16,9 @@ namespace HsrOrderApp.BL.DtoAdapters
     {
         #region SupplierToDTO
 
-        public static IList<SupplierListDTO> SuppliersToDtos(IQueryable<Supplier> supplier)
+        public static IList<SupplierListDTO> SuppliersToDtos(IQueryable<Supplier> suppliers)
         {
-            IQueryable<SupplierListDTO> supplierDtos = from c in suppliers
+            IQueryable<SupplierListDTO> supplierDtos = from s in suppliers
                                                        select new SupplierListDTO()
                                                        {
                                                            Id = s.SupplierId,
@@ -32,7 +32,7 @@ namespace HsrOrderApp.BL.DtoAdapters
             return supplierDtos.ToList();
         }
 
-        public static SupplierDTO SupplierToDto(Supplier c)
+        public static SupplierDTO SupplierToDto(Supplier s)
         {
             SupplierDTO dto = new SupplierDTO()
             {
