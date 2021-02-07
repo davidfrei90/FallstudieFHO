@@ -119,25 +119,25 @@ namespace HsrOrderApp.SharedLibraries.ServiceInterfaces
 
         #region SupplierCondition
 
-        [OperationContract]
-        [FaultContract(typeof(ServiceFault))]
-        [FaultContract(typeof(ValidationFault))]
-        GetSupplierConditionResponse GetSupplierConditionById(GetSupplierConditionRequest request);
+        //[OperationContract]
+        //[FaultContract(typeof(ServiceFault))]
+        //[FaultContract(typeof(ValidationFault))]
+        //GetSupplierConditionResponse GetSupplierConditionById(GetSupplierConditionRequest request);
 
-        [OperationContract]
-        [FaultContract(typeof(ServiceFault))]
-        [FaultContract(typeof(ValidationFault))]
-        GetSupplierConditionsResponse GetSupplierConditionsByCriteria(GetSupplierConditionsRequest request);
+        //[OperationContract]
+        //[FaultContract(typeof(ServiceFault))]
+        //[FaultContract(typeof(ValidationFault))]
+        //GetSupplierConditionsResponse GetSupplierConditionsByCriteria(GetSupplierConditionsRequest request);
 
-        [OperationContract]
-        [FaultContract(typeof(ServiceFault))]
-        [FaultContract(typeof(ValidationFault))]
-        StoreSupplierConditonResponse StoreSupplierCondition(StoreSupplierConditionRequest request);
+        //[OperationContract]
+        //[FaultContract(typeof(ServiceFault))]
+        //[FaultContract(typeof(ValidationFault))]
+        //StoreSupplierConditonResponse StoreSupplierCondition(StoreSupplierConditionRequest request);
 
-        [OperationContract]
-        [FaultContract(typeof(ServiceFault))]
-        [FaultContract(typeof(ValidationFault))]
-        DeleteSupplierCondtionResponse DeleteSupplierCondition(DeleteSupplierConditonRequest request);
+        //[OperationContract]
+        //[FaultContract(typeof(ServiceFault))]
+        //[FaultContract(typeof(ValidationFault))]
+        //DeleteSupplierCondtionResponse DeleteSupplierCondition(DeleteSupplierConditonRequest request);
 
 
         #endregion

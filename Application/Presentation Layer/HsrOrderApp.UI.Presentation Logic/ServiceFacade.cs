@@ -416,84 +416,84 @@ namespace HsrOrderApp.UI.PresentationLogic
 
         #region SupplierCondition
 
-        public SupplierConditionDTO GetSupplierConditionById(int id)
-        {
-            try
-            {
-                GetSupplierConditionRequest request = new GetSupplierConditionRequest();
-                request.Id = id;
-                GetSupplierConditionResponse response = Service.GetSupplierConditionById(request);
-                return response.SupplierCondition;
-            }
-            catch (Exception ex)
-            {
-                if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
-                return new SupplierConditionDTO();
-            }
-        }
-
-        //public IList<SupplierConditionDTO> GetSupplierConditionsByName(string name)
+        //public SupplierConditionDTO GetSupplierConditionById(int id)
         //{
-        //    return getSupplierConditions(SupplierConditionSearchType.ByName, name, default(string));
+        //    try
+        //    {
+        //        GetSupplierConditionRequest request = new GetSupplierConditionRequest();
+        //        request.Id = id;
+        //        GetSupplierConditionResponse response = Service.GetSupplierConditionById(request);
+        //        return response.SupplierCondition;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
+        //        return new SupplierConditionDTO();
+        //    }
         //}
 
-        //public IList<SupplierConditionDTO> GetSupplierConditionsByCategory(string category)
+        ////public IList<SupplierConditionDTO> GetSupplierConditionsByName(string name)
+        ////{
+        ////    return getSupplierConditions(SupplierConditionSearchType.ByName, name, default(string));
+        ////}
+
+        ////public IList<SupplierConditionDTO> GetSupplierConditionsByCategory(string category)
+        ////{
+        ////    return getSupplierConditions(SupplierConditionSearchType.ByCategory, default(string), category);
+        ////}
+
+        //public IList<SupplierConditionDTO> GetAllSupplierConditions()
         //{
-        //    return getSupplierConditions(SupplierConditionSearchType.ByCategory, default(string), category);
+        //    return getSupplierConditions(SupplierConditionSearchType.None, default(string), default(string));
         //}
 
-        public IList<SupplierConditionDTO> GetAllSupplierConditions()
-        {
-            return getSupplierConditions(SupplierConditionSearchType.None, default(string), default(string));
-        }
+        //public void StoreSupplierCondition(SupplierConditionDTO supplierCondition)
+        //{
+        //    try
+        //    {
+        //        StoreSupplierConditionRequest request = new StoreSupplierConditionRequest();
+        //        request.SupplierCondition = supplierCondition;
+        //        StoreSupplierConditonResponse response = Service.StoreSupplierCondition(request);
+        //        supplierCondition.Id = response.Id;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
+        //    }
+        //}
 
-        public void StoreSupplierCondition(SupplierConditionDTO supplierCondition)
-        {
-            try
-            {
-                StoreSupplierConditionRequest request = new StoreSupplierConditionRequest();
-                request.SupplierCondition = supplierCondition;
-                StoreSupplierConditonResponse response = Service.StoreSupplierCondition(request);
-                supplierCondition.Id = response.Id;
-            }
-            catch (Exception ex)
-            {
-                if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
-            }
-        }
-
-        public void DeleteSupplierCondition(int supplierConditionId)
-        {
-            try
-            {
-                DeleteSupplierConditonRequest request = new DeleteSupplierConditonRequest();
-                request.Id = supplierConditionId;
-                DeleteSupplierCondtionResponse response = Service.DeleteSupplierCondition(request);
-            }
-            catch (Exception ex)
-            {
-                if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
-            }
-        }
+        //public void DeleteSupplierCondition(int supplierConditionId)
+        //{
+        //    try
+        //    {
+        //        DeleteSupplierConditonRequest request = new DeleteSupplierConditonRequest();
+        //        request.Id = supplierConditionId;
+        //        DeleteSupplierCondtionResponse response = Service.DeleteSupplierCondition(request);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
+        //    }
+        //}
 
        
-        private IList<SupplierConditionDTO> getSupplierConditions(SupplierConditionSearchType searchType, string name, string category)
-        {
-            try
-            {
-                GetSupplierConditionsRequest request = new GetSupplierConditionsRequest();
-                request.SearchType = searchType;
-                //request.SupplierConditionName = name;
-                //request.Category = category;
-                GetSupplierConditionsResponse response = Service.GetSupplierConditionsByCriteria(request);
-                return response.SupplierConditions;
-            }
-            catch (Exception ex)
-            {
-                if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
-                return new List<SupplierConditionDTO>();
-            }
-        }
+        //private IList<SupplierConditionDTO> getSupplierConditions(SupplierConditionSearchType searchType, string name, string category)
+        //{
+        //    try
+        //    {
+        //        GetSupplierConditionsRequest request = new GetSupplierConditionsRequest();
+        //        request.SearchType = searchType;
+        //        //request.SupplierConditionName = name;
+        //        //request.Category = category;
+        //        GetSupplierConditionsResponse response = Service.GetSupplierConditionsByCriteria(request);
+        //        return response.SupplierConditions;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
+        //        return new List<SupplierConditionDTO>();
+        //    }
+        //}
 
         #endregion
 

@@ -29,13 +29,13 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
         }
 
         //************SupplierConditions instead***************
-        //public IQueryable<HsrOrderApp.BL.DomainModel.Supplier> GetAll()
-        //{
-        //    var suppliers = from c in this.db.SupplierSet.Include("Orders").AsEnumerable()
-        //                    select SupplierAdapter.AdaptSupplier(c);
+        public IQueryable<HsrOrderApp.BL.DomainModel.Supplier> GetAll()
+        {
+            var suppliers = from c in this.db.SupplierSet.Include("Orders").AsEnumerable()
+                            select SupplierAdapter.AdaptSupplier(c);
 
-        //    return suppliers.AsQueryable();
-        //}
+            return suppliers.AsQueryable();
+        }
 
         public HsrOrderApp.BL.DomainModel.Supplier GetById(int id)
         {
