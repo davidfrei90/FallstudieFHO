@@ -30,7 +30,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
 
         public IQueryable<HsrOrderApp.BL.DomainModel.SupplierCondition> GetAll()
         {
-            var SupplierConditions = from c in this.db.SupplierConditionSet.AsEnumerable()
+            var SupplierConditions = from c in this.db.SupplierConditions.AsEnumerable()
                            select SupplierConditionAdapter.AdaptSupplierCondition(c);
 
             return SupplierConditions.AsQueryable();
@@ -40,7 +40,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
         {
             try
             {
-                var supplierConditions = from c in this.db.SupplierConditionSet.AsEnumerable()
+                var supplierConditions = from c in this.db.SupplierConditions.AsEnumerable()
                                where c.SupplierConditionId == id
                                select SupplierConditionAdapter.AdaptSupplierCondition(c);
 
@@ -72,19 +72,19 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
                     dbSupplierCondition.EntityKey = db.CreateEntityKey(setname, dbSupplierCondition);
                     db.AttachTo(setname, dbSupplierCondition);
                 }
-                dbSupplierCondition.ProductId = SupplierCondition.ProductId;
-                dbSupplierCondition.SupplierId = SupplierCondition.SupplierId;
-                dbSupplierCondition.StandardPrice = SupplierCondition.StandardPrice;
-                dbSupplierCondition.LastReceiptCost = SupplierCondition.LastReceiptCost;
-                dbSupplierCondition.LastReceiptDate = SupplierCondition.LastReceiptDate;
-                dbSupplierCondition.MinOrderQty = SupplierCondition.MinOrderQty;
-                dbSupplierCondition.MaxOrderQty = SupplierCondition.MaxOrderQty;
+                //dbSupplierCondition.ProductId = SupplierCondition.ProductId;
+                //dbSupplierCondition.SupplierId = SupplierCondition.SupplierId;
+                //dbSupplierCondition.StandardPrice = SupplierCondition.StandardPrice;
+                //dbSupplierCondition.LastReceiptCost = SupplierCondition.LastReceiptCost;
+                //dbSupplierCondition.LastReceiptDate = SupplierCondition.LastReceiptDate;
+                //dbSupplierCondition.MinOrderQty = SupplierCondition.MinOrderQty;
+                //dbSupplierCondition.MaxOrderQty = SupplierCondition.MaxOrderQty;
 
 
 
                 if (isNew)
                 {
-                    db.AddToSupplierConditionSet(dbSupplierCondition);
+                    db.AddToSupplierConditions(dbSupplierCondition);
                 }
                 db.SaveChanges();
                 supplierCondition.SupplierConditionId = dbSupplierCondition.SupplierConditionId;
@@ -99,7 +99,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
 
         public void DeleteSupplierCondition(int id)
         {
-            SupplierCondition cu = db.SupplierConditionSet.First(c => c.SupplierConditionId == id);
+            SupplierCondition cu = db.SupplierConditions.First(c => c.SupplierConditionId == id);
             if (cu != null)
             {
                 db.DeleteObject(cu);

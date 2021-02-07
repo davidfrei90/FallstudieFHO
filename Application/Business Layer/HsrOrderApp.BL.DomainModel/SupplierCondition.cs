@@ -15,11 +15,11 @@ namespace HsrOrderApp.BL.DomainModel
         public SupplierCondition()
         {
             this.SupplierConditionId = default(int);
-            this.ProductId = default(int);
-            this.SupplierId = default(int);
+            this.ProductId = default(int?);
+            this.SupplierId = default(int?);
             this.StandardPrice = default(decimal);
             this.LastReceiptCost = default(decimal);
-            this.LastReceiptDate = default(DateTime);
+            this.LastReceiptDate = default(DateTime?);
             this.MinOrderQty = default(int);
             this.MaxOrderQty = default(int);
         }

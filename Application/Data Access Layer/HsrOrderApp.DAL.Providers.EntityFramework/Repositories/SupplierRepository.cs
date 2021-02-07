@@ -59,7 +59,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
             try
             {
                 string setname = "SupplierSet";
-                BL.DomainModel.Supplier dbSupplier;
+                Supplier dbSupplier;
 
                 bool isNew = false;
                 if (supplier.SupplierId == default(int) || supplier.SupplierId <= 0)
@@ -77,7 +77,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
                 dbSupplier.Name = supplier.Name;
                 if (isNew)
                 {
-                    db.AddToSupplierSet(dbSupplier);
+                    db.AddToSuppliers(dbSupplier);
                 }
                 db.SaveChanges();
 

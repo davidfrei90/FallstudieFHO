@@ -58,7 +58,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
             try
             {
                 string setname = "CustomerSet";
-                BL.DomainModel.Customer dbCustomer;
+                Customer dbCustomer;
 
                 bool isNew = false;
                 if (customer.CustomerId == default(int) || customer.CustomerId <= 0)

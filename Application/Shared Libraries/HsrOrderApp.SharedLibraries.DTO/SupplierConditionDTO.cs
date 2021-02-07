@@ -12,28 +12,28 @@ namespace HsrOrderApp.SharedLibraries.DTO
 {
     public class SupplierConditionDTO : DTOParentObject
     {
-        private int _productId;
-        private int _supplierId;
+        private int? _productId;
+        private int? _supplierId;
         private decimal _standardPrice;
         private decimal _lastReceiptCost;
-        private DateTime _lastReceiptDate;
+        private DateTime? _lastReceiptDate;
         private int _minOrderQty;
         private int _maxOrderQty;
 
         public SupplierConditionDTO()
         {
-            this.ProductId = default(int);
-            this.SupplierId = default(int);
+            this.ProductId = default(int?);
+            this.SupplierId = default(int?);
             this.StandardPrice = default(decimal);
             this.LastReceiptCost = default(decimal);
-            this.LastReceiptDate = default(DateTime);
+            this.LastReceiptDate = default(DateTime?);
             this.MinOrderQty = default(int);
             this.MaxOrderQty = default(int);
         }
 
         [DataMember]
         [RangeValidator(0, RangeBoundaryType.Inclusive, int.MaxValue, RangeBoundaryType.Ignore)]
-        public int ProductId
+        public int? ProductId
         {
             get { return _productId; }
             set
@@ -48,7 +48,7 @@ namespace HsrOrderApp.SharedLibraries.DTO
 
         [DataMember]
         [RangeValidator(0, RangeBoundaryType.Inclusive, int.MaxValue, RangeBoundaryType.Ignore)]
-        public int SupplierId
+        public int? SupplierId
         {
             get { return _supplierId; }
             set
@@ -93,7 +93,7 @@ namespace HsrOrderApp.SharedLibraries.DTO
 
         [DataMember]
         //[RangeValidator(typeof(decimal), "0.0", RangeBoundaryType.Inclusive, "0", RangeBoundaryType.Ignore)]
-        public DateTime LastReceiptDate
+        public DateTime? LastReceiptDate
         {
             get { return _lastReceiptDate; }
             set
