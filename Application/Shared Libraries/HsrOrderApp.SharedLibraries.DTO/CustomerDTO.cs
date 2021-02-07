@@ -13,14 +13,31 @@ namespace HsrOrderApp.SharedLibraries.DTO
     public class CustomerDTO : DTOParentObject
     {
         private IList<AddressDTO> _addresses;
+        private string _salutation;
         private string _firstName;
         private string _name;
 
         public CustomerDTO()
         {
+            this.Salutation = string.Empty;
             this.Name = string.Empty;
             this.FirstName = string.Empty;
             this.Addresses = new List<AddressDTO>();
+        }
+
+        [DataMember]
+        [StringLengthValidator(1, 50)]
+        public string Salutation
+        {
+            get { return _salutation; }
+            set
+            {
+                if (value != _salutation)
+                {
+                    this._salutation = value;
+                    OnPropertyChanged(() => Salutation);
+                }
+            }
         }
 
         [DataMember]

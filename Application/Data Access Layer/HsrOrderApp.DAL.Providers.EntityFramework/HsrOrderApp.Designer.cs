@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -24,6 +25,9 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("HsrOrderAppModel", "FK_OrderDetails_Products", "Products", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HsrOrderApp.DAL.Providers.EntityFramework.Product), "OrderDetails", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HsrOrderApp.DAL.Providers.EntityFramework.OrderDetail))]
 [assembly: EdmRelationshipAttribute("HsrOrderAppModel", "CustomerAddresses", "Addresses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HsrOrderApp.DAL.Providers.EntityFramework.Address), "Customers", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HsrOrderApp.DAL.Providers.EntityFramework.Customer))]
 [assembly: EdmRelationshipAttribute("HsrOrderAppModel", "UserInRoles", "Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HsrOrderApp.DAL.Providers.EntityFramework.Role), "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HsrOrderApp.DAL.Providers.EntityFramework.User))]
+[assembly: EdmRelationshipAttribute("HsrOrderAppModel", "FK_SupplierConditions_Products", "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(HsrOrderApp.DAL.Providers.EntityFramework.Product), "SupplierConditions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HsrOrderApp.DAL.Providers.EntityFramework.SupplierCondition), true)]
+[assembly: EdmRelationshipAttribute("HsrOrderAppModel", "FK_SupplierConditions_Suppliers1", "Suppliers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(HsrOrderApp.DAL.Providers.EntityFramework.Supplier), "SupplierConditions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HsrOrderApp.DAL.Providers.EntityFramework.SupplierCondition), true)]
+[assembly: EdmRelationshipAttribute("HsrOrderAppModel", "SupplierAddress", "Address", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HsrOrderApp.DAL.Providers.EntityFramework.Address), "Suppliers", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HsrOrderApp.DAL.Providers.EntityFramework.Supplier))]
 
 #endregion
 
@@ -183,8 +187,41 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
             }
         }
         private ObjectSet<User> _UserSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<SupplierCondition> SupplierConditions
+        {
+            get
+            {
+                if ((_SupplierConditions == null))
+                {
+                    _SupplierConditions = base.CreateObjectSet<SupplierCondition>("SupplierConditions");
+                }
+                return _SupplierConditions;
+            }
+        }
+        private ObjectSet<SupplierCondition> _SupplierConditions;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Supplier> SupplierSet
+        {
+            get
+            {
+                if ((_Suppliers == null))
+                {
+                    _Suppliers = base.CreateObjectSet<Supplier>("SupplierSet");
+                }
+                return _Suppliers;
+            }
+        }
+        private ObjectSet<Supplier> _Suppliers;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -242,13 +279,819 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         {
             base.AddObject("UserSet", user);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the SupplierConditions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSupplierConditions(SupplierCondition supplierCondition)
+        {
+            base.AddObject("SupplierConditions", supplierCondition);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Suppliers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSuppliers(Supplier supplier)
+        {
+            base.AddObject("Suppliers", supplier);
+        }
 
         #endregion
-    }
+
+        #region Function Imports
     
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="addressId">No Metadata Documentation available.</param>
+        /// <param name="chTimeStamp">No Metadata Documentation available.</param>
+        public int DeleteAddressCmd(Nullable<global::System.Int32> addressId, global::System.Byte[] chTimeStamp)
+        {
+            ObjectParameter addressIdParameter;
+            if (addressId.HasValue)
+            {
+                addressIdParameter = new ObjectParameter("AddressId", addressId);
+            }
+            else
+            {
+                addressIdParameter = new ObjectParameter("AddressId", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter chTimeStampParameter;
+            if (chTimeStamp != null)
+            {
+                chTimeStampParameter = new ObjectParameter("chTimeStamp", chTimeStamp);
+            }
+            else
+            {
+                chTimeStampParameter = new ObjectParameter("chTimeStamp", typeof(global::System.Byte[]));
+            }
+    
+            return base.ExecuteFunction("DeleteAddressCmd", addressIdParameter, chTimeStampParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="personID">No Metadata Documentation available.</param>
+        /// <param name="chTimeStamp">No Metadata Documentation available.</param>
+        public int DeletePersonCmd(Nullable<global::System.Int32> personID, global::System.Byte[] chTimeStamp)
+        {
+            ObjectParameter personIDParameter;
+            if (personID.HasValue)
+            {
+                personIDParameter = new ObjectParameter("PersonID", personID);
+            }
+            else
+            {
+                personIDParameter = new ObjectParameter("PersonID", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter chTimeStampParameter;
+            if (chTimeStamp != null)
+            {
+                chTimeStampParameter = new ObjectParameter("chTimeStamp", chTimeStamp);
+            }
+            else
+            {
+                chTimeStampParameter = new ObjectParameter("chTimeStamp", typeof(global::System.Byte[]));
+            }
+    
+            return base.ExecuteFunction("DeletePersonCmd", personIDParameter, chTimeStampParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="customerId">No Metadata Documentation available.</param>
+        /// <param name="street">No Metadata Documentation available.</param>
+        /// <param name="city">No Metadata Documentation available.</param>
+        /// <param name="postalCode">No Metadata Documentation available.</param>
+        /// <param name="phone">No Metadata Documentation available.</param>
+        public int InsertAddressCmd(Nullable<global::System.Int32> customerId, global::System.String street, global::System.String city, global::System.String postalCode, global::System.String phone)
+        {
+            ObjectParameter customerIdParameter;
+            if (customerId.HasValue)
+            {
+                customerIdParameter = new ObjectParameter("CustomerId", customerId);
+            }
+            else
+            {
+                customerIdParameter = new ObjectParameter("CustomerId", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter streetParameter;
+            if (street != null)
+            {
+                streetParameter = new ObjectParameter("Street", street);
+            }
+            else
+            {
+                streetParameter = new ObjectParameter("Street", typeof(global::System.String));
+            }
+    
+            ObjectParameter cityParameter;
+            if (city != null)
+            {
+                cityParameter = new ObjectParameter("City", city);
+            }
+            else
+            {
+                cityParameter = new ObjectParameter("City", typeof(global::System.String));
+            }
+    
+            ObjectParameter postalCodeParameter;
+            if (postalCode != null)
+            {
+                postalCodeParameter = new ObjectParameter("PostalCode", postalCode);
+            }
+            else
+            {
+                postalCodeParameter = new ObjectParameter("PostalCode", typeof(global::System.String));
+            }
+    
+            ObjectParameter phoneParameter;
+            if (phone != null)
+            {
+                phoneParameter = new ObjectParameter("Phone", phone);
+            }
+            else
+            {
+                phoneParameter = new ObjectParameter("Phone", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("InsertAddressCmd", customerIdParameter, streetParameter, cityParameter, postalCodeParameter, phoneParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="personID">No Metadata Documentation available.</param>
+        /// <param name="orderDate">No Metadata Documentation available.</param>
+        /// <param name="shippedDate">No Metadata Documentation available.</param>
+        public int InsertOrderCmd(Nullable<global::System.Int32> personID, Nullable<global::System.DateTime> orderDate, Nullable<global::System.DateTime> shippedDate)
+        {
+            ObjectParameter personIDParameter;
+            if (personID.HasValue)
+            {
+                personIDParameter = new ObjectParameter("PersonID", personID);
+            }
+            else
+            {
+                personIDParameter = new ObjectParameter("PersonID", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter orderDateParameter;
+            if (orderDate.HasValue)
+            {
+                orderDateParameter = new ObjectParameter("OrderDate", orderDate);
+            }
+            else
+            {
+                orderDateParameter = new ObjectParameter("OrderDate", typeof(global::System.DateTime));
+            }
+    
+            ObjectParameter shippedDateParameter;
+            if (shippedDate.HasValue)
+            {
+                shippedDateParameter = new ObjectParameter("ShippedDate", shippedDate);
+            }
+            else
+            {
+                shippedDateParameter = new ObjectParameter("ShippedDate", typeof(global::System.DateTime));
+            }
+    
+            return base.ExecuteFunction("InsertOrderCmd", personIDParameter, orderDateParameter, shippedDateParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="orderID">No Metadata Documentation available.</param>
+        /// <param name="productID">No Metadata Documentation available.</param>
+        /// <param name="unitPrice">No Metadata Documentation available.</param>
+        /// <param name="quantity">No Metadata Documentation available.</param>
+        public int InsertOrderDetailCmd(Nullable<global::System.Int32> orderID, Nullable<global::System.Int32> productID, Nullable<global::System.Double> unitPrice, Nullable<global::System.Int32> quantity)
+        {
+            ObjectParameter orderIDParameter;
+            if (orderID.HasValue)
+            {
+                orderIDParameter = new ObjectParameter("OrderID", orderID);
+            }
+            else
+            {
+                orderIDParameter = new ObjectParameter("OrderID", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter productIDParameter;
+            if (productID.HasValue)
+            {
+                productIDParameter = new ObjectParameter("ProductID", productID);
+            }
+            else
+            {
+                productIDParameter = new ObjectParameter("ProductID", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter unitPriceParameter;
+            if (unitPrice.HasValue)
+            {
+                unitPriceParameter = new ObjectParameter("UnitPrice", unitPrice);
+            }
+            else
+            {
+                unitPriceParameter = new ObjectParameter("UnitPrice", typeof(global::System.Double));
+            }
+    
+            ObjectParameter quantityParameter;
+            if (quantity.HasValue)
+            {
+                quantityParameter = new ObjectParameter("Quantity", quantity);
+            }
+            else
+            {
+                quantityParameter = new ObjectParameter("Quantity", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("InsertOrderDetailCmd", orderIDParameter, productIDParameter, unitPriceParameter, quantityParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="name">No Metadata Documentation available.</param>
+        /// <param name="password">No Metadata Documentation available.</param>
+        public int InsertPersonCmd(global::System.String name, global::System.String password)
+        {
+            ObjectParameter nameParameter;
+            if (name != null)
+            {
+                nameParameter = new ObjectParameter("Name", name);
+            }
+            else
+            {
+                nameParameter = new ObjectParameter("Name", typeof(global::System.String));
+            }
+    
+            ObjectParameter passwordParameter;
+            if (password != null)
+            {
+                passwordParameter = new ObjectParameter("Password", password);
+            }
+            else
+            {
+                passwordParameter = new ObjectParameter("Password", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("InsertPersonCmd", nameParameter, passwordParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="addressId">No Metadata Documentation available.</param>
+        public int SelectAddressCmd(Nullable<global::System.Int32> addressId)
+        {
+            ObjectParameter addressIdParameter;
+            if (addressId.HasValue)
+            {
+                addressIdParameter = new ObjectParameter("AddressId", addressId);
+            }
+            else
+            {
+                addressIdParameter = new ObjectParameter("AddressId", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("SelectAddressCmd", addressIdParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="personId">No Metadata Documentation available.</param>
+        public int SelectAddressesCmd(Nullable<global::System.Int32> personId)
+        {
+            ObjectParameter personIdParameter;
+            if (personId.HasValue)
+            {
+                personIdParameter = new ObjectParameter("PersonId", personId);
+            }
+            else
+            {
+                personIdParameter = new ObjectParameter("PersonId", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("SelectAddressesCmd", personIdParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectResult<global::System.String> SelectCategoriesCmd()
+        {
+            return base.ExecuteFunction<global::System.String>("SelectCategoriesCmd");
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="name">No Metadata Documentation available.</param>
+        public int SelectPersonByNameCmd(global::System.String name)
+        {
+            ObjectParameter nameParameter;
+            if (name != null)
+            {
+                nameParameter = new ObjectParameter("Name", name);
+            }
+            else
+            {
+                nameParameter = new ObjectParameter("Name", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("SelectPersonByNameCmd", nameParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="personId">No Metadata Documentation available.</param>
+        public int SelectPersonCmd(Nullable<global::System.Int32> personId)
+        {
+            ObjectParameter personIdParameter;
+            if (personId.HasValue)
+            {
+                personIdParameter = new ObjectParameter("PersonId", personId);
+            }
+            else
+            {
+                personIdParameter = new ObjectParameter("PersonId", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("SelectPersonCmd", personIdParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="category">No Metadata Documentation available.</param>
+        public int SelectProductByCategoryCmd(global::System.String category)
+        {
+            ObjectParameter categoryParameter;
+            if (category != null)
+            {
+                categoryParameter = new ObjectParameter("Category", category);
+            }
+            else
+            {
+                categoryParameter = new ObjectParameter("Category", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("SelectProductByCategoryCmd", categoryParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="productName">No Metadata Documentation available.</param>
+        public int SelectProductByNameCmd(global::System.String productName)
+        {
+            ObjectParameter productNameParameter;
+            if (productName != null)
+            {
+                productNameParameter = new ObjectParameter("ProductName", productName);
+            }
+            else
+            {
+                productNameParameter = new ObjectParameter("ProductName", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("SelectProductByNameCmd", productNameParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="productId">No Metadata Documentation available.</param>
+        public int SelectProductCmd(Nullable<global::System.Int32> productId)
+        {
+            ObjectParameter productIdParameter;
+            if (productId.HasValue)
+            {
+                productIdParameter = new ObjectParameter("ProductId", productId);
+            }
+            else
+            {
+                productIdParameter = new ObjectParameter("ProductId", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("SelectProductCmd", productIdParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="diagramname">No Metadata Documentation available.</param>
+        /// <param name="owner_id">No Metadata Documentation available.</param>
+        /// <param name="version">No Metadata Documentation available.</param>
+        /// <param name="definition">No Metadata Documentation available.</param>
+        public int sp_alterdiagram(global::System.String diagramname, Nullable<global::System.Int32> owner_id, Nullable<global::System.Int32> version, global::System.Byte[] definition)
+        {
+            ObjectParameter diagramnameParameter;
+            if (diagramname != null)
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", diagramname);
+            }
+            else
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", typeof(global::System.String));
+            }
+    
+            ObjectParameter owner_idParameter;
+            if (owner_id.HasValue)
+            {
+                owner_idParameter = new ObjectParameter("owner_id", owner_id);
+            }
+            else
+            {
+                owner_idParameter = new ObjectParameter("owner_id", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter versionParameter;
+            if (version.HasValue)
+            {
+                versionParameter = new ObjectParameter("version", version);
+            }
+            else
+            {
+                versionParameter = new ObjectParameter("version", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter definitionParameter;
+            if (definition != null)
+            {
+                definitionParameter = new ObjectParameter("definition", definition);
+            }
+            else
+            {
+                definitionParameter = new ObjectParameter("definition", typeof(global::System.Byte[]));
+            }
+    
+            return base.ExecuteFunction("sp_alterdiagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="diagramname">No Metadata Documentation available.</param>
+        /// <param name="owner_id">No Metadata Documentation available.</param>
+        /// <param name="version">No Metadata Documentation available.</param>
+        /// <param name="definition">No Metadata Documentation available.</param>
+        public int sp_creatediagram(global::System.String diagramname, Nullable<global::System.Int32> owner_id, Nullable<global::System.Int32> version, global::System.Byte[] definition)
+        {
+            ObjectParameter diagramnameParameter;
+            if (diagramname != null)
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", diagramname);
+            }
+            else
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", typeof(global::System.String));
+            }
+    
+            ObjectParameter owner_idParameter;
+            if (owner_id.HasValue)
+            {
+                owner_idParameter = new ObjectParameter("owner_id", owner_id);
+            }
+            else
+            {
+                owner_idParameter = new ObjectParameter("owner_id", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter versionParameter;
+            if (version.HasValue)
+            {
+                versionParameter = new ObjectParameter("version", version);
+            }
+            else
+            {
+                versionParameter = new ObjectParameter("version", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter definitionParameter;
+            if (definition != null)
+            {
+                definitionParameter = new ObjectParameter("definition", definition);
+            }
+            else
+            {
+                definitionParameter = new ObjectParameter("definition", typeof(global::System.Byte[]));
+            }
+    
+            return base.ExecuteFunction("sp_creatediagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="diagramname">No Metadata Documentation available.</param>
+        /// <param name="owner_id">No Metadata Documentation available.</param>
+        public int sp_dropdiagram(global::System.String diagramname, Nullable<global::System.Int32> owner_id)
+        {
+            ObjectParameter diagramnameParameter;
+            if (diagramname != null)
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", diagramname);
+            }
+            else
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", typeof(global::System.String));
+            }
+    
+            ObjectParameter owner_idParameter;
+            if (owner_id.HasValue)
+            {
+                owner_idParameter = new ObjectParameter("owner_id", owner_id);
+            }
+            else
+            {
+                owner_idParameter = new ObjectParameter("owner_id", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="diagramname">No Metadata Documentation available.</param>
+        /// <param name="owner_id">No Metadata Documentation available.</param>
+        public ObjectResult<sp_helpdiagramdefinition_Result> sp_helpdiagramdefinition(global::System.String diagramname, Nullable<global::System.Int32> owner_id)
+        {
+            ObjectParameter diagramnameParameter;
+            if (diagramname != null)
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", diagramname);
+            }
+            else
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", typeof(global::System.String));
+            }
+    
+            ObjectParameter owner_idParameter;
+            if (owner_id.HasValue)
+            {
+                owner_idParameter = new ObjectParameter("owner_id", owner_id);
+            }
+            else
+            {
+                owner_idParameter = new ObjectParameter("owner_id", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<sp_helpdiagramdefinition_Result>("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="diagramname">No Metadata Documentation available.</param>
+        /// <param name="owner_id">No Metadata Documentation available.</param>
+        public ObjectResult<sp_helpdiagrams_Result> sp_helpdiagrams(global::System.String diagramname, Nullable<global::System.Int32> owner_id)
+        {
+            ObjectParameter diagramnameParameter;
+            if (diagramname != null)
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", diagramname);
+            }
+            else
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", typeof(global::System.String));
+            }
+    
+            ObjectParameter owner_idParameter;
+            if (owner_id.HasValue)
+            {
+                owner_idParameter = new ObjectParameter("owner_id", owner_id);
+            }
+            else
+            {
+                owner_idParameter = new ObjectParameter("owner_id", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<sp_helpdiagrams_Result>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="diagramname">No Metadata Documentation available.</param>
+        /// <param name="owner_id">No Metadata Documentation available.</param>
+        /// <param name="new_diagramname">No Metadata Documentation available.</param>
+        public int sp_renamediagram(global::System.String diagramname, Nullable<global::System.Int32> owner_id, global::System.String new_diagramname)
+        {
+            ObjectParameter diagramnameParameter;
+            if (diagramname != null)
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", diagramname);
+            }
+            else
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", typeof(global::System.String));
+            }
+    
+            ObjectParameter owner_idParameter;
+            if (owner_id.HasValue)
+            {
+                owner_idParameter = new ObjectParameter("owner_id", owner_id);
+            }
+            else
+            {
+                owner_idParameter = new ObjectParameter("owner_id", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter new_diagramnameParameter;
+            if (new_diagramname != null)
+            {
+                new_diagramnameParameter = new ObjectParameter("new_diagramname", new_diagramname);
+            }
+            else
+            {
+                new_diagramnameParameter = new ObjectParameter("new_diagramname", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public int sp_upgraddiagrams()
+        {
+            return base.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="addressId">No Metadata Documentation available.</param>
+        /// <param name="street">No Metadata Documentation available.</param>
+        /// <param name="city">No Metadata Documentation available.</param>
+        /// <param name="postalCode">No Metadata Documentation available.</param>
+        /// <param name="phone">No Metadata Documentation available.</param>
+        /// <param name="chTimeStamp">No Metadata Documentation available.</param>
+        public int UpdateAddressCmd(Nullable<global::System.Int32> addressId, global::System.String street, global::System.String city, global::System.String postalCode, global::System.String phone, global::System.Byte[] chTimeStamp)
+        {
+            ObjectParameter addressIdParameter;
+            if (addressId.HasValue)
+            {
+                addressIdParameter = new ObjectParameter("AddressId", addressId);
+            }
+            else
+            {
+                addressIdParameter = new ObjectParameter("AddressId", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter streetParameter;
+            if (street != null)
+            {
+                streetParameter = new ObjectParameter("Street", street);
+            }
+            else
+            {
+                streetParameter = new ObjectParameter("Street", typeof(global::System.String));
+            }
+    
+            ObjectParameter cityParameter;
+            if (city != null)
+            {
+                cityParameter = new ObjectParameter("City", city);
+            }
+            else
+            {
+                cityParameter = new ObjectParameter("City", typeof(global::System.String));
+            }
+    
+            ObjectParameter postalCodeParameter;
+            if (postalCode != null)
+            {
+                postalCodeParameter = new ObjectParameter("PostalCode", postalCode);
+            }
+            else
+            {
+                postalCodeParameter = new ObjectParameter("PostalCode", typeof(global::System.String));
+            }
+    
+            ObjectParameter phoneParameter;
+            if (phone != null)
+            {
+                phoneParameter = new ObjectParameter("Phone", phone);
+            }
+            else
+            {
+                phoneParameter = new ObjectParameter("Phone", typeof(global::System.String));
+            }
+    
+            ObjectParameter chTimeStampParameter;
+            if (chTimeStamp != null)
+            {
+                chTimeStampParameter = new ObjectParameter("chTimeStamp", chTimeStamp);
+            }
+            else
+            {
+                chTimeStampParameter = new ObjectParameter("chTimeStamp", typeof(global::System.Byte[]));
+            }
+    
+            return base.ExecuteFunction("UpdateAddressCmd", addressIdParameter, streetParameter, cityParameter, postalCodeParameter, phoneParameter, chTimeStampParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="personID">No Metadata Documentation available.</param>
+        /// <param name="name">No Metadata Documentation available.</param>
+        /// <param name="password">No Metadata Documentation available.</param>
+        /// <param name="chTimeStamp">No Metadata Documentation available.</param>
+        public int UpdatePersonCmd(Nullable<global::System.Int32> personID, global::System.String name, global::System.String password, global::System.Byte[] chTimeStamp)
+        {
+            ObjectParameter personIDParameter;
+            if (personID.HasValue)
+            {
+                personIDParameter = new ObjectParameter("PersonID", personID);
+            }
+            else
+            {
+                personIDParameter = new ObjectParameter("PersonID", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter nameParameter;
+            if (name != null)
+            {
+                nameParameter = new ObjectParameter("Name", name);
+            }
+            else
+            {
+                nameParameter = new ObjectParameter("Name", typeof(global::System.String));
+            }
+    
+            ObjectParameter passwordParameter;
+            if (password != null)
+            {
+                passwordParameter = new ObjectParameter("Password", password);
+            }
+            else
+            {
+                passwordParameter = new ObjectParameter("Password", typeof(global::System.String));
+            }
+    
+            ObjectParameter chTimeStampParameter;
+            if (chTimeStamp != null)
+            {
+                chTimeStampParameter = new ObjectParameter("chTimeStamp", chTimeStamp);
+            }
+            else
+            {
+                chTimeStampParameter = new ObjectParameter("chTimeStamp", typeof(global::System.Byte[]));
+            }
+    
+            return base.ExecuteFunction("UpdatePersonCmd", personIDParameter, nameParameter, passwordParameter, chTimeStampParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="name">No Metadata Documentation available.</param>
+        /// <param name="password">No Metadata Documentation available.</param>
+        public int VerifyPasswordCmd(global::System.String name, global::System.String password)
+        {
+            ObjectParameter nameParameter;
+            if (name != null)
+            {
+                nameParameter = new ObjectParameter("Name", name);
+            }
+            else
+            {
+                nameParameter = new ObjectParameter("Name", typeof(global::System.String));
+            }
+    
+            ObjectParameter passwordParameter;
+            if (password != null)
+            {
+                passwordParameter = new ObjectParameter("Password", password);
+            }
+            else
+            {
+                passwordParameter = new ObjectParameter("Password", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("VerifyPasswordCmd", nameParameter, passwordParameter);
+        }
+
+        #endregion
+
+    }
 
     #endregion
-    
+
     #region Entities
     
     /// <summary>
@@ -285,6 +1128,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -483,6 +1327,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         partial void OnVersionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -507,8 +1352,31 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HsrOrderAppModel", "SupplierAddress", "Suppliers")]
+        public EntityCollection<Supplier> Suppliers
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Supplier>("HsrOrderAppModel.SupplierAddress", "Suppliers");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Supplier>("HsrOrderAppModel.SupplierAddress", "Suppliers", value);
+                }
+            }
+        }
 
         #endregion
+
     }
     
     /// <summary>
@@ -539,6 +1407,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -639,8 +1508,33 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         private global::System.Byte[] _Version;
         partial void OnVersionChanging(global::System.Byte[] value);
         partial void OnVersionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Salutation
+        {
+            get
+            {
+                return _Salutation;
+            }
+            set
+            {
+                OnSalutationChanging(value);
+                ReportPropertyChanging("Salutation");
+                _Salutation = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Salutation");
+                OnSalutationChanged();
+            }
+        }
+        private global::System.String _Salutation;
+        partial void OnSalutationChanging(global::System.String value);
+        partial void OnSalutationChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -727,6 +1621,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -755,6 +1650,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -881,6 +1777,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         partial void OnVersionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -945,6 +1842,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -975,6 +1873,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1077,6 +1976,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         partial void OnVersionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1157,6 +2057,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1195,6 +2096,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1393,6 +2295,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         partial void OnVersionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1417,8 +2320,31 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HsrOrderAppModel", "FK_SupplierConditions_Products", "SupplierConditions")]
+        public EntityCollection<SupplierCondition> SupplierConditions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SupplierCondition>("HsrOrderAppModel.FK_SupplierConditions_Products", "SupplierConditions");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SupplierCondition>("HsrOrderAppModel.FK_SupplierConditions_Products", "SupplierConditions", value);
+                }
+            }
+        }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1447,6 +2373,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1525,6 +2452,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         partial void OnVersionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1551,6 +2479,633 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HsrOrderAppModel", Name="Supplier")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Supplier : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Supplier object.
+        /// </summary>
+        /// <param name="supplierId">Initial value of the SupplierId property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="creditRating">Initial value of the CreditRating property.</param>
+        /// <param name="preferredSupplierFlag">Initial value of the PreferredSupplierFlag property.</param>
+        /// <param name="activeFlag">Initial value of the ActiveFlag property.</param>
+        /// <param name="purchasingWebServiceURL">Initial value of the PurchasingWebServiceURL property.</param>
+        /// <param name="version">Initial value of the Version property.</param>
+        /// <param name="accountNumber">Initial value of the AccountNumber property.</param>
+        public static Supplier CreateSupplier(global::System.Int32 supplierId, global::System.String name, global::System.Int32 creditRating, global::System.Boolean preferredSupplierFlag, global::System.Boolean activeFlag, global::System.String purchasingWebServiceURL, global::System.Byte[] version, global::System.Int32 accountNumber)
+        {
+            Supplier supplier = new Supplier();
+            supplier.SupplierId = supplierId;
+            supplier.Name = name;
+            supplier.CreditRating = creditRating;
+            supplier.PreferredSupplierFlag = preferredSupplierFlag;
+            supplier.ActiveFlag = activeFlag;
+            supplier.PurchasingWebServiceURL = purchasingWebServiceURL;
+            supplier.Version = version;
+            supplier.AccountNumber = accountNumber;
+            return supplier;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 SupplierId
+        {
+            get
+            {
+                return _SupplierId;
+            }
+            set
+            {
+                if (_SupplierId != value)
+                {
+                    OnSupplierIdChanging(value);
+                    ReportPropertyChanging("SupplierId");
+                    _SupplierId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("SupplierId");
+                    OnSupplierIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _SupplierId;
+        partial void OnSupplierIdChanging(global::System.Int32 value);
+        partial void OnSupplierIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CreditRating
+        {
+            get
+            {
+                return _CreditRating;
+            }
+            set
+            {
+                OnCreditRatingChanging(value);
+                ReportPropertyChanging("CreditRating");
+                _CreditRating = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreditRating");
+                OnCreditRatingChanged();
+            }
+        }
+        private global::System.Int32 _CreditRating;
+        partial void OnCreditRatingChanging(global::System.Int32 value);
+        partial void OnCreditRatingChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean PreferredSupplierFlag
+        {
+            get
+            {
+                return _PreferredSupplierFlag;
+            }
+            set
+            {
+                OnPreferredSupplierFlagChanging(value);
+                ReportPropertyChanging("PreferredSupplierFlag");
+                _PreferredSupplierFlag = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PreferredSupplierFlag");
+                OnPreferredSupplierFlagChanged();
+            }
+        }
+        private global::System.Boolean _PreferredSupplierFlag;
+        partial void OnPreferredSupplierFlagChanging(global::System.Boolean value);
+        partial void OnPreferredSupplierFlagChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean ActiveFlag
+        {
+            get
+            {
+                return _ActiveFlag;
+            }
+            set
+            {
+                OnActiveFlagChanging(value);
+                ReportPropertyChanging("ActiveFlag");
+                _ActiveFlag = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ActiveFlag");
+                OnActiveFlagChanged();
+            }
+        }
+        private global::System.Boolean _ActiveFlag;
+        partial void OnActiveFlagChanging(global::System.Boolean value);
+        partial void OnActiveFlagChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String PurchasingWebServiceURL
+        {
+            get
+            {
+                return _PurchasingWebServiceURL;
+            }
+            set
+            {
+                OnPurchasingWebServiceURLChanging(value);
+                ReportPropertyChanging("PurchasingWebServiceURL");
+                _PurchasingWebServiceURL = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("PurchasingWebServiceURL");
+                OnPurchasingWebServiceURLChanged();
+            }
+        }
+        private global::System.String _PurchasingWebServiceURL;
+        partial void OnPurchasingWebServiceURLChanging(global::System.String value);
+        partial void OnPurchasingWebServiceURLChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] Version
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_Version);
+            }
+            set
+            {
+                OnVersionChanging(value);
+                ReportPropertyChanging("Version");
+                _Version = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Version");
+                OnVersionChanged();
+            }
+        }
+        private global::System.Byte[] _Version;
+        partial void OnVersionChanging(global::System.Byte[] value);
+        partial void OnVersionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 AccountNumber
+        {
+            get
+            {
+                return _AccountNumber;
+            }
+            set
+            {
+                OnAccountNumberChanging(value);
+                ReportPropertyChanging("AccountNumber");
+                _AccountNumber = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AccountNumber");
+                OnAccountNumberChanged();
+            }
+        }
+        private global::System.Int32 _AccountNumber;
+        partial void OnAccountNumberChanging(global::System.Int32 value);
+        partial void OnAccountNumberChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HsrOrderAppModel", "FK_SupplierConditions_Suppliers1", "SupplierConditions")]
+        public EntityCollection<SupplierCondition> SupplierConditions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SupplierCondition>("HsrOrderAppModel.FK_SupplierConditions_Suppliers1", "SupplierConditions");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SupplierCondition>("HsrOrderAppModel.FK_SupplierConditions_Suppliers1", "SupplierConditions", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HsrOrderAppModel", "SupplierAddress", "Address")]
+        public EntityCollection<Address> Addresses
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Address>("HsrOrderAppModel.SupplierAddress", "Address");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Address>("HsrOrderAppModel.SupplierAddress", "Address", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HsrOrderAppModel", Name="SupplierCondition")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class SupplierCondition : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new SupplierCondition object.
+        /// </summary>
+        /// <param name="supplierConditionId">Initial value of the SupplierConditionId property.</param>
+        /// <param name="standardPrice">Initial value of the StandardPrice property.</param>
+        /// <param name="lastReceiptCost">Initial value of the LastReceiptCost property.</param>
+        /// <param name="minOrderQty">Initial value of the MinOrderQty property.</param>
+        /// <param name="maxOrderQty">Initial value of the MaxOrderQty property.</param>
+        /// <param name="version">Initial value of the Version property.</param>
+        public static SupplierCondition CreateSupplierCondition(global::System.Int32 supplierConditionId, global::System.Decimal standardPrice, global::System.Decimal lastReceiptCost, global::System.Int32 minOrderQty, global::System.Int32 maxOrderQty, global::System.Byte[] version)
+        {
+            SupplierCondition supplierCondition = new SupplierCondition();
+            supplierCondition.SupplierConditionId = supplierConditionId;
+            supplierCondition.StandardPrice = standardPrice;
+            supplierCondition.LastReceiptCost = lastReceiptCost;
+            supplierCondition.MinOrderQty = minOrderQty;
+            supplierCondition.MaxOrderQty = maxOrderQty;
+            supplierCondition.Version = version;
+            return supplierCondition;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 SupplierConditionId
+        {
+            get
+            {
+                return _SupplierConditionId;
+            }
+            set
+            {
+                if (_SupplierConditionId != value)
+                {
+                    OnSupplierConditionIdChanging(value);
+                    ReportPropertyChanging("SupplierConditionId");
+                    _SupplierConditionId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("SupplierConditionId");
+                    OnSupplierConditionIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _SupplierConditionId;
+        partial void OnSupplierConditionIdChanging(global::System.Int32 value);
+        partial void OnSupplierConditionIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal StandardPrice
+        {
+            get
+            {
+                return _StandardPrice;
+            }
+            set
+            {
+                OnStandardPriceChanging(value);
+                ReportPropertyChanging("StandardPrice");
+                _StandardPrice = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StandardPrice");
+                OnStandardPriceChanged();
+            }
+        }
+        private global::System.Decimal _StandardPrice;
+        partial void OnStandardPriceChanging(global::System.Decimal value);
+        partial void OnStandardPriceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal LastReceiptCost
+        {
+            get
+            {
+                return _LastReceiptCost;
+            }
+            set
+            {
+                OnLastReceiptCostChanging(value);
+                ReportPropertyChanging("LastReceiptCost");
+                _LastReceiptCost = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LastReceiptCost");
+                OnLastReceiptCostChanged();
+            }
+        }
+        private global::System.Decimal _LastReceiptCost;
+        partial void OnLastReceiptCostChanging(global::System.Decimal value);
+        partial void OnLastReceiptCostChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MinOrderQty
+        {
+            get
+            {
+                return _MinOrderQty;
+            }
+            set
+            {
+                OnMinOrderQtyChanging(value);
+                ReportPropertyChanging("MinOrderQty");
+                _MinOrderQty = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MinOrderQty");
+                OnMinOrderQtyChanged();
+            }
+        }
+        private global::System.Int32 _MinOrderQty;
+        partial void OnMinOrderQtyChanging(global::System.Int32 value);
+        partial void OnMinOrderQtyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MaxOrderQty
+        {
+            get
+            {
+                return _MaxOrderQty;
+            }
+            set
+            {
+                OnMaxOrderQtyChanging(value);
+                ReportPropertyChanging("MaxOrderQty");
+                _MaxOrderQty = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MaxOrderQty");
+                OnMaxOrderQtyChanged();
+            }
+        }
+        private global::System.Int32 _MaxOrderQty;
+        partial void OnMaxOrderQtyChanging(global::System.Int32 value);
+        partial void OnMaxOrderQtyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] Version
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_Version);
+            }
+            set
+            {
+                OnVersionChanging(value);
+                ReportPropertyChanging("Version");
+                _Version = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Version");
+                OnVersionChanged();
+            }
+        }
+        private global::System.Byte[] _Version;
+        partial void OnVersionChanging(global::System.Byte[] value);
+        partial void OnVersionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> LastReceiptDate
+        {
+            get
+            {
+                return _LastReceiptDate;
+            }
+            set
+            {
+                OnLastReceiptDateChanging(value);
+                ReportPropertyChanging("LastReceiptDate");
+                _LastReceiptDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LastReceiptDate");
+                OnLastReceiptDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _LastReceiptDate;
+        partial void OnLastReceiptDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnLastReceiptDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ProductId
+        {
+            get
+            {
+                return _ProductId;
+            }
+            set
+            {
+                OnProductIdChanging(value);
+                ReportPropertyChanging("ProductId");
+                _ProductId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ProductId");
+                OnProductIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ProductId;
+        partial void OnProductIdChanging(Nullable<global::System.Int32> value);
+        partial void OnProductIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SupplierId
+        {
+            get
+            {
+                return _SupplierId;
+            }
+            set
+            {
+                OnSupplierIdChanging(value);
+                ReportPropertyChanging("SupplierId");
+                _SupplierId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SupplierId");
+                OnSupplierIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SupplierId;
+        partial void OnSupplierIdChanging(Nullable<global::System.Int32> value);
+        partial void OnSupplierIdChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HsrOrderAppModel", "FK_SupplierConditions_Products", "Product")]
+        public Product Products
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("HsrOrderAppModel.FK_SupplierConditions_Products", "Product").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("HsrOrderAppModel.FK_SupplierConditions_Products", "Product").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Product> ProductsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Product>("HsrOrderAppModel.FK_SupplierConditions_Products", "Product");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Product>("HsrOrderAppModel.FK_SupplierConditions_Products", "Product", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HsrOrderAppModel", "FK_SupplierConditions_Suppliers1", "Suppliers")]
+        public Supplier Suppliers
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Supplier>("HsrOrderAppModel.FK_SupplierConditions_Suppliers1", "Suppliers").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Supplier>("HsrOrderAppModel.FK_SupplierConditions_Suppliers1", "Suppliers").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Supplier> SuppliersReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Supplier>("HsrOrderAppModel.FK_SupplierConditions_Suppliers1", "Suppliers");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Supplier>("HsrOrderAppModel.FK_SupplierConditions_Suppliers1", "Suppliers", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
     
     /// <summary>
@@ -1579,6 +3134,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1681,6 +3237,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         partial void OnVersionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1745,8 +3302,229 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
 
         #endregion
+
     }
 
     #endregion
+
+    #region ComplexTypes
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmComplexTypeAttribute(NamespaceName="HsrOrderAppModel", Name="sp_helpdiagramdefinition_Result")]
+    [DataContractAttribute(IsReference=true)]
+    [Serializable()]
+    public partial class sp_helpdiagramdefinition_Result : ComplexObject
+    {
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> version
+        {
+            get
+            {
+                return _version;
+            }
+            set
+            {
+                OnversionChanging(value);
+                ReportPropertyChanging("version");
+                _version = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("version");
+                OnversionChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _version;
+        partial void OnversionChanging(Nullable<global::System.Int32> value);
+        partial void OnversionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] definition
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_definition);
+            }
+            set
+            {
+                OndefinitionChanging(value);
+                ReportPropertyChanging("definition");
+                _definition = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("definition");
+                OndefinitionChanged();
+            }
+        }
+        private global::System.Byte[] _definition;
+        partial void OndefinitionChanging(global::System.Byte[] value);
+        partial void OndefinitionChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmComplexTypeAttribute(NamespaceName="HsrOrderAppModel", Name="sp_helpdiagrams_Result")]
+    [DataContractAttribute(IsReference=true)]
+    [Serializable()]
+    public partial class sp_helpdiagrams_Result : ComplexObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new sp_helpdiagrams_Result object.
+        /// </summary>
+        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="ownerID">Initial value of the OwnerID property.</param>
+        public static sp_helpdiagrams_Result Createsp_helpdiagrams_Result(global::System.String name, global::System.Int32 id, global::System.Int32 ownerID)
+        {
+            sp_helpdiagrams_Result sp_helpdiagrams_Result = new sp_helpdiagrams_Result();
+            sp_helpdiagrams_Result.Name = name;
+            sp_helpdiagrams_Result.ID = id;
+            sp_helpdiagrams_Result.OwnerID = ownerID;
+            return sp_helpdiagrams_Result;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Database
+        {
+            get
+            {
+                return _Database;
+            }
+            set
+            {
+                OnDatabaseChanging(value);
+                ReportPropertyChanging("Database");
+                _Database = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Database");
+                OnDatabaseChanged();
+            }
+        }
+        private global::System.String _Database;
+        partial void OnDatabaseChanging(global::System.String value);
+        partial void OnDatabaseChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                OnIDChanging(value);
+                ReportPropertyChanging("ID");
+                _ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ID");
+                OnIDChanged();
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Owner
+        {
+            get
+            {
+                return _Owner;
+            }
+            set
+            {
+                OnOwnerChanging(value);
+                ReportPropertyChanging("Owner");
+                _Owner = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Owner");
+                OnOwnerChanged();
+            }
+        }
+        private global::System.String _Owner;
+        partial void OnOwnerChanging(global::System.String value);
+        partial void OnOwnerChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 OwnerID
+        {
+            get
+            {
+                return _OwnerID;
+            }
+            set
+            {
+                OnOwnerIDChanging(value);
+                ReportPropertyChanging("OwnerID");
+                _OwnerID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("OwnerID");
+                OnOwnerIDChanged();
+            }
+        }
+        private global::System.Int32 _OwnerID;
+        partial void OnOwnerIDChanging(global::System.Int32 value);
+        partial void OnOwnerIDChanged();
+
+        #endregion
+
+    }
+
+    #endregion
+
     
 }

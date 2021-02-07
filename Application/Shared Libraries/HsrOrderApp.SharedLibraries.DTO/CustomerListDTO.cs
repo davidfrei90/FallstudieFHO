@@ -13,11 +13,15 @@ namespace HsrOrderApp.SharedLibraries.DTO
     {
         public CustomerListDTO()
         {
+            this.Salutation = string.Empty;
             this.Name = string.Empty;
             this.FirstName = string.Empty;
             this.NumberOfTotalOrders = default(int);
             this.NumberOfOpenOrders = default(int);
         }
+        [DataMember]
+        [StringLengthValidator(1, 50)]
+        public string Salutation { get; set; }
 
         [DataMember]
         [StringLengthValidator(1, 50)]
@@ -43,8 +47,10 @@ namespace HsrOrderApp.SharedLibraries.DTO
                     return string.Empty;
                 if (FirstName == string.Empty)
                     return Name;
-                else
+                if (Salutation == string.Empty)
                     return Name + ", " + FirstName;
+                else
+                    return Salutation + ", " + Name + ", " + FirstName;
             }
         }
     }

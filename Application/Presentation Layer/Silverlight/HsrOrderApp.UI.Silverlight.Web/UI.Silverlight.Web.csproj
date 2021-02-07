@@ -24,6 +24,13 @@
     <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
+    <UseIISExpress>false</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -119,10 +126,6 @@
     <ProjectReference Include="..\..\..\Data Access Layer\HsrOrderApp.DAL.Providers.EntityFramework\DAL.Providers.EntityFramework.csproj">
       <Project>{E3FFEB7D-CC90-46F0-976A-3D8169AFC2A1}</Project>
       <Name>DAL.Providers.EntityFramework</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Data Access Layer\HsrOrderApp.DAL.Providers.LinqToSql\DAL.Providers.LinqToSql.csproj">
-      <Project>{B590B750-7E68-4C7D-A78C-9D7BD2CE733D}</Project>
-      <Name>DAL.Providers.LinqToSql</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Service Layer\HsrOrderApp.SL.CustomerService\SL.CustomerService.csproj">
       <Project>{EDB2EE56-3126-4E13-8679-0B8FF38F5201}</Project>

@@ -332,6 +332,172 @@ namespace HsrOrderApp.UI.PresentationLogic
 
         #endregion
 
+        #region Supplier
+
+        public SupplierDTO GetSupplierById(int id)
+        {
+            try
+            {
+                GetSupplierRequest request = new GetSupplierRequest();
+                request.SupplierId = id;
+                GetSupplierResponse response = Service.GetSupplierById(request);
+                return response.Supplier;
+            }
+            catch (Exception ex)
+            {
+                if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
+                return new SupplierDTO();
+            }
+        }
+
+        public IList<SupplierListDTO> GetSuppliersByName(string name)
+        {
+            return getSuppliers(SupplierSearchType.ByName, name, default(string));
+        }
+
+        public IList<SupplierListDTO> GetSuppliersByCity(string city)
+        {
+            return getSuppliers(SupplierSearchType.ByName, default(string), city);
+        }
+
+        public IList<SupplierListDTO> GetAllSuppliers()
+        {
+            return getSuppliers(SupplierSearchType.None, default(string), default(string));
+        }
+
+        public void StoreSupplier(SupplierDTO supplier)
+        {
+            try
+            {
+                StoreSupplierRequest request = new StoreSupplierRequest();
+                request.Supplier = supplier;
+                StoreSupplierResponse response = Service.StoreSupplier(request);
+                supplier.Id = response.SupplierId;
+            }
+            catch (Exception ex)
+            {
+                if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
+            }
+        }
+
+        public void DeleteSupplier(int supplierId)
+        {
+            try
+            {
+                DeleteSupplierRequest request = new DeleteSupplierRequest();
+                request.SupplierId = supplierId;
+                DeleteSupplierResponse response = Service.DeleteSupplier(request);
+            }
+            catch (Exception ex)
+            {
+                if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
+            }
+        }
+
+        private IList<SupplierListDTO> getSuppliers(SupplierSearchType searchType, string name, string city)
+        {
+            try
+            {
+                GetSuppliersRequest request = new GetSuppliersRequest();
+                request.SearchType = searchType;
+                request.SupplierName = name;
+                request.City = city;
+                GetSuppliersResponse response = Service.GetSuppliersByCriteria(request);
+                return response.Suppliers;
+            }
+            catch (Exception ex)
+            {
+                if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
+                return new List<SupplierListDTO>();
+            }
+        }
+
+        #endregion
+
+        #region SupplierCondition
+
+        //public SupplierConditionDTO GetSupplierConditionById(int id)
+        //{
+        //    try
+        //    {
+        //        GetSupplierConditionRequest request = new GetSupplierConditionRequest();
+        //        request.Id = id;
+        //        GetSupplierConditionResponse response = Service.GetSupplierConditionById(request);
+        //        return response.SupplierCondition;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
+        //        return new SupplierConditionDTO();
+        //    }
+        //}
+
+        ////public IList<SupplierConditionDTO> GetSupplierConditionsByName(string name)
+        ////{
+        ////    return getSupplierConditions(SupplierConditionSearchType.ByName, name, default(string));
+        ////}
+
+        ////public IList<SupplierConditionDTO> GetSupplierConditionsByCategory(string category)
+        ////{
+        ////    return getSupplierConditions(SupplierConditionSearchType.ByCategory, default(string), category);
+        ////}
+
+        //public IList<SupplierConditionDTO> GetAllSupplierConditions()
+        //{
+        //    return getSupplierConditions(SupplierConditionSearchType.None, default(string), default(string));
+        //}
+
+        //public void StoreSupplierCondition(SupplierConditionDTO supplierCondition)
+        //{
+        //    try
+        //    {
+        //        StoreSupplierConditionRequest request = new StoreSupplierConditionRequest();
+        //        request.SupplierCondition = supplierCondition;
+        //        StoreSupplierConditonResponse response = Service.StoreSupplierCondition(request);
+        //        supplierCondition.Id = response.Id;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
+        //    }
+        //}
+
+        //public void DeleteSupplierCondition(int supplierConditionId)
+        //{
+        //    try
+        //    {
+        //        DeleteSupplierConditonRequest request = new DeleteSupplierConditonRequest();
+        //        request.Id = supplierConditionId;
+        //        DeleteSupplierCondtionResponse response = Service.DeleteSupplierCondition(request);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
+        //    }
+        //}
+
+       
+        //private IList<SupplierConditionDTO> getSupplierConditions(SupplierConditionSearchType searchType, string name, string category)
+        //{
+        //    try
+        //    {
+        //        GetSupplierConditionsRequest request = new GetSupplierConditionsRequest();
+        //        request.SearchType = searchType;
+        //        //request.SupplierConditionName = name;
+        //        //request.Category = category;
+        //        GetSupplierConditionsResponse response = Service.GetSupplierConditionsByCriteria(request);
+        //        return response.SupplierConditions;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
+        //        return new List<SupplierConditionDTO>();
+        //    }
+        //}
+
+        #endregion
+
+
         #region Security
 
         public CurrentUserDTO GetCurrentUser()

@@ -162,6 +162,9 @@
   <data name="CustomerDetailViewModel_DisplayName" xml:space="preserve">
     <value>Kunde bearbeiten</value>
   </data>
+  <data name="CustomerDetailView_Salutation" xml:space="preserve">
+    <value>Anrede</value>
+  </data>
   <data name="CustomerDetailView_FirstName" xml:space="preserve">
     <value>Vorname</value>
   </data>

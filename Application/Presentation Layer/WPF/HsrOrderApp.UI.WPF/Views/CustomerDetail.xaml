@@ -15,22 +15,25 @@
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition  />
                 <ColumnDefinition  />
             </Grid.ColumnDefinitions>
-            <Label Content="{x:Static Properties:Strings.CustomerDetailView_Name}"/>
-            <Label Grid.Row="1" Content="{x:Static Properties:Strings.CustomerDetailView_FirstName}"/>
-            <TextBox Grid.Column="1" Text="{Binding Model.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ></TextBox>
-            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Model.FirstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ></TextBox>
-            <StackPanel Grid.ColumnSpan="2" Grid.Row="2" Height="50" Orientation="Horizontal" Margin="0 20 0 0" >
+            <Label Content="{x:Static Properties:Strings.CustomerDetailView_Salutation}"/>
+            <Label Grid.Row="1" Content="{x:Static Properties:Strings.CustomerDetailView_Name}"/>
+            <Label Grid.Row="2" Content="{x:Static Properties:Strings.CustomerDetailView_FirstName}"/>
+            <TextBox Grid.Column="1" Text="{Binding Model.Salutation, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ></TextBox>
+            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Model.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ></TextBox>
+            <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Model.FirstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ></TextBox>
+            <StackPanel Grid.ColumnSpan="3" Grid.Row="3" Height="50" Orientation="Horizontal" Margin="0 20 0 0" >
                 <Image Height="40" Source="..\Icons\Address.png" Margin="20 0 0 0"/>
                 <TextBlock Height="50" Padding="15" Text="{x:Static Properties:Strings.CustomerDetailView_Subtitle}" Style="{StaticResource ViewTitle}"/>
             </StackPanel>
             
-            <Menu Grid.ColumnSpan="2" Grid.Row="3" Style="{StaticResource MenuStyle}" ItemsSource="{Binding ListViewModel.Commands}" Height="25" />
-            <ListView Grid.ColumnSpan="2" Grid.Row="4" Name="listView1" ItemsSource="{Binding ListViewModel.Items}" SelectedItem="{Binding ListViewModel.SelectedItem, Mode=TwoWay}" MinHeight="100">
+            <Menu Grid.ColumnSpan="2" Grid.Row="4" Style="{StaticResource MenuStyle}" ItemsSource="{Binding ListViewModel.Commands}" Height="25" />
+            <ListView Grid.ColumnSpan="2" Grid.Row="5" Name="listView1" ItemsSource="{Binding ListViewModel.Items}" SelectedItem="{Binding ListViewModel.SelectedItem, Mode=TwoWay}" MinHeight="100">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="{x:Static Properties:Strings.AddressDetailView_AddressLine1}"  Width="150" DisplayMemberBinding="{ Binding AddressLine1}"/>

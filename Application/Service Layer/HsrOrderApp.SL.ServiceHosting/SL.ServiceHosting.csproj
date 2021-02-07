@@ -94,10 +94,6 @@
       <Project>{E3FFEB7D-CC90-46F0-976A-3D8169AFC2A1}</Project>
       <Name>DAL.Providers.EntityFramework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Data Access Layer\HsrOrderApp.DAL.Providers.LinqToSql\DAL.Providers.LinqToSql.csproj">
-      <Project>{B590B750-7E68-4C7D-A78C-9D7BD2CE733D}</Project>
-      <Name>DAL.Providers.LinqToSql</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Shared Libraries\HsrOrderApp.SharedLibraries.ServiceInterfaces\SharedLibraries.ServiceInterfaces.csproj">
       <Project>{2B168632-B4DF-4339-8936-60429C52B556}</Project>
       <Name>SharedLibraries.ServiceInterfaces</Name>

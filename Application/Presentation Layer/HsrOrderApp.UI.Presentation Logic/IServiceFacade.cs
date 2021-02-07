@@ -31,6 +31,17 @@ namespace HsrOrderApp.UI.PresentationLogic
         void StoreProduct(ProductDTO product);
         void DeleteProduct(int productId);
         void GetEstimatedDeliveryTime(int productId, out int unitsAvailable, out int estimatedDeliveryTime);
+        //***New Supplier and SupplierConditions***
+        SupplierDTO GetSupplierById(int id);
+        IList<SupplierListDTO> GetSuppliersByName(string name);
+        IList<SupplierListDTO> GetSuppliersByCity(string city);
+        IList<SupplierListDTO> GetAllSuppliers();
+        void StoreSupplier(SupplierDTO supplier);
+        void DeleteSupplier(int csupplierId);
+        //SupplierConditionDTO GetSupplierConditionById(int id);
+        //IList<SupplierConditionDTO> GetAllSupplierConditions();
+        //void StoreSupplierCondition(SupplierConditionDTO supplier);
+        //void DeleteSupplierCondition(int supplierId);
 
         CurrentUserDTO GetCurrentUser();
         UserDTO GetUserById(int id);

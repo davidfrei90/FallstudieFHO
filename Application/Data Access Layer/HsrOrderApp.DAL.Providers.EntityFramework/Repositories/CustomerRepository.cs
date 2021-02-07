@@ -3,6 +3,7 @@
 using System;
 using System.Data;
 using System.Linq;
+using HsrOrderApp.BL.DomainModel;
 using HsrOrderApp.BL.DomainModel.SpecialCases;
 using HsrOrderApp.DAL.Data.Repositories;
 using HsrOrderApp.DAL.Providers.EntityFramework.Repositories.Adapters;
@@ -71,7 +72,8 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
                     dbCustomer.EntityKey = db.CreateEntityKey(setname, dbCustomer);
                     db.AttachTo(setname, dbCustomer);
                 }
-
+                //***Add Salutation
+                dbCustomer.Salutation = customer.Salutation;
                 dbCustomer.Name = customer.Name;
                 dbCustomer.FirstName = customer.FirstName;
                 if (isNew)

@@ -90,14 +90,18 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Adapters\AddressAdapter.cs" />
+    <Compile Include="Repositories\Adapters\SupplierAdapter.cs" />
     <Compile Include="Repositories\Adapters\CustomerAdapter.cs" />
     <Compile Include="Repositories\Adapters\OrderAdapter.cs" />
+    <Compile Include="Repositories\Adapters\SupplierConditionAdapter.cs" />
     <Compile Include="Repositories\Adapters\ProductAdapter.cs" />
     <Compile Include="Repositories\Adapters\SecurityAdapter.cs" />
     <Compile Include="Repositories\AddressRepository.cs" />
+    <Compile Include="Repositories\SupplierRepository.cs" />
     <Compile Include="Repositories\CustomerRepository.cs" />
     <Compile Include="Repositories\Extension Methods\EntityExtension.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\SupplierConditionRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\SecurityRepository.cs" />

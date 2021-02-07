@@ -68,6 +68,13 @@ namespace HsrOrderApp.BL.BusinessComponents.DependencyInjection
             return productBC;
         }
 
+        public static SupplierBusinessComponent GetSupplierBusinessComponent()
+        {
+            SetUnityContainer();
+            SupplierBusinessComponent supplierBC = _unityContainer.Resolve<SupplierBusinessComponent>();
+            return supplierBC;
+        }
+
         public static SecurityBusinessComponent GetSecurityBusinessComponent()
         {
             SetUnityContainer();

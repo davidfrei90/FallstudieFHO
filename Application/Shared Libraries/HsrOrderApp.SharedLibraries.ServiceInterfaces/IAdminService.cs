@@ -93,6 +93,55 @@ namespace HsrOrderApp.SharedLibraries.ServiceInterfaces
 
         #endregion
 
+        #region Supplier
+
+        [OperationContract]
+        [FaultContract(typeof(ServiceFault))]
+        [FaultContract(typeof(ValidationFault))]
+        GetSupplierResponse GetSupplierById(GetSupplierRequest request);
+
+        [OperationContract]
+        [FaultContract(typeof(ServiceFault))]
+        [FaultContract(typeof(ValidationFault))]
+        GetSuppliersResponse GetSuppliersByCriteria(GetSuppliersRequest request);
+
+        [OperationContract]
+        [FaultContract(typeof(ServiceFault))]
+        [FaultContract(typeof(ValidationFault))]
+        StoreSupplierResponse StoreSupplier(StoreSupplierRequest request);
+
+        [OperationContract]
+        [FaultContract(typeof(ServiceFault))]
+        [FaultContract(typeof(ValidationFault))]
+        DeleteSupplierResponse DeleteSupplier(DeleteSupplierRequest request);
+
+        #endregion
+
+        #region SupplierCondition
+
+        //[OperationContract]
+        //[FaultContract(typeof(ServiceFault))]
+        //[FaultContract(typeof(ValidationFault))]
+        //GetSupplierConditionResponse GetSupplierConditionById(GetSupplierConditionRequest request);
+
+        //[OperationContract]
+        //[FaultContract(typeof(ServiceFault))]
+        //[FaultContract(typeof(ValidationFault))]
+        //GetSupplierConditionsResponse GetSupplierConditionsByCriteria(GetSupplierConditionsRequest request);
+
+        //[OperationContract]
+        //[FaultContract(typeof(ServiceFault))]
+        //[FaultContract(typeof(ValidationFault))]
+        //StoreSupplierConditonResponse StoreSupplierCondition(StoreSupplierConditionRequest request);
+
+        //[OperationContract]
+        //[FaultContract(typeof(ServiceFault))]
+        //[FaultContract(typeof(ValidationFault))]
+        //DeleteSupplierCondtionResponse DeleteSupplierCondition(DeleteSupplierConditonRequest request);
+
+
+        #endregion
+
         #region Security 
 
         [OperationContract]

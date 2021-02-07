@@ -22,6 +22,7 @@ namespace HsrOrderApp.BL.DtoAdapters
                                                        select new CustomerListDTO()
                                                                   {
                                                                       Id = c.CustomerId,
+                                                                      Salutation = c.Salutation,
                                                                       Name = c.Name,
                                                                       FirstName = c.FirstName,
                                                                       NumberOfTotalOrders = GetNumberOfOrdersOfCustomer(c, false),
@@ -35,6 +36,7 @@ namespace HsrOrderApp.BL.DtoAdapters
             CustomerDTO dto = new CustomerDTO()
                                   {
                                       Id = c.CustomerId,
+                                      Salutation = c.Salutation,
                                       Name = c.Name,
                                       FirstName = c.FirstName,
                                       Version = c.Version,
@@ -70,6 +72,7 @@ namespace HsrOrderApp.BL.DtoAdapters
             Customer customer = new Customer()
                                     {
                                         CustomerId = dto.Id,
+                                        Salutation = dto.Salutation,
                                         Name = dto.Name,
                                         FirstName = dto.FirstName,
                                         Version = dto.Version

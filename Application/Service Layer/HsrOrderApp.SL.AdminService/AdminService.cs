@@ -185,6 +185,57 @@ namespace HsrOrderApp.SL.AdminService
 
         #endregion
 
+        #region Supplier
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
+        public GetSupplierResponse GetSupplierById(GetSupplierRequest request)
+        {
+            GetSupplierResponse response = new GetSupplierResponse();
+            SupplierBusinessComponent bc = DependencyInjectionHelper.GetSupplierBusinessComponent();
+
+            Supplier supplier = bc.GetSupplierById(request.SupplierId);
+            response.Supplier = SupplierAdapter.SupplierToDto(supplier);
+
+            return response;
+        }
+
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
+        public GetSuppliersResponse GetSuppliersByCriteria(GetSuppliersRequest request)
+        {
+            GetSuppliersResponse response = new GetSuppliersResponse();
+            SupplierBusinessComponent bc = DependencyInjectionHelper.GetSupplierBusinessComponent();
+
+            IQueryable<Supplier> suppliers = bc.GetSuppliersByCriteria(request.SearchType, request.City, request.SupplierName);
+            response.Suppliers = SupplierAdapter.SuppliersToDtos(suppliers);
+
+            return response;
+        }
+
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
+        public StoreSupplierResponse StoreSupplier(StoreSupplierRequest request)
+        {
+            StoreSupplierResponse response = new StoreSupplierResponse();
+            SupplierBusinessComponent bc = DependencyInjectionHelper.GetSupplierBusinessComponent();
+
+            Supplier supplier = SupplierAdapter.DtoToSupplier(request.Supplier);
+            //IEnumerable<ChangeItem> changeItems = SupplierAdapter.GetChangeItems(request.Supplier, supplier);
+            //response.SupplierId = bc.StoreSupplier(supplier, changeItems);
+
+            return response;
+        }
+
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
+        public DeleteSupplierResponse DeleteSupplier(DeleteSupplierRequest request)
+        {
+            DeleteSupplierResponse response = new DeleteSupplierResponse();
+            SupplierBusinessComponent bc = DependencyInjectionHelper.GetSupplierBusinessComponent();
+
+            bc.DeleteSupplier(request.SupplierId);
+
+            return response;
+        }
+
+        #endregion
+
         #region Security
 
         public GetCurrentUserResponse GetCurrentUser(GetCurrentUserRequest request)
