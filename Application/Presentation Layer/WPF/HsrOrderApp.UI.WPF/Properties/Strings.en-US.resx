@@ -213,6 +213,9 @@
   <data name="MainWindow_hlkCustomer" xml:space="preserve">
     <value>Customer administration</value>
   </data>
+  <data name="MainWindow_hlkSupplier" xml:space="preserve">
+    <value>Supplier administration</value>
+  </data>  
   <data name="MainWindow_hlkDE" xml:space="preserve">
     <value>DE</value>
   </data>

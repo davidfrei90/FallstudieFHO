@@ -159,6 +159,9 @@
     <Compile Include="ViewModels\Customer\CustomerViewModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="ViewModels\Base\ViewModelBase.cs" />
+    <Compile Include="ViewModels\Supplier\AddressViewModel.cs" />
+    <Compile Include="ViewModels\Supplier\SupplierDetailViewModel.cs" />
+    <Compile Include="ViewModels\Supplier\SupplierViewModel.cs" />
     <Compile Include="Views\AddressDetail.xaml.cs">
       <DependentUpon>AddressDetail.xaml</DependentUpon>
     </Compile>

@@ -500,7 +500,18 @@ namespace HsrOrderApp.UI.Mvc.Resources {
                 return ResourceManager.GetString("MainWindow_hlkCustomer", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Lieferant.
+        /// </summary>
+        public static string MainWindow_hlkSupplier
+        {
+            get
+            {
+                return ResourceManager.GetString("MainWindow_hlkSupplier", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to DE.
         /// </summary>
@@ -537,14 +548,14 @@ namespace HsrOrderApp.UI.Mvc.Resources {
             }
         }
         
-        /// <summary>
-        ///   Looks up a localized string similar to Lieferanten.
-        /// </summary>
-        public static string MainWindow_hlkSupplier {
-            get {
-                return ResourceManager.GetString("MainWindow_hlkSupplier", resourceCulture);
-            }
-        }
+        ///// <summary>
+        /////   Looks up a localized string similar to Lieferanten.
+        ///// </summary>
+        //public static string MainWindow_hlkSupplier {
+        //    get {
+        //        return ResourceManager.GetString("MainWindow_hlkSupplier", resourceCulture);
+        //    }
+        //}
         
         /// <summary>
         ///   Looks up a localized string similar to Benutzer.
