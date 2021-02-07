@@ -8,7 +8,7 @@ using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 
 namespace HsrOrderApp.BL.DomainModel
 {
-    class Supplier: DomainObject
+    public class Supplier: DomainObject
     {
 
 
@@ -18,8 +18,8 @@ namespace HsrOrderApp.BL.DomainModel
             this.AccountNumber = default(int);
             this.Name = String.Empty;
             this.CreditRating = default(int);
-            this.PreferredSupplierFlag = default(int);
-            this.ActiveFlag = default(int);
+            this.PreferredSupplierFlag = default(bool);
+            this.ActiveFlag = default(bool);
             this.PurchasingWebServiceURL = String.Empty;
             this.Addresses = new List<Address>().AsQueryable();
             this.SupplierConditions = new List<SupplierCondition>().AsQueryable();
@@ -32,9 +32,9 @@ namespace HsrOrderApp.BL.DomainModel
 
         public IQueryable<Address> Addresses { get; set; }
 
-        public int ActiveFlag { get; set; }
+        public bool ActiveFlag { get; set; }
 
-        public int PreferredSupplierFlag { get; set; }
+        public bool PreferredSupplierFlag { get; set; }
 
         public int CreditRating { get; set; }
 

@@ -72,6 +72,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChangeType.cs" />
+    <Compile Include="SupplierConditionSearchType.cs" />
+    <Compile Include="SupplierSearchType.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="CreditRating.cs" />
     <Compile Include="CustomerSearchType.cs" />

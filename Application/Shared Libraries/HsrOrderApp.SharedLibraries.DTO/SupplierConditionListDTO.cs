@@ -1,29 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlTypes;
-using System.Linq;
-using System.Text;
-using HsrOrderApp.BL.DomainModel.HelperObjects;
-using System.Linq;
-using HsrOrderApp.BL.DomainModel.SpecialCases;
+#region
+
+using System;
+using System.Runtime.Serialization;
+using HsrOrderApp.SharedLibraries.DTO.Base;
+using HsrOrderApp.SharedLibraries.SharedEnums;
 using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 
-namespace HsrOrderApp.BL.DomainModel
+#endregion
+
+namespace HsrOrderApp.SharedLibraries.DTO
 {
-    public class SupplierCondition:DomainObject
+    public class SupplierConditionListDTO : DTOBase
     {
-        public SupplierCondition()
+        public SupplierConditionListDTO()
         {
-            this.SupplierConditionId = default(int);
-            this.Product = new UnknownProduct();
-            this.Supplier = new UnknownSupplier();
+            this.SupplierName = string.Empty;
+            this.ProductName = string.Empty;
             this.StandardPrice = default(decimal);
             this.LastReceiptDate = null;
             this.LastReceiptCost = default(decimal);
             this.MinOrderQty = default(int);
             this.MaxOrderQty = default(int);
-        }
 
+        }
         [RangeValidator(0, RangeBoundaryType.Exclusive, int.MaxValue, RangeBoundaryType.Ignore)]
         public int MaxOrderQty { get; set; }
 
@@ -38,9 +37,11 @@ namespace HsrOrderApp.BL.DomainModel
         [RangeValidator(typeof(decimal), "0.0", RangeBoundaryType.Inclusive, "0.0", RangeBoundaryType.Ignore)]
         public decimal StandardPrice { get; set; }
 
-        public Supplier Supplier { get; set; }
+        [StringLengthValidator(1, 50)]
+        public string SupplierName { get; set; }
 
-        public Product Product { get; set; }
+        [StringLengthValidator(1, 50)]
+        public string ProductName { get; set; }
 
         public int SupplierConditionId { get; set; }
     }
