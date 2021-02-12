@@ -20,6 +20,12 @@
     <DataTemplate DataType="{x:Type vm:Security.UserViewModel}">
         <vw:UserView />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Supplier.SupplierViewModel}">
+        <vw:SupplierView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:SupplierCondition.SupplierConditionViewModel}">
+        <vw:SupplierConditionView />
+    </DataTemplate>
 
     <conv:DateTimeConverter x:Key="dateTimeConv" />
     <conv:DoubleConverter x:Key="doubleConv" />

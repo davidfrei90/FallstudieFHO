@@ -7,6 +7,8 @@ using HsrOrderApp.UI.WPF.ViewModels.Base;
 using HsrOrderApp.UI.WPF.ViewModels.Customer;
 using HsrOrderApp.UI.WPF.ViewModels.Order;
 using HsrOrderApp.UI.WPF.ViewModels.Product;
+using HsrOrderApp.UI.WPF.ViewModels.Supplier;
+using HsrOrderApp.UI.WPF.ViewModels.SupplierCondition;
 using HsrOrderApp.UI.WPF.ViewModels.Security;
 
 #endregion
@@ -40,8 +42,14 @@ namespace HsrOrderApp.UI.WPF.Navigation
                     case "Customer":
                         this._mainWindowViewModel.CurrentViewModel = new CustomerViewModel();
                         break;
+                    case "Supplier":
+                        this._mainWindowViewModel.CurrentViewModel = new SupplierViewModel();
+                        break;
                     case "Order":
                         this._mainWindowViewModel.CurrentViewModel = new OrderViewModel();
+                        break;
+                    case "SupplierCondition":
+                        this._mainWindowViewModel.CurrentViewModel = new SupplierConditionViewModel();
                         break;
                     case "Product":
                         this._mainWindowViewModel.CurrentViewModel = new ProductViewModel();
@@ -49,6 +57,7 @@ namespace HsrOrderApp.UI.WPF.Navigation
                     case "User":
                         this._mainWindowViewModel.CurrentViewModel = new UserViewModel();
                         break;
+
                     default:
                         throw new Exception(string.Format("Cannot navigate to URL '{0}'.", url));
                 }

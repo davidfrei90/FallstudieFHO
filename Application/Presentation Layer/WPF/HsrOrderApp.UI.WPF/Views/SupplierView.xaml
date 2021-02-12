@@ -1,0 +1,49 @@
+﻿<UserControl
+    x:Class="HsrOrderApp.UI.WPF.Views.SupplierView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:props="clr-namespace:HsrOrderApp.UI.WPF.Properties"
+    mc:Ignorable="d">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top">
+            <TextBlock
+                Height="50"
+                Padding="20"
+                Style="{StaticResource ViewTitle}"
+                Text="{x:Static props:Strings.SupplierView_DisplayName}" />
+            <TextBlock
+                Height="50"
+                Margin="20,0,0,0"
+                Text="{x:Static props:Strings.SupplierView_Description}" />
+            <Menu
+                Height="25"
+                ItemsSource="{Binding Commands}"
+                Style="{StaticResource MenuStyle}" />
+        </StackPanel>
+
+        <ListView
+            x:Name="listView1"
+            ItemsSource="{Binding Items}"
+            SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn
+                        Width="200"
+                        DisplayMemberBinding="{Binding FullName}"
+                        Header="{x:Static props:Strings.SupplierView_Name}" />
+                    <!--<GridViewColumn
+                        Width="150"
+                        DisplayMemberBinding="{Binding NumberOfOpenOrders}"
+                        Header="{x:Static props:Strings.SupplierView_OpenOrders}" />
+                    <GridViewColumn
+                        Width="150"
+                        DisplayMemberBinding="{Binding NumberOfTotalOrders}"
+                        Header="{x:Static props:Strings.SupplierView_TotalOrders}" />-->
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </DockPanel>
+</UserControl>

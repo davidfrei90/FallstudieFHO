@@ -174,8 +174,14 @@
   <data name="CustomerDetailView_Subtitle" xml:space="preserve">
     <value>Adressen</value>
   </data>
+  <data name="SupplierDetailView_Subtitle" xml:space="preserve">
+    <value>Adressen</value>
+  </data>
   <data name="CustomerDetailView_Title" xml:space="preserve">
     <value>Kunde</value>
+  </data>
+  <data name="SupplierDetailView_Title" xml:space="preserve">
+    <value>Lieferant</value>
   </data>
   <data name="CustomerViewModel_DisplayName" xml:space="preserve">
     <value>Kundenverwaltung</value>
@@ -231,6 +237,12 @@
   <data name="MainWindow_hlkUser" xml:space="preserve">
     <value>Benutzerverwaltung</value>
   </data>
+  <data name="MainWindow_hlkSupplier" xml:space="preserve">
+    <value>Lieferantenverwaltung</value>
+  </data>
+  <data name="MainWindow_hlkSupplierCondition" xml:space="preserve">
+    <value>Lieferanten Conditions</value>
+  </data>
   <data name="NewCommand" xml:space="preserve">
     <value>Neu</value>
   </data>
@@ -275,6 +287,13 @@
   </data>
   <data name="OrderItemDetailViewModel_DisplayName" xml:space="preserve">
     <value>Bestellposition bearbeiten</value>
+  </data>
+  <data name="OrderItemDetailViewModel_DisplayName" xml:space="preserve">
+    <value>Bestellposition bearbeiten</value>
+  </data>
+  
+	<data name="SupplierConditionItemDetailViewModel_DisplayName" xml:space="preserve">
+    <value>Lieferanten Position bearbeiten</value>
   </data>
   <data name="OrderStatus_Draft" xml:space="preserve">
     <value>Entwurf</value>
@@ -432,6 +451,85 @@
   <data name="SupplierDetailViewModel_PurchasingWebServiceURL" xml:space="preserve">
     <value>Lieferant Webseite</value>
   </data>
-
-
+  <data name="SupplierViewModel_DisplayName" xml:space="preserve">
+    <value>Lieferantenverwaltung</value>
+  </data>
+  <data name="SupplierView_AccountNumber" xml:space="preserve">
+    <value>Accountnummer</value>
+  </data>
+  <data name="SupplierView_ActiveFlag" xml:space="preserve">
+    <value>Ist Aktiv</value>
+  </data>
+  <data name="SupplierView_CreditRating" xml:space="preserve">
+    <value>Kreditbewertung</value>
+  </data>
+  <data name="SupplierView_Description" xml:space="preserve">
+    <value>Bearbeiten Sie die Lieferanten</value>
+  </data>
+  <data name="SupplierView_DisplayName" xml:space="preserve">
+    <value>Lieferantenverwaltung</value>
+  </data>
+  <data name="SupplierView_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="SupplierView_PreferredSupplierFlag" xml:space="preserve">
+    <value>Ist bevorzugter Lieferant</value>
+  </data>
+  <data name="SupplierConditionDetailView_Title" xml:space="preserve">
+    <value>Lieferanten Details</value>
+  </data>
+  <data name="SupplierConditionViewModel_DisplayName" xml:space="preserve">
+    <value>Lieferanten Details </value>
+  </data>
+  <data name="SupplierConditionView_Decription" xml:space="preserve">
+    <value>Bearbeiten Sie die LieferantenDetails</value>
+  </data>
+  <data name="SupplierConditionView_Id" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="SupplierConditionView_LastReceiptCost" xml:space="preserve">
+    <value>Letzter Preis</value>
+  </data>
+  <data name="SupplierConditionView_LastReceiptDate" xml:space="preserve">
+    <value>Letztes Datum</value>
+  </data>
+  <data name="SupplierConditionView_MaxOrderQty" xml:space="preserve">
+    <value>Max. Bestellmenge</value>
+  </data>
+  <data name="SupplierConditionView_MinOrderQty" xml:space="preserve">
+    <value>Min. Bestellmenge</value>
+  </data>
+  <data name="SupplierConditionView_StandardPrice" xml:space="preserve">
+    <value>Standard Preis</value>
+  </data>
+  <data name="SupplierConditionView_Supplier" xml:space="preserve">
+    <value>Lieferant</value>
+  </data>
+  <data name="SupplierConditionView_SupplierName" xml:space="preserve">
+    <value>Lieferant Name</value>
+  </data>
+  <data name="SupplierConditionView_Title" xml:space="preserve">
+    <value>Lieferantenverwaltung</value>
+  </data>
+  <data name="SupplierDetailViewModel_DisplayName" xml:space="preserve">
+    <value>Lieferant bearbeiten</value>
+  </data>
+  <data name="SupplierDetailView_AccountNumber" xml:space="preserve">
+    <value>Accountnummer</value>
+  </data>
+  <data name="SupplierDetailView_ActiveFlag" xml:space="preserve">
+    <value>Aktiv?</value>
+  </data>
+  <data name="SupplierDetailView_CreditRating" xml:space="preserve">
+    <value>Kreditbewertung</value>
+  </data> 
+  <data name="SupplierDetailView_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="SupplierDetailView_PreferredSupplierFlag" xml:space="preserve">
+    <value>Bevorzugter Lieferant</value>
+  </data>
+  <data name="SupplierDetailView_PurchasingWebServiceURL" xml:space="preserve">
+    <value>Webseite Lieferant</value>
+  </data>
 </root>

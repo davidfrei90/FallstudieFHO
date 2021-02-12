@@ -10,6 +10,9 @@
     <DataTemplate DataType="{x:Type vm:Customer.CustomerDetailViewModel}">
         <vw:CustomerDetail />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Supplier.SupplierDetailViewModel}">
+        <vw:SupplierDetail />
+    </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:Product.ProductDetailViewModel}">
         <vw:ProductDetail />
@@ -17,6 +20,9 @@
 
     <DataTemplate DataType="{x:Type vm:Order.OrderDetailViewModel}">
         <vw:OrderDetail />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:SupplierCondition.SupplierConditionDetailViewModel}">
+        <vw:SupplierConditionDetail />
     </DataTemplate>
     <DataTemplate DataType="{x:Type vm:Order.OrderItemDetailViewModel}">
         <vw:OrderDetailDetail />

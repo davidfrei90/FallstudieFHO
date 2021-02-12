@@ -53,12 +53,25 @@
                         CommandParameter="Order">
                         <Run Text="{x:Static Properties:Strings.MainWindow_hlkOrder}" />
                     </Hyperlink></TextBlock>
+                <TextBlock><Hyperlink
+                        Name="hlkSupplier"
+                        Command="{Binding NavigationCommand}"
+                        CommandParameter="Order">
+                        <Run Text="{x:Static Properties:Strings.MainWindow_hlkSupplier}" />
+                    </Hyperlink></TextBlock>
+                <TextBlock><Hyperlink
+                        Name="hlkSupplierCondition"
+                        Command="{Binding NavigationCommand}"
+                        CommandParameter="Order">
+                        <Run Text="{x:Static Properties:Strings.MainWindow_hlkSupplierCondition}" />
+                    </Hyperlink></TextBlock>
                 <TextBlock Visibility="{Binding SecurityContext.IsAdmin, Converter={StaticResource convVisibility}}"><Hyperlink
                         Name="hlkUser"
                         Command="{Binding NavigationCommand}"
                         CommandParameter="User">
                         <Run Text="{x:Static Properties:Strings.MainWindow_hlkUser}" />
                     </Hyperlink></TextBlock>
+
             </StackPanel>
         </Border>
         <ContentControl Content="{Binding CurrentViewModel}" />

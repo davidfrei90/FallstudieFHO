@@ -7,11 +7,11 @@ using System.Windows.Controls;
 namespace HsrOrderApp.UI.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for CustomerDetail.xaml
+    /// Interaction logic for ProductDetail.xaml
     /// </summary>
-    public partial class SupplierDetail : UserControl
+    public partial class SupplierConditionDetail : UserControl
     {
-        public SupplierDetail()
+        public SupplierConditionDetail()
         {
             InitializeComponent();
         }

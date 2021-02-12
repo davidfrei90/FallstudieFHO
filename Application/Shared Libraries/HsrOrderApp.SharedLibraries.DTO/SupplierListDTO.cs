@@ -37,5 +37,6 @@ namespace HsrOrderApp.SharedLibraries.DTO
         public int AccountNumber { get; set; }
 
         public int SupplierId { get; set; }
+
     }
 }

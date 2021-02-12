@@ -2,10 +2,7 @@
     x:Class="HsrOrderApp.UI.WPF.Views.SupplierDetail"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:Properties="clr-namespace:HsrOrderApp.UI.WPF.Properties"
-    Width="Auto"
-    MinWidth="500">
-
+    xmlns:Properties="clr-namespace:HsrOrderApp.UI.WPF.Properties">
 
     <DockPanel>
         <StackPanel
@@ -20,7 +17,7 @@
                 Height="50"
                 Padding="15"
                 Style="{StaticResource ViewTitle}"
-                Text="{x:Static Properties:Strings.SupplierDetailViewModel_Title}" />
+                Text="{x:Static Properties:Strings.SupplierDetailView_Title}" />
         </StackPanel>
         <Grid Name="grid1" VerticalAlignment="Top">
             <Grid.RowDefinitions>
@@ -35,36 +32,96 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Content="{x:Static Properties:Strings.ProductDetailView_ProductName}" />
-            <Label Grid.Row="1" Content="{x:Static Properties:Strings.ProductDetailView_ProductNumber}" />
-            <Label Grid.Row="2" Content="{x:Static Properties:Strings.ProductDetailView_Category}" />
-            <Label Grid.Row="3" Content="{x:Static Properties:Strings.ProductDetailView_PricePerUnit}" />
-            <Label Grid.Row="4" Content="{x:Static Properties:Strings.ProductDetailView_QuantityPerUnit}" />
-            <Label Grid.Row="5" Content="{x:Static Properties:Strings.ProductDetailView_UnitsOnStock}" />
+            <Label Grid.Row="0" Content="{x:Static Properties:Strings.SupplierDetailView_AccountNumber}" />
+            <Label Grid.Row="1" Content="{x:Static Properties:Strings.SupplierDetailView_Name}" />
+            <Label Grid.Row="3" Content="{x:Static Properties:Strings.SupplierDetailView_CreditRating}" />
+            <Label Grid.Row="4" Content="{x:Static Properties:Strings.SupplierDetailView_PreferredSupplierFlag}" />
+            <Label Grid.Row="5" Content="{x:Static Properties:Strings.SupplierDetailView_ActiveFlag}" />
+            <Label Grid.Row="6" Content="{x:Static Properties:Strings.SupplierDetailView_PurchasingWebServiceURL}" />
             <TextBox
                 Grid.Row="0"
                 Grid.Column="1"
-                Text="{Binding Model.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+                Text="{Binding Model.AccountNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
             <TextBox
                 Grid.Row="1"
                 Grid.Column="1"
-                Text="{Binding Model.ProductNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+                Text="{Binding Model.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
             <TextBox
                 Grid.Row="2"
                 Grid.Column="1"
-                Text="{Binding Model.Category, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+                Text="{Binding Model.CreditRating, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
             <TextBox
                 Grid.Row="3"
                 Grid.Column="1"
-                Text="{Binding Model.ListUnitPrice, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, Converter={StaticResource decimalConv}}" />
+                Text="{Binding Model.PreferredSupplierFlag, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
             <TextBox
                 Grid.Row="4"
                 Grid.Column="1"
-                Text="{Binding Model.QuantityPerUnit, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, Converter={StaticResource doubleConv}}" />
+                Text="{Binding Model.ActiveFlag, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
             <TextBox
                 Grid.Row="5"
                 Grid.Column="1"
-                Text="{Binding Model.UnitsOnStock, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, Converter={StaticResource doubleConv}}" />
+                Text="{Binding Model.PurchasingWebServiceURL, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+            <StackPanel
+                Grid.Row="3"
+                Grid.ColumnSpan="3"
+                Height="50"
+                Margin="0,20,0,0"
+                Orientation="Horizontal">
+                <Image
+                    Height="40"
+                    Margin="20,0,0,0"
+                    Source="..\Icons\Address.png" />
+                <TextBlock
+                    Height="50"
+                    Padding="15"
+                    Style="{StaticResource ViewTitle}"
+                    Text="{x:Static Properties:Strings.SupplierDetailView_Subtitle}" />
+            </StackPanel>
+
+
+            <Menu
+                Grid.Row="4"
+                Grid.ColumnSpan="2"
+                Height="25"
+                ItemsSource="{Binding ListViewModel.Commands}"
+                Style="{StaticResource MenuStyle}" />
+            <ListView
+                Name="listView1"
+                Grid.Row="5"
+                Grid.ColumnSpan="2"
+                MinHeight="100"
+                ItemsSource="{Binding ListViewModel.Items}"
+                SelectedItem="{Binding ListViewModel.SelectedItem, Mode=TwoWay}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn
+                            Width="150"
+                            DisplayMemberBinding="{Binding AddressLine1}"
+                            Header="{x:Static Properties:Strings.AddressDetailView_AddressLine1}" />
+                        <GridViewColumn
+                            Width="150"
+                            DisplayMemberBinding="{Binding AddressLine2}"
+                            Header="{x:Static Properties:Strings.AddressDetailView_AddressLine2}" />
+                        <GridViewColumn
+                            Width="50"
+                            DisplayMemberBinding="{Binding PostalCode}"
+                            Header="{x:Static Properties:Strings.AddressDetailView_ZIP}" />
+                        <GridViewColumn
+                            Width="150"
+                            DisplayMemberBinding="{Binding City}"
+                            Header="{x:Static Properties:Strings.AddressDetailView_City}" />
+                        <GridViewColumn
+                            Width="150"
+                            DisplayMemberBinding="{Binding Phone}"
+                            Header="{x:Static Properties:Strings.AddressDetailView_Telephone}" />
+                        <GridViewColumn
+                            Width="200"
+                            DisplayMemberBinding="{Binding Email}"
+                            Header="{x:Static Properties:Strings.AddressDetailView_Email}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </Grid>
     </DockPanel>
 </UserControl>

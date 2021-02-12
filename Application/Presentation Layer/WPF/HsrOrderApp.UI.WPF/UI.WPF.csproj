@@ -141,6 +141,11 @@
     <Compile Include="ViewModels\Base\DetailViewModelBase.cs" />
     <Compile Include="ViewModels\Base\IDetailViewModelBase.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
+    <Compile Include="ViewModels\SupplierCondition\SupplierConditionDetailViewModel.cs" />
+    <Compile Include="ViewModels\SupplierCondition\SupplierConditionViewModel.cs" />
+    <Compile Include="ViewModels\Supplier\AddressViewModel.cs" />
+    <Compile Include="ViewModels\Supplier\SupplierDetailViewModel.cs" />
+    <Compile Include="ViewModels\Supplier\SupplierViewModel.cs" />
     <Compile Include="ViewModels\Customer\AddressViewModel.cs" />
     <Compile Include="ViewModels\Base\ListViewModelBase.cs" />
     <Compile Include="ViewModels\Address\AddressDetailViewModel.cs" />
@@ -162,11 +167,20 @@
     <Compile Include="Views\AddressDetail.xaml.cs">
       <DependentUpon>AddressDetail.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RoleDetail.xaml.cs">
-      <DependentUpon>RoleDetail.xaml</DependentUpon>
+    <Compile Include="Views\SupplierConditionView.xaml.cs">
+      <DependentUpon>SupplierConditionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SupplierConditionDetail.xaml.cs">
+      <DependentUpon>SupplierConditionDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SupplierDetail.xaml.cs">
       <DependentUpon>SupplierDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SupplierView.xaml.cs">
+      <DependentUpon>SupplierView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RoleDetail.xaml.cs">
+      <DependentUpon>RoleDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserDetail.xaml.cs">
       <DependentUpon>UserDetail.xaml</DependentUpon>
@@ -241,15 +255,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\SupplierConditionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SupplierConditionDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SupplierDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SupplierView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\RoleDetail.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\SupplierDetail.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserDetail.xaml">
       <Generator>MSBuild:Compile</Generator>
