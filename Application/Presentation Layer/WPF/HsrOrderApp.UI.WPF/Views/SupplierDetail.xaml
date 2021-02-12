@@ -27,6 +27,14 @@
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
@@ -34,10 +42,10 @@
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Content="{x:Static Properties:Strings.SupplierDetailView_AccountNumber}" />
             <Label Grid.Row="1" Content="{x:Static Properties:Strings.SupplierDetailView_Name}" />
-            <Label Grid.Row="3" Content="{x:Static Properties:Strings.SupplierDetailView_CreditRating}" />
-            <Label Grid.Row="4" Content="{x:Static Properties:Strings.SupplierDetailView_PreferredSupplierFlag}" />
-            <Label Grid.Row="5" Content="{x:Static Properties:Strings.SupplierDetailView_ActiveFlag}" />
-            <Label Grid.Row="6" Content="{x:Static Properties:Strings.SupplierDetailView_PurchasingWebServiceURL}" />
+            <Label Grid.Row="2" Content="{x:Static Properties:Strings.SupplierDetailView_CreditRating}" />
+            <Label Grid.Row="3" Content="{x:Static Properties:Strings.SupplierDetailView_PreferredSupplierFlag}" />
+            <Label Grid.Row="4" Content="{x:Static Properties:Strings.SupplierDetailView_ActiveFlag}" />
+            <Label Grid.Row="5" Content="{x:Static Properties:Strings.SupplierDetailView_PurchasingWebServiceURL}" />
             <TextBox
                 Grid.Row="0"
                 Grid.Column="1"
@@ -63,7 +71,7 @@
                 Grid.Column="1"
                 Text="{Binding Model.PurchasingWebServiceURL, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
             <StackPanel
-                Grid.Row="3"
+                Grid.Row="8"
                 Grid.ColumnSpan="3"
                 Height="50"
                 Margin="0,20,0,0"
@@ -81,14 +89,14 @@
 
 
             <Menu
-                Grid.Row="4"
+                Grid.Row="9"
                 Grid.ColumnSpan="2"
                 Height="25"
                 ItemsSource="{Binding ListViewModel.Commands}"
                 Style="{StaticResource MenuStyle}" />
             <ListView
                 Name="listView1"
-                Grid.Row="5"
+                Grid.Row="10"
                 Grid.ColumnSpan="2"
                 MinHeight="100"
                 ItemsSource="{Binding ListViewModel.Items}"

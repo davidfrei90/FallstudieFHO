@@ -56,13 +56,13 @@
                 <TextBlock><Hyperlink
                         Name="hlkSupplier"
                         Command="{Binding NavigationCommand}"
-                        CommandParameter="Order">
+                        CommandParameter="Supplier">
                         <Run Text="{x:Static Properties:Strings.MainWindow_hlkSupplier}" />
                     </Hyperlink></TextBlock>
                 <TextBlock><Hyperlink
                         Name="hlkSupplierCondition"
                         Command="{Binding NavigationCommand}"
-                        CommandParameter="Order">
+                        CommandParameter="SupplierCondition">
                         <Run Text="{x:Static Properties:Strings.MainWindow_hlkSupplierCondition}" />
                     </Hyperlink></TextBlock>
                 <TextBlock Visibility="{Binding SecurityContext.IsAdmin, Converter={StaticResource convVisibility}}"><Hyperlink

@@ -38,5 +38,15 @@ namespace HsrOrderApp.SharedLibraries.DTO
 
         public int SupplierId { get; set; }
 
+        public string FullName
+        {
+            get
+            {
+                if (Name == string.Empty)
+                    return string.Empty;
+                else
+                    return Name;
+            }
+        }
     }
 }
