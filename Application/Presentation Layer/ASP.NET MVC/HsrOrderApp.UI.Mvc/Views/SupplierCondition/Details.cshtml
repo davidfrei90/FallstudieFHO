@@ -1,0 +1,35 @@
+﻿@model HsrOrderApp.UI.Mvc.Models.SupplierConditionViewModel
+@using HsrOrderApp.UI.Mvc.Resources
+
+@{
+    ViewBag.Title = Strings.SupplierConditionDetailView_Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Strings.SupplierConditionDetailView_Title</h2>
+
+<script>
+    $(document).ready(function () {
+        $("#detailView").find(":input").attr("disabled", true);
+    });
+</script>
+
+
+<div id="detailView" class="form-horizontal">
+    <hr />
+    @Html.Partial("_SupplierConditionFieldList", Model)
+
+    @*<div class="form-group">
+        <div class="control-label col-md-2"></div>
+        <div class="col-md-10" style="background-color: #F0F0F0">
+            <h4>@Strings.SupplierConditionDetailView_SubtitleOrderDetail</h4>
+            @Html.Partial("../SupplierConditionDetail/_SupplierConditionDetailItemList", Model.SupplierConditionDetails)
+            <hr />
+        </div>
+    </div>*@
+
+</div>
+<p>
+    @Html.ActionLink(@Strings.EditCommand, "Edit", new { id = Model.Model.Id }, new { @class = "btn btn-default" })
+    @Html.ActionLink(@Strings.BackToListCommand, "Index", null, new { @class = "btn btn-default" })
+</p>

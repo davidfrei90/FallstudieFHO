@@ -249,6 +249,9 @@
   <data name="MainWindow_hlkEN" xml:space="preserve">
     <value>EN</value>
   </data>
+  <data name="MainWindow_hlkSupplierCondition" xml:space="preserve">
+    <value>Lieferanten Konditionen</value>
+  </data>
   <data name="MainWindow_hlkOrder" xml:space="preserve">
     <value>Bestellungen</value>
   </data>
@@ -408,7 +411,7 @@
   <data name="SupplierDetailView_PreferredSupplierFlag" xml:space="preserve">
     <value>Bevorzugter Lieferant?</value>
   </data>
-  <data name="SupplierDetailView_PurchaseWebServiceURL" xml:space="preserve">
+  <data name="SupplierDetailView_PurchasingWebServiceURL" xml:space="preserve">
     <value>Webservice URL</value>
   </data>
   <data name="SupplierDetailView_Subtitle_Addresses" xml:space="preserve">
@@ -503,5 +506,44 @@
   </data>
   <data name="LogoutCommand" xml:space="preserve">
     <value>Abmelden</value>
+  </data>
+  <data name="SupplierDetailView_Subtitle" xml:space="preserve">
+    <value>Adressen</value>
+  </data>
+  <data name="SupplierConditionDetailView_Title" xml:space="preserve">
+    <value>Lieferanten Details</value>
+  </data>
+  <data name="SupplierConditionViewModel_DisplayName" xml:space="preserve">
+    <value>Lieferanten Details </value>
+  </data>
+  <data name="SupplierConditionView_Decription" xml:space="preserve">
+    <value>Bearbeiten Sie die LieferantenDetails</value>
+  </data>
+  <data name="SupplierConditionView_Id" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="SupplierConditionView_LastReceiptCost" xml:space="preserve">
+    <value>Letzter Preis</value>
+  </data>
+  <data name="SupplierConditionView_LastReceiptDate" xml:space="preserve">
+    <value>Letztes Datum</value>
+  </data>
+  <data name="SupplierConditionView_MaxOrderQty" xml:space="preserve">
+    <value>Max. Bestellmenge</value>
+  </data>
+  <data name="SupplierConditionView_MinOrderQty" xml:space="preserve">
+    <value>Min. Bestellmenge</value>
+  </data>
+  <data name="SupplierConditionView_StandardPrice" xml:space="preserve">
+    <value>Standard Price</value>
+  </data>
+  <data name="SupplierConditionView_Supplier" xml:space="preserve">
+    <value>Lieferant</value>
+  </data>
+  <data name="SupplierConditionView_SupplierName" xml:space="preserve">
+    <value>Lieferant Name</value>
+  </data>
+  <data name="SupplierConditionView_Title" xml:space="preserve">
+    <value>Lieferantenverwaltung</value>
   </data>
 </root>

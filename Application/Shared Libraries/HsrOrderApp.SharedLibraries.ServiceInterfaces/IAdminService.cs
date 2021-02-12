@@ -39,6 +39,30 @@ namespace HsrOrderApp.SharedLibraries.ServiceInterfaces
 
         #endregion
 
+        #region SupplierCondition
+
+        [OperationContract]
+        [FaultContract(typeof(ServiceFault))]
+        [FaultContract(typeof(ValidationFault))]
+        GetSupplierConditionResponse GetSupplierConditionById(GetSupplierConditionRequest request);
+
+        [OperationContract]
+        [FaultContract(typeof(ServiceFault))]
+        [FaultContract(typeof(ValidationFault))]
+        GetSupplierConditionsResponse GetSupplierConditionsByCriteria(GetSupplierConditionsRequest request);
+
+        [OperationContract]
+        [FaultContract(typeof(ServiceFault))]
+        [FaultContract(typeof(ValidationFault))]
+        StoreSupplierConditionResponse StoreSupplierCondition(StoreSupplierConditionRequest request);
+
+        [OperationContract]
+        [FaultContract(typeof(ServiceFault))]
+        [FaultContract(typeof(ValidationFault))]
+        DeleteSupplierConditionResponse DeleteSupplierCondition(DeleteSupplierConditionRequest request);
+
+        #endregion
+
         #region Customer
 
         [OperationContract]
@@ -63,6 +87,29 @@ namespace HsrOrderApp.SharedLibraries.ServiceInterfaces
 
         #endregion
 
+        #region Supplier
+
+        [OperationContract]
+        [FaultContract(typeof(ServiceFault))]
+        [FaultContract(typeof(ValidationFault))]
+        GetSupplierResponse GetSupplierById(GetSupplierRequest request);
+
+        [OperationContract]
+        [FaultContract(typeof(ServiceFault))]
+        [FaultContract(typeof(ValidationFault))]
+        GetSuppliersResponse GetSuppliersByCriteria(GetSuppliersRequest request);
+
+        [OperationContract]
+        [FaultContract(typeof(ServiceFault))]
+        [FaultContract(typeof(ValidationFault))]
+        StoreSupplierResponse StoreSupplier(StoreSupplierRequest request);
+
+        [OperationContract]
+        [FaultContract(typeof(ServiceFault))]
+        [FaultContract(typeof(ValidationFault))]
+        DeleteSupplierResponse DeleteSupplier(DeleteSupplierRequest request);
+
+        #endregion
 
         #region Product
 

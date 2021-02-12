@@ -17,13 +17,26 @@ namespace HsrOrderApp.UI.PresentationLogic
         void StoreOrder(OrderDTO order);
         void DeleteOrder(int orderId);
 
+        SupplierConditionDTO GetSupplierConditionById(int id);
+        IList<SupplierConditionListDTO> GetSupplierConditionsBySupplier(int supplierId);
+        IList<SupplierConditionListDTO> GetAllSupplierConditions();
+        void StoreSupplierCondition(SupplierConditionDTO supplierCondition);
+        void DeleteSupplierCondition(int supplierConditionId);
+
         CustomerDTO GetCustomerById(int id);
         IList<CustomerListDTO> GetCustomersByName(string name);
         IList<CustomerListDTO> GetCustomersByCity(string city);
         IList<CustomerListDTO> GetAllCustomers();
         void StoreCustomer(CustomerDTO customer);
         void DeleteCustomer(int customerId);
-               
+
+        SupplierDTO GetSupplierById(int id);
+        IList<SupplierListDTO> GetSuppliersByName(string name);
+        IList<SupplierListDTO> GetSuppliersByCity(string city);
+        IList<SupplierListDTO> GetAllSuppliers();
+        void StoreSupplier(SupplierDTO supplier);
+        void DeleteSupplier(int supplierId);
+
         ProductDTO GetProductById(int id);
         IList<ProductDTO> GetProductsByName(string name);
         IList<ProductDTO> GetProductsByCategory(string category);

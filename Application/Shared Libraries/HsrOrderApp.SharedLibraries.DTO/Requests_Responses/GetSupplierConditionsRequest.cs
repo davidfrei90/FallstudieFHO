@@ -16,6 +16,6 @@ namespace HsrOrderApp.SharedLibraries.DTO.Requests_Responses
         public SupplierConditionSearchType SearchType { get; set; }
 
         [DataMember]
-        public int SupplierConditionId { get; set; }
+        public int SupplierId { get; set; }
     }
 }

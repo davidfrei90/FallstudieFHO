@@ -96,6 +96,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChangeItem.cs" />
+    <Compile Include="SupplierConditionBusinessComponent.cs" />
+    <Compile Include="SupplierBusinessComponent.cs" />
     <Compile Include="DependencyInjection\DependencyInjectionHelper.cs" />
     <Compile Include="Service References\DistributionSystemService\Reference.cs">
       <AutoGen>True</AutoGen>

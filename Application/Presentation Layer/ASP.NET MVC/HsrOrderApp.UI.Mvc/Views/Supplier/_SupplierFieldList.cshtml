@@ -1,0 +1,50 @@
+﻿@model HsrOrderApp.UI.Mvc.Models.SupplierViewModel
+@using HsrOrderApp.UI.Mvc.Resources
+
+<div class="form-group">
+    <div class="control-label col-md-2">@Strings.SupplierDetailView_AccountNumber</div>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Model.AccountNumber, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Model.AccountNumber, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="control-label col-md-2">@Strings.SupplierDetailView_Name</div>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Model.Name, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Model.Name, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="control-label col-md-2">@Strings.SupplierDetailView_CreditRating</div>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Model.CreditRating, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Model.CreditRating, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="control-label col-md-2">@Strings.SupplierDetailView_PreferredSupplierFlag</div>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Model.PreferredSupplierFlag, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Model.PreferredSupplierFlag, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="control-label col-md-2">@Strings.SupplierDetailView_ActiveFlag</div>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Model.ActiveFlag, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Model.ActiveFlag, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="control-label col-md-2">@Strings.SupplierDetailView_PurchasingWebServiceURL</div>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Model.PurchasingWebServiceURL, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Model.PurchasingWebServiceURL, "", new { @class = "text-danger" })
+    </div>
+</div>

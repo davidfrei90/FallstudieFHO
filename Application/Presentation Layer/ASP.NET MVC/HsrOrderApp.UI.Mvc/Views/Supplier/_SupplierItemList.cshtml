@@ -1,0 +1,59 @@
+﻿@model HsrOrderApp.UI.Mvc.Models.SupplierListViewModel
+@using HsrOrderApp.UI.Mvc.Resources
+
+<p>
+    @Html.ActionLink(@Strings.NewCommand, "Create", null, new { @class = "btn btn-default" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Strings.SupplierDetailView_AccountNumber
+        </th>
+        <th>
+            @Strings.SupplierDetailView_Name
+        </th>
+        <th>
+            @Strings.SupplierDetailView_CreditRating
+        </th>
+        <th>
+            @Strings.SupplierDetailView_PreferredSupplierFlag
+        </th>
+        <th>
+            @Strings.SupplierDetailView_ActiveFlag
+        </th>
+        <th>
+            @Strings.SupplierDetailView_PurchasingWebServiceURL
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Items)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.AccountNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreditRating)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PreferredSupplierFlag)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ActiveFlag)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PurchasingWebServiceURL)
+    </td>
+    <td>
+        @Html.ActionLink(@Strings.EditCommand, "Edit", new { id = item.Id }, new { @class = "btn btn-default" })
+        @Html.ActionLink(@Strings.DetailsCommand, "Details", new { id = item.Id }, new { @class = "btn btn-default" })
+        @Html.ActionLink(@Strings.DeleteCommand, "Delete", new { id = item.Id }, new { @class = "btn btn-default" })
+    </td>
+</tr>
+    }
+
+</table>

@@ -1,0 +1,12 @@
+﻿@model HsrOrderApp.UI.Mvc.Models.SupplierConditionViewModel
+@using HsrOrderApp.UI.Mvc.Resources
+
+@{
+    ViewBag.Title = Strings.SupplierConditionDetailView_Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Strings.SupplierConditionView_Title</h2>
+<h4>@Strings.SupplierConditionView_Decription</h4>
+
+@Html.Partial("_OrderItemList", Model)

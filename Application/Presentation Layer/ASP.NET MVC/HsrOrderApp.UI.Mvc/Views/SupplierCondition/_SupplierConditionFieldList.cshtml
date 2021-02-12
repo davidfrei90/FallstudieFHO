@@ -1,0 +1,27 @@
+﻿@model HsrOrderApp.UI.Mvc.Models.SupplierConditionViewModel
+@using HsrOrderApp.UI.Mvc.Resources
+
+<div class="form-group">
+    <div class="control-label col-md-2">@Strings.SupplierConditionView_Supplier</div>
+    <div class="col-md-10">
+        @if (Model.IsNew)
+        {
+            @Html.DropDownListFor(
+                model => model.Model.SupplierId,
+                new SelectList(Model.Suppliers, "Id", "FullName"),
+                new { @class = "form-control" }
+            )
+        }
+        else
+        {
+            @Html.DropDownListFor(
+                model => model.Model.SupplierId,
+                new SelectList(Model.Suppliers, "Id", "FullName"),
+                new { @class = "form-control", @disabled = "disabled" }
+            )
+            @Html.HiddenFor(model => model.Model.SupplierId)
+        }
+        @Html.ValidationMessageFor(model => model.Model.SupplierId, "", new { @class = "text-danger" })
+    </div>
+</div>
+

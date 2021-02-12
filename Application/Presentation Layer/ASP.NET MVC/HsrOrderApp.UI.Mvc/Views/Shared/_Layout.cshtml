@@ -49,6 +49,8 @@
                         <li>@Html.ActionLink(Strings.MainWindow_hlkCustomer, "Index", "Customer")</li>
                         <li>@Html.ActionLink(Strings.MainWindow_hlkProduct, "Index", "Product")</li>
                         <li>@Html.ActionLink(Strings.MainWindow_hlkOrder, "Index", "Order")</li>
+                        <li>@Html.ActionLink(Strings.MainWindow_hlkSupplier, "Index", "Supplier")</li>
+                        <li>@Html.ActionLink(Strings.MainWindow_hlkSupplierCondition, "Index", "SupplierCondition")</li>
                     }
                     @if (User.IsInRole(UserPermission.ADMIN.ToString()))
                     {

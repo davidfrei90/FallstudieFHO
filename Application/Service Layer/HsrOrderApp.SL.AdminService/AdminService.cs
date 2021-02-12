@@ -68,6 +68,56 @@ namespace HsrOrderApp.SL.AdminService
 
         #endregion
 
+        #region SupplierCondition
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
+        public GetSupplierConditionResponse GetSupplierConditionById(GetSupplierConditionRequest request)
+        {
+            GetSupplierConditionResponse response = new GetSupplierConditionResponse();
+            SupplierConditionBusinessComponent bc = DependencyInjectionHelper.GetSupplierConditionBusinessComponent();
+
+            response.SupplierCondition = SupplierConditionAdapter.SupplierConditionToDto(bc.GetSupplierConditionById(request.Id));
+
+            return response;
+        }
+
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
+        public GetSupplierConditionsResponse GetSupplierConditionsByCriteria(GetSupplierConditionsRequest request)
+        {
+            GetSupplierConditionsResponse response = new GetSupplierConditionsResponse();
+            SupplierConditionBusinessComponent bc = DependencyInjectionHelper.GetSupplierConditionBusinessComponent();
+
+            IQueryable<SupplierCondition> supplierConditions = bc.GetSupplierConditionsByCriteria(request.SearchType, request.SupplierId);
+            response.SupplierConditions = SupplierConditionAdapter.SupplierConditionsToListDtos(supplierConditions);
+
+            return response;
+        }
+
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
+        public StoreSupplierConditionResponse StoreSupplierCondition(StoreSupplierConditionRequest request)
+        {
+            StoreSupplierConditionResponse response = new StoreSupplierConditionResponse();
+            SupplierConditionBusinessComponent bc = DependencyInjectionHelper.GetSupplierConditionBusinessComponent();
+
+            SupplierCondition supplierCondition = SupplierConditionAdapter.DtoToSupplierCondition(request.SupplierCondition);
+           // IEnumerable<ChangeItem> changeItems = SupplierConditionAdapter.GetChangeItems(request.SupplierCondition, supplierCondition);
+            response.Id = bc.StoreSupplierCondition(supplierCondition);
+
+            return response;
+        }
+
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
+        public DeleteSupplierConditionResponse DeleteSupplierCondition(DeleteSupplierConditionRequest request)
+        {
+            DeleteSupplierConditionResponse response = new DeleteSupplierConditionResponse();
+            SupplierConditionBusinessComponent bc = DependencyInjectionHelper.GetSupplierConditionBusinessComponent();
+
+            bc.DeleteSupplierCondition(request.Id);
+
+            return response;
+        }
+
+        #endregion
+
         #region Customer
         [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
         public GetCustomerResponse GetCustomerById(GetCustomerRequest request)
@@ -113,6 +163,57 @@ namespace HsrOrderApp.SL.AdminService
             CustomerBusinessComponent bc = DependencyInjectionHelper.GetCustomerBusinessComponent();
 
             bc.DeleteCustomer(request.CustomerId);
+
+            return response;
+        }
+
+        #endregion
+
+        #region Supplier
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
+        public GetSupplierResponse GetSupplierById(GetSupplierRequest request)
+        {
+            GetSupplierResponse response = new GetSupplierResponse();
+            SupplierBusinessComponent bc = DependencyInjectionHelper.GetSupplierBusinessComponent();
+
+            Supplier supplier = bc.GetSupplierById(request.SupplierId);
+            response.Supplier = SupplierAdapter.SupplierToDto(supplier);
+
+            return response;
+        }
+
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
+        public GetSuppliersResponse GetSuppliersByCriteria(GetSuppliersRequest request)
+        {
+            GetSuppliersResponse response = new GetSuppliersResponse();
+            SupplierBusinessComponent bc = DependencyInjectionHelper.GetSupplierBusinessComponent();
+
+            IQueryable<Supplier> suppliers = bc.GetSuppliersByCriteria(request.SearchType, request.City, request.SupplierName);
+            response.Suppliers = SupplierAdapter.SuppliersToDtos(suppliers);
+
+            return response;
+        }
+
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
+        public StoreSupplierResponse StoreSupplier(StoreSupplierRequest request)
+        {
+            StoreSupplierResponse response = new StoreSupplierResponse();
+            SupplierBusinessComponent bc = DependencyInjectionHelper.GetSupplierBusinessComponent();
+
+            Supplier supplier = SupplierAdapter.DtoToSupplier(request.Supplier);
+            IEnumerable<ChangeItem> changeItems = SupplierAdapter.GetChangeItems(request.Supplier, supplier);
+            response.SupplierId = bc.StoreSupplier(supplier, changeItems);
+
+            return response;
+        }
+
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
+        public DeleteSupplierResponse DeleteSupplier(DeleteSupplierRequest request)
+        {
+            DeleteSupplierResponse response = new DeleteSupplierResponse();
+            SupplierBusinessComponent bc = DependencyInjectionHelper.GetSupplierBusinessComponent();
+
+            bc.DeleteSupplier(request.SupplierId);
 
             return response;
         }
