@@ -10,6 +10,9 @@
     <DataTemplate DataType="{x:Type vm:Customer.CustomerViewModel}">
         <vw:CustomerView  />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Supplier.SupplierViewModel}">
+        <vw:SupplierView  />
+    </DataTemplate>    
     <DataTemplate DataType="{x:Type vm:Order.OrderViewModel}">
         <vw:OrderView  />
     </DataTemplate>

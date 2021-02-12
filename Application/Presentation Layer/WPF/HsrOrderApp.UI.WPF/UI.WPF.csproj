@@ -168,6 +168,9 @@
     <Compile Include="Views\RoleDetail.xaml.cs">
       <DependentUpon>RoleDetail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SupplierDetail.xaml.cs">
+      <DependentUpon>SupplierDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserDetail.xaml.cs">
       <DependentUpon>UserDetail.xaml</DependentUpon>
     </Compile>
@@ -244,6 +247,10 @@
     <Page Include="Views\RoleDetail.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SupplierDetail.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -192,6 +192,24 @@
   <data name="CustomerView_TotalOrders" xml:space="preserve">
     <value>No. of all orders</value>
   </data>
+  <data name="SupplierDetailView_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="SupplierDetailView_AccountNumber" xml:space="preserve">
+    <value>Account Number</value>
+  </data>
+  <data name="SupplierDetailView_CreditRating" xml:space="preserve">
+    <value>Credit Rating</value>
+  </data>
+  <data name="SupplierDetailView_PrefferedSupplierFlag" xml:space="preserve">
+    <value>Preffered Supplier Flag</value>
+  </data>
+  <data name="SupplierDetailView_ActiveFlag" xml:space="preserve">
+    <value>Active Flag</value>
+  </data>
+  <data name="SupplierDetailView_PurchasingWebServiceURL" xml:space="preserve">
+    <value>Purchasing Web Service URL </value>
+  </data>
   <data name="DeleteCommand" xml:space="preserve">
     <value>Delete</value>
   </data>

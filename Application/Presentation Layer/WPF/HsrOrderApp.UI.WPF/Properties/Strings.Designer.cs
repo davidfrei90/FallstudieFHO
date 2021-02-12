@@ -241,7 +241,7 @@ namespace HsrOrderApp.UI.WPF.Properties {
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Lieferanten bearbeiten.
+        ///   Looks up a localized string similar to Kunde bearbeiten.
         /// </summary>
         public static string SupplierDetailViewModel_DisplayName
         {
@@ -842,6 +842,51 @@ namespace HsrOrderApp.UI.WPF.Properties {
         public static string SaveCommand {
             get {
                 return ResourceManager.GetString("SaveCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Account Number.
+        /// </summary>
+        public static string SupplierDetailView_AccountNumber {
+            get {
+                return ResourceManager.GetString("SupplierDetailView_AccountNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active Flag.
+        /// </summary>
+        public static string SupplierDetailView_ActiveFlag {
+            get {
+                return ResourceManager.GetString("SupplierDetailView_ActiveFlag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Credit Rating.
+        /// </summary>
+        public static string SupplierDetailView_CreditRating {
+            get {
+                return ResourceManager.GetString("SupplierDetailView_CreditRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string SupplierDetailView_Name {
+            get {
+                return ResourceManager.GetString("SupplierDetailView_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preffered Supplier Flag.
+        /// </summary>
+        public static string SupplierDetailView_PrefferedSupplierFlag {
+            get {
+                return ResourceManager.GetString("SupplierDetailView_PrefferedSupplierFlag", resourceCulture);
             }
         }
         

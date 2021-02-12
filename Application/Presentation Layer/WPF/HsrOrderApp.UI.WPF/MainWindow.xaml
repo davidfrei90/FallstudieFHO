@@ -32,6 +32,7 @@
                     </LinearGradientBrush>
                 </StackPanel.Background>
                 <TextBlock><Hyperlink Name="hlkCustomer" Command="{Binding NavigationCommand}" CommandParameter="Customer" ><Run Text="{x:Static Properties:Strings.MainWindow_hlkCustomer}"/></Hyperlink></TextBlock>
+                <TextBlock><Hyperlink Name="hlkSupplier" Command="{Binding NavigationCommand}" CommandParameter="Supplier" ><Run Text="{x:Static Properties:Strings.MainWindow_hlkSupplier}"/></Hyperlink></TextBlock>
                 <TextBlock><Hyperlink Name="hlkProduct" Command="{Binding NavigationCommand}" CommandParameter="Product"><Run Text="{x:Static Properties:Strings.MainWindow_hlkProduct}"/></Hyperlink></TextBlock>
                 <TextBlock><Hyperlink Name="hlkOrder" Command="{Binding NavigationCommand}" CommandParameter="Order" ><Run Text="{x:Static Properties:Strings.MainWindow_hlkOrder}"/></Hyperlink></TextBlock>
                 <TextBlock Visibility="{Binding SecurityContext.IsAdmin, Converter={StaticResource convVisibility}}"><Hyperlink Name="hlkUser" Command="{Binding NavigationCommand}" CommandParameter="User" ><Run Text="{x:Static Properties:Strings.MainWindow_hlkUser}"/></Hyperlink></TextBlock>
