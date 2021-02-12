@@ -1,0 +1,16 @@
+﻿@model HsrOrderApp.UI.Mvc.Models.SupplierListViewModel
+@using HsrOrderApp.UI.Mvc.Resources
+
+@{
+    ViewBag.Title = Strings.SupplierDetailView_Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Strings.SupplierView_DisplayName</h2>
+<h4>@Strings.SupplierView_Description</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.Partial("_SupplierItemList", Model)
+}
