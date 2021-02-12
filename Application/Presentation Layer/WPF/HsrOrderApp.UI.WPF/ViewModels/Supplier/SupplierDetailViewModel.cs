@@ -18,7 +18,7 @@ namespace HsrOrderApp.UI.WPF.ViewModels.Supplier
 
         public SupplierDetailViewModel(SupplierDTO supplier, bool isNew) : base(supplier, isNew)
         {
-            this.DisplayName = Strings.SupplierDetailViewModel_DisplayName;
+            this.DisplayName = Strings.SupplierViewModel_DisplayName;
         }
 
         public AddressViewModel ListViewModel

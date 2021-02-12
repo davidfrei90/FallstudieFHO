@@ -12,29 +12,42 @@ namespace HsrOrderApp.BL.DtoAdapters
 {
     public class SupplierConditionAdapter
     {
-        #region SupplierConditionsToDTO
+        #region SupplierConditionToDTO
 
-        public static IList<SupplierConditionDTO> SupplierConditionsToDtos(IQueryable<SupplierCondition> supplierConditions)
+        public static IList<SupplierConditionListDTO> SupplierConditionsToListDtos(IQueryable<SupplierCondition> supplierConditions)
         {
-            IQueryable<SupplierConditionDTO> supplierConditionDTOs = from p in supplierConditions
-                                                 select SupplierConditionToDto(p);
-            return supplierConditionDTOs.ToList();
+            IQueryable<SupplierConditionListDTO> supplierconditinDTOs = from s in supplierConditions
+                                                                        select new SupplierConditionListDTO()
+                                                                        {
+                                                                            Id = s.SupplierConditionId,
+                                                                            //ProductName = s.Product.ToString(),
+                                                                            //SupplierName = s.Supplier.ToString(),
+                                                                            StandardPrice = s.StandardPrice,
+                                                                            LastReceiptCost = s.LastReceiptCost,
+                                                                            LastReceiptDate = s.LastReceiptDate,
+                                                                            MinOrderQty = s.MinOrderQty,
+                                                                            MaxOrderQty = s.MaxOrderQty,
+                                                                        };
+            return supplierconditinDTOs.ToList();
         }
 
-        public static SupplierConditionDTO SupplierConditionToDto(SupplierCondition p)
+
+        public static SupplierConditionDTO SupplierConditionToDto(SupplierCondition s)
         {
             SupplierConditionDTO dto = new SupplierConditionDTO()
-                                 {
-                                     Id = p.SupplierConditionId,
-                                     ProductId = p.ProductId,
-                                     SupplierId = p.SupplierId,
-                                     StandardPrice = p.StandardPrice,
-                                     LastReceiptCost = p.LastReceiptCost,
-                                     LastReceiptDate = p.LastReceiptDate,
-                                     MinOrderQty = p.MinOrderQty,
-                                     MaxOrderQty = p.MaxOrderQty,
-                                     Version = p.Version
-                                 };
+            {
+                Id = s.SupplierConditionId,
+                //ProductName = s.Product.ToString(),
+                //SupplierName = s.Supplier.ToString(),
+                ProductId = s.Product.ProductId,
+                SupplierId = s.Supplier.SupplierId,
+                StandardPrice = s.StandardPrice,
+                LastReceiptCost = s.LastReceiptCost,
+                LastReceiptDate = s.LastReceiptDate,
+                MinOrderQty = s.MinOrderQty,
+                MaxOrderQty = s.MaxOrderQty,
+                Version = s.Version
+            };
 
             return dto;
         }
@@ -46,21 +59,22 @@ namespace HsrOrderApp.BL.DtoAdapters
         public static SupplierCondition DtoToSupplierCondition(SupplierConditionDTO dto)
         {
             SupplierCondition supplierCondition = new SupplierCondition()
-                                  {
-                                      SupplierConditionId = dto.Id,
-                                      ProductId = dto.ProductId,
-                                      SupplierId = dto.SupplierId,
-                                      StandardPrice = dto.StandardPrice,
-                                      LastReceiptCost = dto.LastReceiptCost,
-                                      LastReceiptDate = dto.LastReceiptDate,
-                                      MinOrderQty = dto.MinOrderQty,
-                                      MaxOrderQty = dto.MaxOrderQty,
-                                      Version = dto.Version
-
+            {
+                SupplierConditionId = dto.Id,
+                StandardPrice = dto.StandardPrice,
+                LastReceiptCost = dto.LastReceiptCost,
+                LastReceiptDate = dto.LastReceiptDate,
+                MinOrderQty = dto.MinOrderQty,
+                MaxOrderQty = dto.MaxOrderQty,
+                //Product = new Product() { ProductId = dto.ProductId },
+                //Supplier = new Supplier() { SupplierId = dto.SupplierId },
+                Version = dto.Version
             };
             ValidationHelper.Validate(supplierCondition);
             return supplierCondition;
         }
+
+
 
         #endregion
     }

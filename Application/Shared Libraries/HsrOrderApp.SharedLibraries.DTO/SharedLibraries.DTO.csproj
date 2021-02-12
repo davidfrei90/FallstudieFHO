@@ -95,8 +95,8 @@
   <ItemGroup>
     <Compile Include="ChangeSet\ChangeItem.cs" />
     <Compile Include="AddressDTO.cs" />
-    <Compile Include="Requests_Responses\DeleteSupplierConditonRequest.cs" />
-    <Compile Include="Requests_Responses\DeleteSupplierCondtionResponse.cs" />
+    <Compile Include="Requests_Responses\DeleteSupplierConditionRequest.cs" />
+    <Compile Include="Requests_Responses\DeleteSupplierConditionResponse.cs" />
     <Compile Include="Requests_Responses\DeleteSupplierRequest.cs" />
     <Compile Include="Requests_Responses\DeleteSupplierResponse.cs" />
     <Compile Include="Requests_Responses\GetSupplierConditionRequest.cs" />
@@ -108,10 +108,11 @@
     <Compile Include="Requests_Responses\GetSuppliersRequest.cs" />
     <Compile Include="Requests_Responses\GetSuppliersResponse.cs" />
     <Compile Include="Requests_Responses\StoreSupplierConditionRequest.cs" />
-    <Compile Include="Requests_Responses\StoreSupplierConditonResponse.cs" />
+    <Compile Include="Requests_Responses\StoreSupplierConditionResponse.cs" />
     <Compile Include="Requests_Responses\StoreSupplierRequest.cs" />
     <Compile Include="Requests_Responses\StoreSupplierResponse.cs" />
     <Compile Include="SupplierDTO.cs" />
+    <Compile Include="SupplierConditionListDTO.cs" />
     <Compile Include="SupplierListDTO.cs" />
     <Compile Include="Extensions\ObjectCopier.cs" />
     <Compile Include="CustomerDTO.cs" />

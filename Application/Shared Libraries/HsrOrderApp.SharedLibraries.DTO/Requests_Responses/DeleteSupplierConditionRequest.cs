@@ -8,7 +8,7 @@ using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 
 namespace HsrOrderApp.SharedLibraries.DTO.Requests_Responses
 {
-    public class DeleteSupplierConditonRequest : RequestType
+    public class DeleteSupplierConditionRequest : RequestType
     {
         [DataMember]
         [RangeValidator(0, RangeBoundaryType.Exclusive, int.MaxValue, RangeBoundaryType.Ignore)]

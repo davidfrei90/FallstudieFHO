@@ -6,7 +6,7 @@ using HsrOrderApp.SharedLibraries.DTO.Requests_Responses.Base;
 
 namespace HsrOrderApp.SharedLibraries.DTO.Requests_Responses
 {
-    public class DeleteSupplierCondtionResponse : ResponseType
+    public class DeleteSupplierConditionResponse : ResponseType
     {
     }
 }

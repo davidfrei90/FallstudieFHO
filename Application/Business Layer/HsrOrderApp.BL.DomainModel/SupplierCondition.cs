@@ -3,6 +3,7 @@
 using System;
 using System.Data.SqlTypes;
 using HsrOrderApp.BL.DomainModel.HelperObjects;
+using HsrOrderApp.BL.DomainModel.SpecialCases;
 using HsrOrderApp.SharedLibraries.SharedEnums;
 using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 
@@ -17,6 +18,8 @@ namespace HsrOrderApp.BL.DomainModel
             this.SupplierConditionId = default(int);
             this.ProductId = default(int?);
             this.SupplierId = default(int?);
+            this.Product = new UnknownProduct();
+            
             this.StandardPrice = default(decimal);
             this.LastReceiptCost = default(decimal);
             this.LastReceiptDate = default(DateTime?);
@@ -39,5 +42,10 @@ namespace HsrOrderApp.BL.DomainModel
         public int MinOrderQty { get; set; }
 
         public int MaxOrderQty { get; set; }
+
+        public Supplier Supplier { get; set; }
+
+        public Product Product { get; set; }
+
     }
 }

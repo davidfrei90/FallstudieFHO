@@ -8,7 +8,7 @@ using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 
 namespace HsrOrderApp.SharedLibraries.DTO.Requests_Responses
 {
-    public class StoreSupplierConditonResponse : ResponseType
+    public class StoreSupplierConditionResponse : ResponseType
     {
         [DataMember]
         [RangeValidator(1, RangeBoundaryType.Inclusive, int.MaxValue, RangeBoundaryType.Ignore)]

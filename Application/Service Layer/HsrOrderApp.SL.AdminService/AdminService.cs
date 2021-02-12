@@ -236,6 +236,56 @@ namespace HsrOrderApp.SL.AdminService
 
         #endregion
 
+        #region SupplierCondition
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
+        public GetSupplierConditionResponse GetSupplierConditionById(GetSupplierConditionRequest request)
+        {
+            GetSupplierConditionResponse response = new GetSupplierConditionResponse();
+            SupplierConditionBusinessComponent bc = DependencyInjectionHelper.GetSupplierConditionBusinessComponent();
+
+            response.SupplierCondition = SupplierConditionAdapter.SupplierConditionToDto(bc.GetSupplierConditionById(request.Id));
+
+            return response;
+        }
+
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
+        public GetSupplierConditionsResponse GetSupplierConditionsByCriteria(GetSupplierConditionsRequest request)
+        {
+            GetSupplierConditionsResponse response = new GetSupplierConditionsResponse();
+            SupplierConditionBusinessComponent bc = DependencyInjectionHelper.GetSupplierConditionBusinessComponent();
+
+            IQueryable<SupplierCondition> supplierConditions = bc.GetSupplierConditionsByCriteria(request.SearchType, request.Id);
+            //response.SupplierConditions = SupplierConditionAdapter.SupplierConditionsToListDtos(supplierConditions);
+
+            return response;
+        }
+
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
+        public StoreSupplierConditionResponse StoreSupplierCondition(StoreSupplierConditionRequest request)
+        {
+            StoreSupplierConditionResponse response = new StoreSupplierConditionResponse();
+            SupplierConditionBusinessComponent bc = DependencyInjectionHelper.GetSupplierConditionBusinessComponent();
+
+            SupplierCondition supplierCondition = SupplierConditionAdapter.DtoToSupplierCondition(request.SupplierCondition);
+            // IEnumerable<ChangeItem> changeItems = SupplierConditionAdapter.GetChangeItems(request.SupplierCondition, supplierCondition);
+            response.Id = bc.StoreSupplierCondition(supplierCondition);
+
+            return response;
+        }
+
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
+        public DeleteSupplierConditionResponse DeleteSupplierCondition(DeleteSupplierConditionRequest request)
+        {
+            DeleteSupplierConditionResponse response = new DeleteSupplierConditionResponse();
+            SupplierConditionBusinessComponent bc = DependencyInjectionHelper.GetSupplierConditionBusinessComponent();
+
+            bc.DeleteSupplierCondition(request.Id);
+
+            return response;
+        }
+
+        #endregion
+
         #region Security
 
         public GetCurrentUserResponse GetCurrentUser(GetCurrentUserRequest request)
