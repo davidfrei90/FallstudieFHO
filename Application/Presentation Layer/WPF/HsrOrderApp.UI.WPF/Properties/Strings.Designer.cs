@@ -239,18 +239,7 @@ namespace HsrOrderApp.UI.WPF.Properties {
                 return ResourceManager.GetString("CustomerDetailViewModel_DisplayName", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Kunde bearbeiten.
-        /// </summary>
-        public static string SupplierDetailViewModel_DisplayName
-        {
-            get
-            {
-                return ResourceManager.GetString("SupplierDetailViewModel_DisplayName", resourceCulture);
-            }
-        }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Verwalten Sie die Kunden..
         /// </summary>
@@ -887,6 +876,33 @@ namespace HsrOrderApp.UI.WPF.Properties {
         public static string SupplierDetailView_PrefferedSupplierFlag {
             get {
                 return ResourceManager.GetString("SupplierDetailView_PrefferedSupplierFlag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Web Service URL.
+        /// </summary>
+        public static string SupplierDetailView_PurchaseWebServiceURL {
+            get {
+                return ResourceManager.GetString("SupplierDetailView_PurchaseWebServiceURL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verwalten Sie die Lieferanten..
+        /// </summary>
+        public static string SupplierView_Description {
+            get {
+                return ResourceManager.GetString("SupplierView_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lieferantenverwaltung.
+        /// </summary>
+        public static string SupplierViewModel_DisplayName {
+            get {
+                return ResourceManager.GetString("SupplierViewModel_DisplayName", resourceCulture);
             }
         }
         

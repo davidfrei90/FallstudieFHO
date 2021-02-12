@@ -209,7 +209,16 @@
   </data>
   <data name="SupplierDetailView_ActiveFlag" xml:space="preserve">
     <value>Active Flag</value>
-  </data>  
+  </data>
+  <data name="SupplierDetailView_PurchaseWebServiceURL" xml:space="preserve">
+    <value>Web Service URL</value>
+  </data>
+  <data name="SupplierViewModel_DisplayName" xml:space="preserve">
+    <value>Lieferantenverwaltung</value>
+  </data>
+  <data name="SupplierView_Description" xml:space="preserve">
+    <value>Verwalten Sie die Lieferanten.</value>
+  </data>
   <data name="DeleteCommand" xml:space="preserve">
     <value>Löschen</value>
   </data>

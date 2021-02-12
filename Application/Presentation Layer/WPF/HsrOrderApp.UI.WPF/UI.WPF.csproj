@@ -165,6 +165,9 @@
     <Compile Include="Views\AddressDetail.xaml.cs">
       <DependentUpon>AddressDetail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SupplierView.xaml.cs">
+      <DependentUpon>SupplierView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RoleDetail.xaml.cs">
       <DependentUpon>RoleDetail.xaml</DependentUpon>
     </Compile>
@@ -241,6 +244,10 @@
     <Page Include="Views\AddressDetail.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SupplierView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

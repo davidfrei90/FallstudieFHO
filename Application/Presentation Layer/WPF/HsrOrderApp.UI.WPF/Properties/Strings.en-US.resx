@@ -210,6 +210,12 @@
   <data name="SupplierDetailView_PurchasingWebServiceURL" xml:space="preserve">
     <value>Purchasing Web Service URL </value>
   </data>
+  <data name="SupplierViewModel_DisplayName" xml:space="preserve">
+    <value>Supplier administration</value>
+  </data>
+  <data name="SupplierView_Description" xml:space="preserve">
+    <value>Administrate the suppliers</value>
+  </data>  
   <data name="DeleteCommand" xml:space="preserve">
     <value>Delete</value>
   </data>
