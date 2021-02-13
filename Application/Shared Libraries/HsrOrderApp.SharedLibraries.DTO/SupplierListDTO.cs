@@ -21,22 +21,26 @@ namespace HsrOrderApp.SharedLibraries.DTO
             this.PurchasingWebServiceURL = string.Empty;
         }
 
+
         [DataMember]
         [StringLengthValidator(1, 50)]
         public string Name { get; set; }
 
+        [DataMember]
         [StringLengthValidator(1, 50)]
         public string PurchasingWebServiceURL { get; set; }
 
+        [DataMember]
         public bool ActiveFlag { get; set; }
 
+        [DataMember]
         public bool PreferredSupplierFlag { get; set; }
 
+        [DataMember]
         public int CreditRating { get; set; }
 
+        [DataMember]
         public int AccountNumber { get; set; }
-
-        public int SupplierId { get; set; }
 
         public string FullName
         {

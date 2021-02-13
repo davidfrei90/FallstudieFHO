@@ -21,7 +21,7 @@ namespace HsrOrderApp.BL.DtoAdapters
             IQueryable<SupplierListDTO> supplierDtos = from s in suppliers
                 select new SupplierListDTO()
                 {
-                    SupplierId = s.SupplierId,
+                    Id = s.SupplierId,
                     AccountNumber = s.AccountNumber,
                     Name = s.Name,
                     CreditRating = s.CreditRating,

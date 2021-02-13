@@ -105,7 +105,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
                 }
                 else
                 {
-                    dbSupplierCondition.SuppliersReference.Attach(db.Suppliers.First(s =>
+                    dbSupplierCondition.SuppliersReference.Attach(db.SupplierSet.First(s =>
                         s.SupplierId == supplierCondition.Supplier.SupplierId));
                 }
 

@@ -389,18 +389,18 @@
             <End Role="Users" EntitySet="UserSet" />
           </AssociationSet>
           <EntitySet Name="SupplierConditions" EntityType="HsrOrderAppModel.SupplierCondition" />
-          <EntitySet Name="Suppliers" EntityType="HsrOrderAppModel.Supplier" />
+          <EntitySet Name="SupplierSet" EntityType="HsrOrderAppModel.Supplier" />
           <AssociationSet Name="FK_SupplierConditions_Products" Association="HsrOrderAppModel.FK_SupplierConditions_Products">
             <End Role="Product" EntitySet="ProductSet" />
             <End Role="SupplierConditions" EntitySet="SupplierConditions" />
           </AssociationSet>
           <AssociationSet Name="FK_SupplierConditions_Suppliers" Association="HsrOrderAppModel.FK_SupplierConditions_Suppliers">
-            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="Suppliers" EntitySet="SupplierSet" />
             <End Role="SupplierConditions" EntitySet="SupplierConditions" />
           </AssociationSet>
           <AssociationSet Name="SupplierAddress" Association="HsrOrderAppModel.SupplierAddress">
             <End Role="Address" EntitySet="AddressSet" />
-            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="Suppliers" EntitySet="SupplierSet" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Address">
@@ -726,7 +726,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Suppliers">
+          <EntitySetMapping Name="SupplierSet">
             <EntityTypeMapping TypeName="HsrOrderAppModel.Supplier">
               <MappingFragment StoreEntitySet="Suppliers">
                 <ScalarProperty Name="Version" ColumnName="Version" />

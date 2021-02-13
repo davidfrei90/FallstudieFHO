@@ -207,18 +207,18 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Supplier> Suppliers
+        public ObjectSet<Supplier> SupplierSet
         {
             get
             {
-                if ((_Suppliers == null))
+                if ((_SupplierSet == null))
                 {
-                    _Suppliers = base.CreateObjectSet<Supplier>("Suppliers");
+                    _SupplierSet = base.CreateObjectSet<Supplier>("SupplierSet");
                 }
-                return _Suppliers;
+                return _SupplierSet;
             }
         }
-        private ObjectSet<Supplier> _Suppliers;
+        private ObjectSet<Supplier> _SupplierSet;
 
         #endregion
 
@@ -289,11 +289,11 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Suppliers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the SupplierSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToSuppliers(Supplier supplier)
+        public void AddToSupplierSet(Supplier supplier)
         {
-            base.AddObject("Suppliers", supplier);
+            base.AddObject("SupplierSet", supplier);
         }
 
         #endregion

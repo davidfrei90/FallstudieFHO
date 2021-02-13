@@ -29,7 +29,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
 
         public IQueryable<HsrOrderApp.BL.DomainModel.Supplier> GetAll()
         {
-            var suppliers = from s in this.db.Suppliers.Include("SupplierConditions").AsEnumerable()
+            var suppliers = from s in this.db.SupplierSet.Include("SupplierConditions").AsEnumerable()
                             select SupplierAdapter.AdaptSupplier(s);
 
             return suppliers.AsQueryable();
@@ -39,7 +39,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
         {
             try
             {
-                var suppliers = from s in this.db.Suppliers.Include("Addresses").AsEnumerable()
+                var suppliers = from s in this.db.SupplierSet.Include("Addresses").AsEnumerable()
                                 where s.SupplierId == id
                                 select SupplierAdapter.AdaptSupplier(s);
 
@@ -81,7 +81,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
 
                 if (isNew)
                 {
-                    db.AddToSuppliers(dbSupplier);
+                    db.AddToSupplierSet(dbSupplier);
                 }
                 db.SaveChanges();
 
@@ -97,7 +97,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
 
         public void DeleteSupplier(int id)
         {
-            Supplier su = db.Suppliers.First(s => s.SupplierId == id);
+            Supplier su = db.SupplierSet.First(s => s.SupplierId == id);
             if (su != null)
             {
                 db.DeleteObject(su);
@@ -111,7 +111,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
             Address dbAddress = rep.SaveAddressInternal(address);
             if (address.IsNew)
             {
-                Supplier supplier = db.Suppliers.First(s => s.SupplierId == forThisCustomer.SupplierId);
+                Supplier supplier = db.SupplierSet.First(s => s.SupplierId == forThisCustomer.SupplierId);
                 supplier.Addresses.Add(dbAddress);
                 db.SaveChanges();
             }
